@@ -1,0 +1,49 @@
+% !TEX root = ../main.tex
+
+\begin{table*}[ht!]
+
+    \renewcommand{\arraystretch}{1.3}
+    
+    \centering
+    
+    \begin{tabular*}{0.9\textwidth}{@{\extracolsep{\fill}} llccccccccccccc}
+    
+    \textit{Category} &
+    \textit{Example} & 
+    \headrow{No single trusted party} & %
+    \headrow{Low latency} &  %
+    \headrow{Availability} &
+    \headrow{Data Integrity} & % data quality
+    \headrow{Outlier Detection} &
+    \headrow{Handle Stale Data} & %
+    \headrow{Cost Effective} &
+    \headrow{ } & % Something about format decay
+    \headrow{ } \\ \hline 
+    
+    Single source (no aggregation)    & 	&	&	&\full	&	&\full	&\full	&\full	&&\\
+    Flat (mean, median, etc)    &	&	&\prt	&\full	&\prt	&\full	&	&\full		&&\\
+    Weighted (time, volume)	&				&\prt	&\full	&\full	&	&	&\full		&\full	&&\\ 
+    Random Selection    &  		&\prt	&\full	&\full	&	&\full	&\full	&\full		&&\\ 
+    % COLUMN    & 		&	&\full	&\full	&\prt	&	&	&\full	&\full	&\full	&\full	&&\\ 
+    \\
+                                                                                        
+    \end{tabular*}
+    
+    \caption{CAPTION. \full~ indicates the category of client is awarded the benefit in the corresponding column. \prt~partially awards the benefit. Details provided inline.}
+    \label{tab:prims}
+    \end{table*}
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

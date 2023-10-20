@@ -1,0 +1,135 @@
+
+
+% !TEX root = ../main.tex
+
+\begin{table}[t!]
+\centering
+\begin{adjustbox}{width=1\textwidth}
+
+	\begin{tabular}{lllllllll}
+
+&
+\headrow{Data Source} &
+
+\headrow{Selection Mechanism} & %maybe change this to type of selection? decentralization of selection? 
+\headrow{Staking} &
+
+\headrow{Aggregation Mechanism} &
+
+\headrow{\underline{P}rovider/\underline{D}ata Vetting} &
+\headrow{Determining the Truth} &
+\headrow{Consequences (\underline{S}lash, \underline{B}an, \underline{L}oss)}  \\
+
+\hline
+
+		\multicolumn{1}{c|}{\textit{Oracle} } &   \multicolumn{1}{c|}{} &   \multicolumn{2}{c|}{\makecell{Data Feeder}} &  \multicolumn{1}{c|}{} &  \multicolumn{3}{c}{Dispute} &  \multicolumn{1}{c}{} \\
+	
+	\hline
+
+	\makecell{ChainLink~\cite{ellis2017chainlink}}	& \multicolumn{1}{|c|}{API}  & \multicolumn{1}{c|}{\makecell{Reputation, \\ Staking}} &  \multicolumn{1}{c|}{\full} & \multicolumn{1}{c|}{\makecell{Statistical \\ Measure}} & \multicolumn{1}{c|}{P} & \multicolumn{1}{c|}{\makecell{Statistical \\ Measure}} & \multicolumn{1}{c}{S} &  \multicolumn{1}{c}{}\\
+
+	\hline
+
+	\makecell{UMA~\cite{umawhitepaper}}	& \multicolumn{1}{|c|}{Human, API}  & \multicolumn{1}{c|}{FCFS$^{\dagger}$} &  \multicolumn{1}{c|}{\full} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{D} & \multicolumn{1}{c|}{Staking} & \multicolumn{1}{c}{S} &  \multicolumn{1}{c}{}\\
+
+	\hline
+
+	\makecell{Augur~\cite{peterson2015augur}}	& \multicolumn{1}{|c|}{Human}  & \multicolumn{1}{c|}{\makecell{Single \\ Source$^{\star}$}} &  \multicolumn{1}{c|}{\full} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{D} & \multicolumn{1}{c|}{Voting} & \multicolumn{1}{c}{S} &  \multicolumn{1}{c}{}\\
+
+	\hline
+
+	\makecell{Uniswap~\cite{uniswaporacle}}	& \multicolumn{1}{|c|}{Smart Contract}  & \multicolumn{1}{c|}{\none} &  \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{TWAP} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c}{\none} &  \multicolumn{1}{c}{}\\
+
+	\hline
+
+	\makecell{MakerDAO V1~\cite{MAKERDAOOracle}}	& \multicolumn{1}{|c|}{Human, API}  & \multicolumn{1}{c|}{\makecell{Centralized \\ Allowlist}} &  \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{Median} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c}{\none} &  \multicolumn{1}{c}{}\\
+
+	\hline
+
+	\makecell{MakerDAO V2~\cite{MAKERDAOOracle}}	& \multicolumn{1}{|c|}{Human, API}  & \multicolumn{1}{c|}{\makecell{Decentralized \\ Allowlist}} &  \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{Median} & \multicolumn{1}{c|}{P} & \multicolumn{1}{c|}{Voting} & \multicolumn{1}{c}{B} &  \multicolumn{1}{c}{}\\
+
+	\hline
+
+	\makecell{NEST~\cite{nestwhitepaper}}	& \multicolumn{1}{|c|}{Human}  & \multicolumn{1}{c|}{\none} &  \multicolumn{1}{c|}{\full} & \multicolumn{1}{c|}{\none$^{\star\star}$} & \multicolumn{1}{c|}{D} & \multicolumn{1}{c|}{Arbitrage} & \multicolumn{1}{c}{L} &  \multicolumn{1}{c}{}\\
+
+	\hline
+
+	\makecell{Band protocol~\cite{bandwhitepaper}}	& \multicolumn{1}{|c|}{API}  & \multicolumn{1}{c|}{\makecell{Random \\ Selection}} &  \multicolumn{1}{c|}{\full} & \multicolumn{1}{c|}{\makecell{Statistical \\ Measure}} & \multicolumn{1}{c|}{P} & \multicolumn{1}{c|}{Staking} & \multicolumn{1}{c}{S} &  \multicolumn{1}{c}{} \\
+
+	\hline
+
+	\makecell{Tellor ~\cite{tellordispute}}	& \multicolumn{1}{|c|}{Human, API}  & \multicolumn{1}{c|}{PoW} &  \multicolumn{1}{c|}{\full} & \multicolumn{1}{c|}{Median} & \multicolumn{1}{c|}{P} & \multicolumn{1}{c|}{Staking} & \multicolumn{1}{c}{\makecell{S \\ B}} &  \multicolumn{1}{c}{} \\
+
+	\hline
+
+	\makecell{ASTRAEA~\cite{adler2018astraea} \\ TruthCoin ~\cite{sztorc2015truthcoin}}	& \multicolumn{1}{|c|}{Human}  & \multicolumn{1}{c|}{Staking} &  \multicolumn{1}{c|}{\full} & \multicolumn{1}{c|}{Mode} & \multicolumn{1}{c|}{D} & \multicolumn{1}{c|}{Voting} & \multicolumn{1}{c}{S} &  \multicolumn{1}{c}{} \\
+	
+
+	\hline
+
+	\makecell{Provable~\cite{bernanioraclize} \\ PriceGeth ~\cite{eskandari2017feasibility}}	& \multicolumn{1}{|c|}{API}  &   \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c}{\none} &  \multicolumn{1}{c}{} \\
+	
+
+	\hline
+
+	\makecell{DIA Oracle ~\cite{DIAOracle}}	& \multicolumn{1}{|c|}{\makecell{API, \\ Smart Contract}}  &   \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{D} & \multicolumn{1}{c|}{Staking} & \multicolumn{1}{c}{B} &  \multicolumn{1}{c}{} \\
+
+	\hline
+
+	\makecell{DECO ~\cite{zhang2019deco} \\ TownCrier ~\cite{zhang2016town}}	& \multicolumn{1}{|c|}{\makecell{HTTPS}}  &   \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c}{\none} &  \multicolumn{1}{c}{} \\
+
+	\hline
+
+	
+	\makecell{API3~\cite{benligiraydecentralized} $\char`\\$w Kleros~\cite{kleros}}	& \multicolumn{1}{|c|}{Oracles}  &   \multicolumn{1}{c|}{\makecell{Decentralized \\ Allowlist}} & \multicolumn{1}{c|}{\full} & \multicolumn{1}{c|}{\makecell{Statistical \\ Measure}} & \multicolumn{1}{c|}{P} & \multicolumn{1}{c|}{Voting} & \multicolumn{1}{c}{\makecell{S \\ B}} &  \multicolumn{1}{c}{}\\
+
+	\hline
+	% \makecell{API3 ~\cite{zhang2019deco}}	& \multicolumn{1}{|c|}{\makecell{Oracles}}  &   \multicolumn{1}{c|}{Decentralized Allowlist} & \multicolumn{1}{c|}{\full} & \multicolumn{1}{c|}{\none} & \multicolumn{1}{c|}{P} & \multicolumn{1}{c|}{Outsourcing} & \multicolumn{1}{c|}{B} \\
+
+	% \hline
+	\end{tabular}
+	% \captionsetup[tabular]{singlelinecheck=off}
+	\end{adjustbox}
+
+	\caption[A classification of the existing oracle implementations]{A classification of the existing oracle implementations using the modular framework described in Section~\ref{overview_workflow}. \\ {\full} indicates the properties (columns) are implemented in the corresponding oracle (rows), and $\times$ indicates the property is not applicable. \\ $\dagger$ First Come First Serve $\star$\textit{The Market Creator assigns the designated reporter} $\star$$\star$  \textit{{The series of reported prices will be sent to requester without aggregation (See~\ref{provideranddatavetting})}}
+	\label{tab:classification}}
+
+\end{table}
+
+
+
+
+
+
+% The old table! 
+% !TEX root = ../main.tex
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+% \begin{table*}[ht!]
+% 	\centering
+% 	% \begin{adjustbox}{width=\textwidth,center}
+% 		\begin{tabular*}{0.9\textwidth}{cccccc|c|c|ccc}
+% 	\cline{7-8}
+% 	\multicolumn{1}{l}{}                                                                                          & \multicolumn{1}{l}{}                                     & \multicolumn{1}{l}{}                                                                          & \multicolumn{1}{l}{}                                                                                                                                                                                        & \multicolumn{1}{l}{}                                                                                                                                                                               & \multicolumn{1}{l|}{}                                                                      & \multicolumn{2}{l|}{\cellcolor[HTML]{68CBD0}Data Feeders} & \multicolumn{1}{l}{}                                     & \multicolumn{1}{l}{}                                       & \multicolumn{1}{l}{}                                \\ \hline
+% 	\rowcolor[HTML]{68CBD0} 
+% 	\multicolumn{1}{|c|}{\cellcolor[HTML]{00D2CB}Type}                                                            & \multicolumn{1}{c|}{\cellcolor[HTML]{00D2CB}}            & \multicolumn{1}{c|}{\cellcolor[HTML]{00D2CB}Description}                                      & \multicolumn{1}{c|}{\cellcolor[HTML]{00D2CB}Example}                                                                                                                                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{00D2CB}Degree centrality (1-5)}                                                                                                                               & Data Source                                                                                & Selection                     & Collateralization         & \multicolumn{1}{c|}{\cellcolor[HTML]{68CBD0}Aggregation} & \multicolumn{1}{c|}{\cellcolor[HTML]{68CBD0}Dispute Phase} & \multicolumn{1}{c|}{\cellcolor[HTML]{68CBD0}Server} \\ \hline
+% 	\multicolumn{1}{|c|}{}                                                                                        & \multicolumn{1}{c|}{}                                    & \multicolumn{1}{c|}{Markets (Decentralized Exchanges)}                                        & \multicolumn{1}{c|}{Uniswap~\cite{adams2019uniswap}}                                                                                                                                                        & \multicolumn{1}{c|}{1}                                                                                                                                                                             & Smart Contract                                                                             &                               &                           & \multicolumn{1}{c|}{}                                    & \multicolumn{1}{c|}{}                                      & \multicolumn{1}{c|}{}                               \\ \cline{3-11} 
+% 	\multicolumn{1}{|c|}{}                                                                                        & \multicolumn{1}{c|}{\multirow{-2}{*}{Internal-External}} & \multicolumn{1}{c|}{Prediction Markets}                                                       & \multicolumn{1}{c|}{Augur~\cite{peterson2015augur}}                                                                                                                                                         & \multicolumn{1}{c|}{1}                                                                                                                                                                             & Human                                                                                      &                               & X                         & \multicolumn{1}{c|}{X}                                   & \multicolumn{1}{c|}{X}                                     & \multicolumn{1}{c|}{}                               \\ \cline{2-11} 
+% 	\multicolumn{1}{|c|}{}                                                                                        & \multicolumn{1}{c|}{}                                    & \multicolumn{1}{c|}{Centralized Push Update}                                                  & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}PriceGeth~\cite{eskandari2017feasibility}\\ DIA Oracle~\cite{DIAOracle}\end{tabular}}                                                                        & \multicolumn{1}{c|}{5}                                                                                                                                                                             & Database                                                                                   &                               &                           & \multicolumn{1}{c|}{(x)}                                 & \multicolumn{1}{c|}{}                                      & \multicolumn{1}{c|}{X}                              \\ \cline{3-11} 
+% 	\multicolumn{1}{|c|}{}                                                                                        & \multicolumn{1}{c|}{}                                    & \multicolumn{1}{c|}{Distributed Push Update}                                                  & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}ChainLink Price Feeds~\cite{ellis2017chainlink}\\ MakerDAO Oracle V2~\cite{MAKERDAOOracle}\\ Compound Open Price Feed~\cite{compoundPriceFeed}\end{tabular}} & \multicolumn{1}{c|}{3}                                                                                                                                                                             & Selective\footnote{Data provider can select any of the possible methods to fetch the data} & X                             &                           & \multicolumn{1}{c|}{X}                                   & \multicolumn{1}{c|}{}                                      & \multicolumn{1}{c|}{X}                              \\ \cline{3-11} 
+% 	\multicolumn{1}{|c|}{\multirow{-5}{*}{\begin{tabular}[c]{@{}c@{}}Feed\\ (Call Query)\end{tabular}}}           & \multicolumn{1}{c|}{\multirow{-3}{*}{External-External}} & \multicolumn{1}{c|}{Decentralized Push Update}                                                & \multicolumn{1}{c|}{NEST Oracle~\cite{nestwhitepaper}}                                                                                                                                                      & \multicolumn{1}{c|}{1}                                                                                                                                                                             & Human                                                                                      & \multicolumn{1}{l|}{}         & X                         & \multicolumn{1}{l|}{}                                    & \multicolumn{1}{c|}{X}                                     & \multicolumn{1}{l|}{}                               \\ \hline
+% 	\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}}Request-Response\\ (2 Transactions)\end{tabular}}             & \multicolumn{1}{c|}{Centralized}                         & \multicolumn{1}{c|}{1 Entity}                                                                 & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Oraclizeit~\cite{bernanioraclize}\\ TownCrier~\cite{zhang2016town}\end{tabular}}                                                                             & \multicolumn{1}{c|}{4 \footnote{We consider technologies such as SGX and TLSNotary to be an additional trust within the system, however it will be a thirdparty trust and not the data provider.}} & Database                                                                                   &                               &                           & \multicolumn{1}{c|}{}                                    & \multicolumn{1}{c|}{}                                      & \multicolumn{1}{c|}{X}                              \\ \hline
+% 	\multicolumn{1}{|c|}{}                                                                                        & \multicolumn{1}{c|}{Distributed}                         & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}2+ Entities \\ (Cryptoeconomics)\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}ChainLink~\cite{ellis2017chainlink} \\ Tellor~\cite{tellorWhitepaper}\end{tabular}}                                                                          & \multicolumn{1}{c|}{3}                                                                                                                                                                             & Selective                                                                                  & X                             & X                         & \multicolumn{1}{c|}{X}                                   & \multicolumn{1}{c|}{X}                                     & \multicolumn{1}{c|}{X}                              \\ \hline
+% 	\multicolumn{1}{|c|}{}                                                                                        & \multicolumn{1}{c|}{Decentralized}                       & \multicolumn{1}{c|}{Game Theory to reach equilibrium}                                         & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}ASTRAEA~\cite{adler2018astraea}\\ TruthCoin~\cite{sztorc2015truthcoin} \\ UMA~\cite{umawhitepaper}\end{tabular}}                                             & \multicolumn{1}{c|}{2}                                                                                                                                                                             & Human                                                                                      &                               &                           & \multicolumn{1}{c|}{X}                                   & \multicolumn{1}{c|}{X}                                     & \multicolumn{1}{c|}{}                               \\ \hline
+% 	\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}}Subscribe-Response \\ (1 Event , 1 Transaction)\end{tabular}} & \multicolumn{1}{c|}{}                                    & \multicolumn{1}{c|}{1+ Entity}                                                                & \multicolumn{1}{c|}{}                                                                                                                                                                                       & \multicolumn{1}{c|}{}                                                                                                                                                                              &                                                                                            &                               &                           & \multicolumn{1}{c|}{}                                    & \multicolumn{1}{c|}{}                                      & \multicolumn{1}{c|}{X}                              \\ \hline
+% 	\end{tabular*}%
+% % \end{adjustbox}
+% \caption{Taxonomy of Oracles}
+% 	\label{tab:oracles_table}
+% 	\end{table*}
+

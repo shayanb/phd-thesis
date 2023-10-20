@@ -1,0 +1,75 @@
+
+% \pagenumbering{arabic}
+% \setcounter{page}{1}
+
+
+
+
+% Jeremy's comments on the structure (TODO)
+% It is pretty standard... Chapter 1 is an intro and then a chapter-by-chapter summary (basically a copy/paste of the abstract)
+% 9:55
+% chapter 2 is background info... individual chapters can have background that is "local" to that chapter, but for things that cut accross multiple chapters, place in Chapter 2
+% 9:55
+% then it is just a chapter for paper
+% 9:55
+% and then conclusions can be very sparse (e.g., two pages)
+% 9:56
+% basically what should the reader walk away with
+% 9:56
+% at the start of each chapter, state if it is published, who your co-authors are, and as needed, a sentence or two on what you specifically did as opposed to your co-authors
+% 9:57
+% in particular when a co-author is a student
+% 9:57
+% for me, you can say it was "supervised" by me
+
+
+
+\chapter{Introductory Remarks} \label{sec:intro}
+
+
+% Copy pasted from Seminar -- frontrunning - TODO rest of the papers
+
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+This report is structured as follows: In this chapter, we offer a concise introduction to the essential concepts necessary for comprehending this report. In Chapter 2, we delve further into the background and concepts needed to grasp the problem statement, highlighting the significance of front-running issue on public blockchains and examining the literature. In Chapter 3, we draw from a scattered body of knowledge and instances of front-running across the top 25 most active decentral applications (DApps) deployed on Ethereum blockchain and we map the proposed solutions to front-running into useful categories. Lastly, in Chapter 4, we outline the progress, future research prospects, and the timeline of the publications and the rest of the PhD program.
+
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+
+
+\section{Introduction} \label{sec:intro}
+
+Blockchain technology enables decentralized applications (DApps) or smart contracts. Function calls (or transactions) to the DApp are processed by a decentralized network. Transactions are finalized in stages: they (generally) first relay around the network, then are selected by a miner and put into a valid block, and finally, the block is well-enough incorporated that is unlikely to be reorganized. Front-running is an attack where a malicious node observes a transaction after it is broadcast but before it is finalized, and attempts to have its own transaction confirmed before or instead of the observed transaction.
+
+The mechanics of front-running work on all DApps but front-running is not necessarily beneficial, depending on the DApp's internal logic and/or as any mitigation it might implement. Therefore, DApps need to be studied individually or in categories. In this report, we draw from a scattered body of knowledge regarding front-running attacks on blockchain applications and the proposed solutions, with a series of case studies of DApps deployed on Ethereum (a popular blockchain supporting DApps). We do case studies on decentralized exchanges (\eg Bancor), crypto-collectibles (\eg CryptoKitties), gambling services (\eg Fomo3D), and decentralized name services (\eg Ethereum Name Service). We also study initial coin offerings (ICOs). Finally, we provide a categorization of techniques to eliminate or mitigate front-running including transaction sequencing, cryptographic techniques like commit/reveal, and redesigning the functioning of the DApp to provide the same utility while removing time dependencies.
+
+
+
+
+\section{Preliminaries}
+Public blockchains are the most promising underlying technology for many applications. They are decentralized, transparent, and immutable. However, they are also slow, expensive, and have limited functionality. They can and will replace many intermediary entities we know of today. However as we will dive deeper in this subject, blockchain, as a technology is in its infancy. The public aspect of these blockchains changes many assumptions developers and system designers have about the data flow within their applications. In this section, we will go through the essential concepts of blockchain technology and how they are related to the front-running attacks. We give a background on the front-running defitions as they are used in the traditional financial systems and how they are generalized to the blockchain applications. 
+
+
+%Further more, we will discuss a general framework to systematically categories future designs and implementations of oracles. 
+In order to understand how front-running attacks are feasible and potentially dangerous in the blockchain applications, some concepts should be discussed.  
+
+\subsection{Blockchain}
+Blockchain, is an online decentral ledger. This technology has the potential of many interesting applications, from digital cash (\eg Bitcoin~\cite{nakamoto2008bitcoin}), prediction markets~\cite{clark2014decentralizing}, and decentral governance~\cite{aragonwebsite}. Bitcoin, started in 2009, was the first application of blockchain technology and since then the concept of decentral ledger has grown to many other applications that just a ledger holding transaction data. 
+
+\subsubsection{Ethereum}
+Ethereum~\cite{wood2014ethereum} is a blockchain that attracted most of the developers compared to other blockchains. It extended on the features of its earlier cousin, Bitcoin, by adding functionalities such as smart contracts. Smart contracts are applications living on the blockchain that can immutably execute their verified code. Ethereum uses a Turing-complete virtual machine and enables programs to live and be executed on the blockchain. This is in contrast to Bitcoin that uses a UTXO\footnote{Unspend Transaction Output} model and mainly supports value transfers. Bitcoin has a scripting language that can extend the functionality of the transactions to some extent, however, with Ethereum Turing-complete language the possibilities are limitless.
+
+\subsection{Smart Contracts}
+Smart contracts are small codebases (applications) that live on a blockchain. The technical details of smart contracts are not necessary to understand for this report. In short, smart contracts can be seen as blackbox applications that get inputs from a user and follow the code flow to the output, which can trigger monetary transactions. Smart contracts, mostly has been used for tokenized economy, except some technical limitation, the functionalities are limitless. From unstoppable gambling games to complete voting and payroll systems. 
+
+However, as noted earlier, everything on a blockchain is compromised of transactions and blocks. The order of the transactions in each block indicates the order of events in the Ethereum blockchain. Given that miners, and recently entities named \textit{block builders}, are in control of the order, it is possible for these entities to reorder the transaction in a block, or even not include a transaction in a block for higher financial gain from the new order. This is the basics of blockchain front-running that we discuss in the next chapters. 
+
+
+\subsection{Ethereum Network}
+The peer to peer aspect of Ethereum network enables the possibility for a full decentralized network. As the vision of Ethereum is a world computer that everyone can use, the network is designed to be accessible to everyone. This means that anyone can run a full node and be part of the network. The network is designed to be trustless, meaning that the nodes do not need to trust each other. The network is also permissionless, meaning that anyone can join the network and be part of the consensus. This is in contrast to the traditional financial systems that are centralized and permissioned, meaning that only a few entities are in control of the network and the information flow.
+
+
+\subsubsection{mempool}
+When a user sends a transaction to the Ethereum network, one node will validate the transaction and propagate it through the network. While this transaction is still not included in the block, it is stored in the memory of all the nodes, also known as \textit{mempool}. The mempool is a list of the transactions that are not yet included in the blockchain, however the order of the transactions are different for each node, as they have received the transactions in different order. This opens up the block builder to the possibility of reordering the transactions in the block they build for their own financial gain.
+
+
