@@ -2,7 +2,7 @@
 
 % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = %
 
-\chapter{Browser-based Cryptojacking}
+\chapter{Browser-based Cryptojacking}\label{sec:cryptojacking}
 
 \begin{quote}
 	\textit{This chapter is based on the paper ``A first look at browser-based Cryptojacking'' published in the IEEE Security \& Privacy on the Blockchain (IEEE S\&B) 2018 co-located with EuroS\&PW at University College London (UCL)~\cite{eskandari2018first}. This paper was supervised by Jeremy Clark and co-authored by Andreas Leoutsarakos, Troy Mursch.}
@@ -226,9 +226,9 @@ Most cryptojacking scripts discovered were configured to use around 25\% of user
 
 Coinhive developers estimate a monthly revenue of about 0.3 XMR (about \$101 USD) for a website with 10-20 active miners~\cite{coinhive}. We sought to validate this estimation with a real world data set provided to us\footnote{In collaboration and with thanks to Faraz Fallahi \url{https://github.com/fffaraz}}. One of the biggest Coinhive campaign operators is a domain parking service. It runs Coinhive on over 11\,000 parked websites. While visits to parked domains are considerably shorter than an average website, the data spans a period of three months and gives some insight into the profitability of cryptojacking. During the experimental period of about 3 months, they accumulated 105\,580 user sessions for an average of 24 seconds per session. For the period examined, the revenue was 0.02417 XMR (Monero's currency) which at the time of writing is valued at \$7.69 USD. Further detail is provide in Figures~\ref{fig:domain2} and \ref{fig:domain1}. While an A/B test was not setup to determine how much traditional web advertising would have brought in, freely available web calculator tools suggest we might expect an order or two of magnitude greater for comparable traffic. 
 
-\begin{figure}[t]
+\begin{figure}[h]
 \centering
-\includegraphics[width=\linewidth]{figures/experiment_coinhive_results.png}
+\includegraphics[width=0.8\linewidth]{figures/experiment_coinhive_results.png}
 \caption[Coinhive earnings dashboard]{Coinhive dashboard showing the earnings of a domain parking service that runs Coinhive on 11\,000 domains. Over the course of about 3 months, the operator earned 0.02417 XMR (currently \$7.69 USD).}\label{fig:domain1}
 \end{figure}
 
