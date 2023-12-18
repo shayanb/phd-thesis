@@ -3,63 +3,35 @@
 % \setcounter{page}{1}
 
 
-
-% #TODO
-% Jeremy's comments on the structure (TODO)
-% It is pretty standard... Chapter 1 is an intro and then a chapter-by-chapter summary (basically a copy/paste of the abstract)
-% 9:55
-% chapter 2 is background info... individual chapters can have background that is "local" to that chapter, but for things that cut accross multiple chapters, place in Chapter 2
-% 9:55
-% then it is just a chapter for paper
-% 9:55
-% and then conclusions can be very sparse (e.g., two pages)
-% 9:56
-% basically what should the reader walk away with
-% 9:56
-% at the start of each chapter, state if it is published, who your co-authors are, and as needed, a sentence or two on what you specifically did as opposed to your co-authors
-% 9:57
-% in particular when a co-author is a student
-% 9:57
-% for me, you can say it was "supervised" by me
-
-
-
 \chapter{Background} \label{sec:background}
 
 
-% Copy pasted from Seminar -- frontrunning - TODO rest of the papers
-
-% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
-% This report is structured as follows: In this chapter, we offer a concise introduction to the essential concepts necessary for comprehending this report. In Chapter 2, we delve further into the background and concepts needed to grasp the problem statement, highlighting the significance of front-running issue on public blockchains and examining the literature. In Chapter 3, we draw from a scattered body of knowledge and instances of front-running across the top 25 most active decentral applications (DApps) deployed on Ethereum blockchain and we map the proposed solutions to front-running into useful categories. Lastly, in Chapter 4, we outline the progress, future research prospects, and the timeline of the publications and the rest of the PhD program.
-
-% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+In this chapter, we explain the basic concepts required for comprehending this dissertation.
 
 
 
-% \section{Introduction} \label{sec:intro}
+\section{Blockchain}
+Public blockchains are the most promising underlying technology for many applications. They are aiming to be decentralized, transparent, and immutable. However, they are also slow, expensive, and have limited functionality. They can and will replace many intermediary entities we know of today. However as we will dive deeper in this subject, blockchain, as a technology is in its infancy. The public aspect of these blockchains changes many assumptions developers and system designers have about the data flow within their applications. 
 
-% TODO: this was copy paste from intro, change it for background
-Blockchain technology enables decentralized applications (DApps) or smart contracts. Function calls (or transactions) to the DApp are processed by a decentralized network. Transactions are finalized in stages: they (generally) first relay around the network, then are selected by a miner and put into a valid block, and finally, the block is well-enough incorporated that is unlikely to be reorganized. Front-running is an attack where a malicious node observes a transaction after it is broadcast but before it is finalized, and attempts to have its own transaction confirmed before or instead of the observed transaction.
-
-
+Blockchain works by having a decentralized network of nodes that are incentivized to maintain the network. The nodes are incentivized by receiving rewards in the form of cryptocurrency. The nodes are also responsible for verifying the transactions and adding them to the blockchain. The blockchain is a chain of blocks, each block containing a list of transactions. The order of the transactions in each block is important as it indicates the order of events in the blockchain.
 
 
-
-\section{Preliminaries}
-Public blockchains are the most promising underlying technology for many applications. They are decentralized, transparent, and immutable. However, they are also slow, expensive, and have limited functionality. They can and will replace many intermediary entities we know of today. However as we will dive deeper in this subject, blockchain, as a technology is in its infancy. The public aspect of these blockchains changes many assumptions developers and system designers have about the data flow within their applications. In this section, we will go through the essential concepts of blockchain technology and how they are related to the front-running attacks. We give a background on the front-running defitions as they are used in the traditional financial systems and how they are generalized to the blockchain applications. 
-
-
-%Further more, we will discuss a general framework to systematically categories future designs and implementations of oracles. 
-In order to understand how front-running attacks are feasible and potentially dangerous in the blockchain applications, some concepts should be discussed.  
-
-\subsection{Blockchain}
-Blockchain, is an online decentral ledger. This technology has the potential of many interesting applications, from digital cash (\eg Bitcoin~\cite{nakamoto2008bitcoin}), prediction markets~\cite{clark2014decentralizing}, and decentral governance~\cite{aragonwebsite}. Bitcoin, started in 2009, was the first application of blockchain technology and since then the concept of decentral ledger has grown to many other applications that just a ledger holding transaction data. 
-
-\subsubsection{Ethereum}
+\begin{figure}[h]
+    \centering
+    {\caption{The building blocks of blockchain technology~\cite{gaggioli2019middleman}}}
+    {\includegraphics[width=0.8\textwidth]{figures/blockchain-buildingblocks.jpg}}
+    \end{figure}
+    %https://www.lucidchart.com/invitations/accept/f8ca2662-5269-425d-9deb-deb14af2aac7
 
 
-Ethereum~\cite{wood2014ethereum} is a prominent public blockchain that has attracted the largest developer headcount compared to other blockchains. It is an extension of its predecessor, Bitcoin, but with significant enhancements, notably the addition of \textit{smart contracts}. These smart contracts are applications residing on the blockchain that can immutably execute their verified code. Ethereum operates on a Turing-complete virtual machine, the \texttt{Ethereum Virtual Machine (EVM)}, allowing programs to live and be executed on the blockchain. This differs from Bitcoin's UTXO\footnote{Unspend Transaction Output} model, which primarily supports value transfers and has a scripting language for extending transaction functionality to a limited extent. In contrast, Ethereum's Turing-complete language opens up limitless possibilities.  All transactions and executions on Ethereum are verified by a decentralized network of nodes. The nodes are incentivized to verify transactions and execute smart contracts by receiving rewards in the form of Ether, the native cryptocurrency of Ethereum.
+This technology has the potential of many interesting applications, from digital cash (\eg Bitcoin~\cite{nakamoto2008bitcoin}), prediction markets~\cite{clark2014decentralizing}, and decentral governance~\cite{aragonwebsite}. Bitcoin, started in 2009, was the first application of blockchain technology and since then the concept of decentral ledger has grown to many other applications that just a ledger holding transaction data. 
+
+
+\section{Ethereum}
+
+Ethereum~\cite{wood2014ethereum} is a prominent public blockchain that has attracted the largest developer headcount compared to other blockchains. It is an extension of its predecessor, Bitcoin~\cite{nakamoto2008bitcoin}, but with significant enhancements, notably the addition of \textit{smart contracts}. These smart contracts are applications residing on the blockchain that can immutably execute their verified code. Ethereum operates on a Turing-complete virtual machine, the \texttt{Ethereum Virtual Machine (EVM)}, allowing programs to live and be executed on the blockchain. This differs from Bitcoin's UTXO\footnote{Unspend Transaction Output} model, which primarily supports value transfers and has a scripting language for extending transaction functionality to a limited extent. In contrast, Ethereum's Turing-complete language opens up limitless possibilities.  All transactions and executions on Ethereum are verified by a decentralized network of nodes. The nodes are incentivized to verify transactions and execute smart contracts by receiving rewards in the form of Ether, the native cryptocurrency of Ethereum. 
+
+Ethereum blockchain started in 2015 using the similar consensus mechanism as Bitcoin, called Proof of Work (PoW), also known as mining. However, in 2020, Ethereum started the transition to Proof of Stake (PoS) consensus mechanism. The main difference between PoW and PoS is that in PoW, the nodes are incentivized to solve a computationally hard puzzle to be able to add a block to the blockchain. However, in PoS, the nodes are incentivized to stake their Ether to be able to add a block to the blockchain. The PoS mechanism is more energy efficient and more scalable than PoW. Ethereum fully switched to PoS in September 2022 in an event called the \textit{Merge}, and reduced its energy consumption by 99.5\%~\cite{themerge}. In this dissertation, we do not directly focus on the consensus mechanisms, however, we will discuss the implications of the consensus mechanism on the blockchain security in chapter ~\ref{sec:frontrunning}. 
 
 
 \subsection{Smart Contracts}
@@ -72,7 +44,7 @@ However, as noted earlier, everything on a blockchain is compromised of transact
 The peer to peer aspect of Ethereum network enables the possibility for a full decentralized network. As the vision of Ethereum is a world computer that everyone can use, the network is designed to be accessible to everyone. This means that anyone can run a full node and be part of the network. The network is designed to be trustless, meaning that the nodes do not need to trust each other. The network is also permissionless, meaning that anyone can join the network and be part of the consensus. This is in contrast to the traditional financial systems that are centralized and permissioned, meaning that only a few entities are in control of the network and the information flow.
 
 
-\subsubsection{mempool}
+\subsection{mempool}
 When a user sends a transaction to the Ethereum network, one node will validate the transaction and propagate it through the network. While this transaction is still not included in the block, it is stored in the memory of all the nodes, also known as \textit{mempool}. The mempool is a list of the transactions that are not yet included in the blockchain, however the order of the transactions are different for each node, as they have received the transactions in different order. This opens up the block builder to the possibility of reordering the transactions in the block they build for their own financial gain.
 
 
