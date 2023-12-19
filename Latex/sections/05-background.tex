@@ -11,20 +11,83 @@ In this chapter, we explain the basic concepts required for comprehending this d
 
 
 \section{Blockchain}
+
+% TODO: follow a course (jeremy’s course) and explain what blockchain is
+% imagine decentralization —> add details on one server vs multiple server
+% - consensus
+%     - trustless 
+%     - Bitcoin solves —> early 90s
+
+A long standing technical challenge to have a decentralized network was to have a consensus mechanism that does not require trust between the participants. To have an online ledger on one single computer was easy, to have a database and expose the right endpoints online so everyone can read, and only the appropriate users can write. However, as soon as you begin to have more computers in the decentralized network, the question arises, how to keep updating the database and enforce honestly amongst the network participants? There were many attempts to solve this problem, and later in 2008 by Nakamoto~\cite{nakamoto2008bitcoin} released the Bitcoin whitepaper that offered a solution. The solution was to have a decentralized network of nodes that are incentivized to maintain the network. The nodes are incentivized by receiving rewards in the form of cryptocurrency. The nodes are also responsible for verifying the transactions and adding them to the blockchain. The blockchain is a chain of blocks, each block containing a list of transactions. The order of the transactions in each block is important as it indicates the order of events in the blockchain. We will explain the details of this mechanism shortly.
+
 Public blockchains are the most promising underlying technology for many applications. They are aiming to be decentralized, transparent, and immutable. However, they are also slow, expensive, and have limited functionality. They can and will replace many intermediary entities we know of today. However as we will dive deeper in this subject, blockchain, as a technology is in its infancy. The public aspect of these blockchains changes many assumptions developers and system designers have about the data flow within their applications. 
 
-Blockchain works by having a decentralized network of nodes that are incentivized to maintain the network. The nodes are incentivized by receiving rewards in the form of cryptocurrency. The nodes are also responsible for verifying the transactions and adding them to the blockchain. The blockchain is a chain of blocks, each block containing a list of transactions. The order of the transactions in each block is important as it indicates the order of events in the blockchain.
+
+%TODO: explain transactions and blocks
+
 
 
 \begin{figure}[h]
     \centering
-    {\caption{The building blocks of blockchain technology~\cite{gaggioli2019middleman}}}
-    {\includegraphics[width=0.8\textwidth]{figures/blockchain-buildingblocks.jpg}}
-    \end{figure}
-    %https://www.lucidchart.com/invitations/accept/f8ca2662-5269-425d-9deb-deb14af2aac7
+    {\caption[The building blocks of blockchain technology]{The building blocks of blockchain technology~\cite{gaggioli2019middleman}}}
+    {\includegraphics[width=0.9\textwidth]{figures/blockchain-buildingblocks.jpg}}
+\end{figure}
 
 
 This technology has the potential of many interesting applications, from digital cash (\eg Bitcoin~\cite{nakamoto2008bitcoin}), prediction markets~\cite{clark2014decentralizing}, and decentral governance~\cite{aragonwebsite}. Bitcoin, started in 2009, was the first application of blockchain technology and since then the concept of decentral ledger has grown to many other applications that just a ledger holding transaction data. 
+
+
+\subsection{Consensus mechanism}
+A consensus mechanism is a fundamental protocol within blockchain technology that enables network participants, often referred to as nodes, to agree on the state of the ledger, despite the absence of trust among them. It is the bedrock of blockchain's reliability and security, ensuring that each participant has a consistent view of the transaction record (final state of the blockchain). This mechanism is crucial in decentralized systems like Bitcoin and Ethereum, where no central authority dictates or confirms the validity of transactions.
+
+In essence, a consensus mechanism involves a series of processes and rules that nodes follow to validate new transactions, add them to the blockchain, and achieve agreement on the current state of the ledger. These processes are designed to prevent fraudulent activities and to mitigate the influence of any single entity over the network. The most widely recognized consensus mechanisms are Proof of Work (PoW) and Proof of Stake (PoS).
+
+
+\subsubsection{Proof of Work (PoW)} 
+Employed initially by Bitcoin and Ethereum, PoW requires nodes, called \textit{miners}, to solve a cryptographic puzzles. The first miner to solve the puzzle gets the right to add a new block of transactions to the blockchain. This method, while robust in maintaining network security, is often criticized for its high energy consumption. In order to understand PoW a few cryptography primitives need to be explained.
+
+
+\paragraph{Hash functions}
+Hash functions are a fundamental component of any blockchain operations, serving as a means to ensure data integrity and security. Essentially, a hash function is a mathematical algorithm that takes an input (or 'message') and returns a fixed-size string of bytes, typically a digest that appears random. The output, known as the \textit{hash value} or the hash, is unique to each unique input: even a minor change in the input results in a significantly different output. This property, called the avalanche effect, is crucial for security. Hash functions are used for various purposes in blockchain, including generating addresses, creating digital fingerprints of data, and linking each block to the previous blocks in the blockchain securely. The nature of hash functions makes them one-way operations – while it's feasible to generate a hash from a given piece of data, it's computationally infeasible to reconstruct the original data from the hash. This property is crucial for blockchain security, as it prevents malicious actors from tampering with the data.
+
+
+\paragraph{Digital Signature}
+Digital signatures are a cryptographic tool used to ensure authenticity and integrity in digital communications and transactions. They are similar to a digital version of a handwritten signature or stamped seal, offering more inherent security and are primarily used for securing transactions on a blockchain. A digital signature involves two main operations: signing and verifying. The signing operation involves creating the signature: a person with a private key creates a digital signature on a message (or transaction) using a signature algorithm. This signature is attached to the message and sent to the receiver. The verifying operation occurs when the receiver, using the corresponding public key, employs a verification algorithm to validate the signature. If the signature is valid, it confirms the message was not altered and was indeed signed by the holder of the private key. This process is fundamental in blockchain transactions, ensuring that transactions are not tampered with and are legitimately initiated by the rightful owners of the digital assets involved.
+
+
+\paragraph{Mining}
+During the mining process, miners compete to solve a cryptographic puzzle, which involves finding a hash that meets a specific condition set by the network, typically one that is lower than a particular target (difficulty). This process requires miners to input data from the block header, which includes a reference to the previous block's hash --ensuring the integrity and continuity of the blockchain-- and a set of transactions waiting in the mempool, each secured with a digital signature. Miners repeatedly hash this data with a varying nonce value until they find a valid hash that meets the network's difficulty criteria.
+
+The first miner to solve the puzzle gets the privilege of adding the new block to the blockchain. This block includes all the validated transactions, each verified through their digital signatures to ensure they are legitimate and authorized by the respective private key holders. The successful miner is then rewarded with newly minted cryptocurrency (like Bitcoin or Ether) and transaction fees from the transactions included in the block. This incentivization is crucial for encouraging participants to contribute their computational power to the network.
+
+Mining is not just about creating new cryptocurrency units; it's the backbone of maintaining the decentralization, security, and integrity of the blockchain. By utilizing hash functions, it ensures that each block is securely linked to its predecessor, creating an immutable ledger. The reliance on digital signatures within each transaction enhances the security and authenticity of the transactions recorded in each block. The decentralized nature of mining, where multiple nodes compete to solve the puzzle, ensures that no single entity can control the network. This mechanism is the foundation of blockchain security.
+
+
+
+\paragraph{Mining Pools}
+Mining pools exist particularly in networks that utilize the Proof of Work (PoW) consensus mechanism. They consist of groups of miners who combine their computational resources to increase their collective probability of successfully mining a block and receiving the rewards. Individual miners, especially those with limited hardware capabilities, might find it challenging to compete against more powerful, resource-rich miners. By joining a mining pool, these smaller miners effectively pool their hashing power, increasing their chances of solving the cryptographic puzzles required to add a block to the blockchain. When a pool successfully mines a block, the reward is distributed among its members in proportion to the computational power each contributed. This arrangement makes mining more accessible and potentially more profitable for individual miners, as it offers a more consistent and predictable return compared to solo mining, where rewards can be sporadic and significantly less frequent. Mining pools are instrumental in maintaining a degree of democratization in the mining process, ensuring that smaller players can still contribute to and benefit from the blockchain network. That being said, if a mining pool becomes too large, it can potentially control the network, leading to centralization and security concerns.
+
+
+
+\subsubsection{Proof of Stake}
+ As an alternative, PoS selects validators based on the number of cryptocurrency units they are willing to 'stake' or lock up as collateral. Validators are chosen to create a new block based on various factors, including the size of their stake, leading to a more energy-efficient process than PoW.
+
+
+
+
+
+
+
+
+
+% TODO staking works
+% block builder, proposer, validator
+
+\subsubsection{Other mechanisms}
+% TODO
+
+
+
 
 
 \section{Ethereum}

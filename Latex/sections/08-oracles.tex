@@ -491,7 +491,7 @@ In the \textit{request-response} model, the data consumer smart contract sends a
 % = = = = = = = = = = = = = = = = = = = = = = = = = = %
 
 \section{Concluding Remarks}
-In this proposal, we described a specialized modular framework to analyze oracles. After our systematization, we present the following discussion points and lessons learned from our work. 
+In this chapter, we described a specialized modular framework to analyze oracles. After our systematization, we present the following discussion points and lessons learned from our work. 
 
 \begin{enumerate}
     \item Many oracles projects introduce their own governance tokens that are used to secure the oracle system (\eg through staking). Two conditions seem necessary: the market capitalization of the token stays material and the token is evenly distributed. More consideration should be given to leveraging an existing token with these properties (even a non-oracle token) instead of creating new specialized tokens~\cite{vitalikuni}. Also a collapse in the value of the governance token threatens the entire system.
@@ -506,6 +506,6 @@ In this proposal, we described a specialized modular framework to analyze oracle
 
 \end{enumerate}
 
-In summary of this proposal, the framework we present facilitates a modular approach in evaluating the security of any oracle design and its associated components that exist today or to be implemented in the future. As an example, the level of centralization can be measured using choke points such as aggregation~\ref{aggregation}, or how the data is proceeded to the blockchain~\ref{offChainInfrastructure}. In order to design a secure oracle, all modules must be rigorously stress tested to make sure it cannot be gamed by participants or malicious actors. In addition, many security auditors and analysis tools are specialized in detecting oracle-related attacks through code review of the smart contracts. Specially with the rise of DeFi smart contracts, the importance of a secure oracle system remain a paramount component of the decentralized blockchain ecosystem.
+In summary of this chapter, the framework we present facilitates a modular approach in evaluating the security of any oracle design and its associated components that exist today or to be implemented in the future. As an example, the level of centralization can be measured using choke points such as aggregation~\ref{aggregation}, or how the data is proceeded to the blockchain~\ref{offChainInfrastructure}. In order to design a secure oracle, all modules must be rigorously stress tested to make sure it cannot be gamed by participants or malicious actors. In addition, many security auditors and analysis tools are specialized in detecting oracle-related attacks through code review of the smart contracts. Specially with the rise of DeFi smart contracts, the importance of a secure oracle system remain a paramount component of the decentralized blockchain ecosystem.
 
 
