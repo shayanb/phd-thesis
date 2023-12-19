@@ -11,20 +11,9 @@ In this chapter, we explain the basic concepts required for comprehending this d
 
 
 \section{Blockchain}
-
-% TODO: follow a course (jeremy’s course) and explain what blockchain is
-% imagine decentralization —> add details on one server vs multiple server
-% - consensus
-%     - trustless 
-%     - Bitcoin solves —> early 90s
-
-A long standing technical challenge to have a decentralized network was to have a consensus mechanism that does not require trust between the participants. To have an online ledger on one single computer was easy, to have a database and expose the right endpoints online so everyone can read, and only the appropriate users can write. However, as soon as you begin to have more computers in the decentralized network, the question arises, how to keep updating the database and enforce honestly amongst the network participants? There were many attempts to solve this problem, and later in 2008 by Nakamoto~\cite{nakamoto2008bitcoin} released the Bitcoin whitepaper that offered a solution. The solution was to have a decentralized network of nodes that are incentivized to maintain the network. The nodes are incentivized by receiving rewards in the form of cryptocurrency. The nodes are also responsible for verifying the transactions and adding them to the blockchain. The blockchain is a chain of blocks, each block containing a list of transactions. The order of the transactions in each block is important as it indicates the order of events in the blockchain. We will explain the details of this mechanism shortly.
+A long standing technical challenge to have a decentralized network was to have a consensus mechanism that does not require trust between the participants. To have an online ledger on one single computer was easy, to have a database and expose the right endpoints online so everyone can read, and only the appropriate users can write. However, as soon as you begin to have more computers in the decentralized network, the question arises, how to keep updating the database and enforce honestly amongst the network participants? There were many attempts to solve this problem, and later in 2008 by Nakamoto~\cite{nakamoto2008bitcoin} released the Bitcoin whitepaper that offered a solution. The solution was to have a decentralized network of nodes that are incentivized to maintain the network. The nodes are incentivized by receiving rewards in the form of cryptocurrency. The nodes are also responsible for verifying the transactions and adding them to the blockchain. The blockchain is a chain of blocks, each block containing a list of transactions. The order of the transactions in each block is important as it indicates the order of events in the blockchain. Each transaction is a value transfer or a function call within a smart contract. We will explain the details of this mechanism shortly.
 
 Public blockchains are the most promising underlying technology for many applications. They are aiming to be decentralized, transparent, and immutable. However, they are also slow, expensive, and have limited functionality. They can and will replace many intermediary entities we know of today. However as we will dive deeper in this subject, blockchain, as a technology is in its infancy. The public aspect of these blockchains changes many assumptions developers and system designers have about the data flow within their applications. 
-
-
-%TODO: explain transactions and blocks
-
 
 
 \begin{figure}[h]
@@ -69,23 +58,18 @@ Mining pools exist particularly in networks that utilize the Proof of Work (PoW)
 
 
 
-\subsubsection{Proof of Stake}
- As an alternative, PoS selects validators based on the number of cryptocurrency units they are willing to 'stake' or lock up as collateral. Validators are chosen to create a new block based on various factors, including the size of their stake, leading to a more energy-efficient process than PoW.
+\subsubsection{Proof of Stake (PoS)}
+Proof of Stake is a system that relies on validators who "stake" their cryptocurrency holdings as collateral to participate in the process of managing the blockchain. Unlike Proof of Work (PoW), which requires energy-intensive computational work, PoS selects validators based on the amount of their staked cryptocurrency, creating a more energy-efficient process.
 
+In PoS, the likelihood of a validator being chosen to propose or validate a block correlates with the size of their stake. Validators lock up a certain amount of cryptocurrency (32 ETH in Ethereum per validator), demonstrating their commitment to the network. This stake acts as a security deposit; validators who act against the network's rules or try to approve fraudulent transactions can lose part of their stake as a penalty--slashing--. This incentivizes good behavior and secures the network. There are more actors in PoS comparing to PoW process.
 
+In the PoS process, a ~\textit{block proposer} is comparable to a miner in PoW. The network algorithm selects a validator to propose a new block based on their stake and other factors like random selection for fairness~\cite{ethereumrandao}. The proposer's role is to gather transactions from the transaction pool, form them into a block, and propose it to the network. This block includes transaction data and a cryptographic hash of the previous block, maintaining the blockchain's integrity.
 
+The ~\textit{block builder} is a role often seen in more advanced PoS systems. They are responsible for constructing the block – organizing and prioritizing transactions. In some systems, this role is separated from the block proposer to introduce another layer of decentralization and efficiency. By decoupling block construction from proposal, it allows for more specialized handling of transaction inclusion, potentially leading to optimized transaction throughput and fee market dynamics. Block builders are currently used as part of the MEV mechanism, which is explained more in~\ref{MEVfrontrunning}. More over, a proposal to separate the block proposer and builder in Ethereum PoS is under consideration~\cite{ethereumPBS}.
 
+~\textit{Relayers} are participants in the network who help in relaying information between different parties or layers. In the context of PoS, they might be involved in transmitting block proposals, transactions, or validation results. Relayers play a crucial role in ensuring the smooth flow of information across the network, which is vital for maintaining the blockchain's speed and reliability. Currently relayers are mainly used between the block proposers and builders in MEV infrastructure.
 
-
-
-
-
-% TODO staking works
-% block builder, proposer, validator
-
-\subsubsection{Other mechanisms}
-% TODO
-
+In summary, in a PoS system, validators stake cryptocurrency to participate in the process of block creation and validation. The block proposer and builder work together to form and optimize new blocks, while relayers facilitate communication within the network. This system aims to offer a more energy-efficient and potentially more decentralized alternative to PoW.
 
 
 
