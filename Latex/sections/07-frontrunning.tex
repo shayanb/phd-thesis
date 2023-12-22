@@ -13,13 +13,13 @@
 \end{quote}
 
 
+Front-running has been an issue in financial instrument markets since the 1970s. With the advent of the blockchain technology, front-running has resurfaced in new forms we explore here, instigated by blockchain’s decentralized and transparent nature. Due to this technical nuance of blockchains, any actor can act as the actor with privileged information and abuse this early access to information to profit from it. In the financial markets, the privileged information is mostly regarding trades and financial data, however, as blockchains have other use cases, front-running attack are expanded to many other applications, as discussed in this chapter. 
+
+
+
 \section{Background}
 
-In this chapter, we briefly describe what front-running is in the traditional markets and how it is related to other concepts regarding its legality and ethics. Additionally, we discuss the background of front-running on the blockchain applications and how the advancement and complexity of the technology has increased the attack vector to applications that previously were not vulnerable to information flow attacks. Finally, we discuss the related literature in this area. 
-
-
-
-%Copy paste also, fix this:
+In this section, we briefly describe what front-running is in the traditional markets and how it is related to other concepts regarding its legality and ethics. Additionally, we discuss the background of front-running on the blockchain applications and how the advancement and complexity of the technology has increased the attack vector to applications that previously were not vulnerable to information flow attacks. Finally, we discuss the related literature in this area. 
 
 The mechanics of front-running work on all DApps but front-running is not necessarily beneficial, depending on the DApp's internal logic and/or as any mitigation it might implement. Therefore, DApps need to be studied individually or in categories. In this chapter, we draw from a scattered body of knowledge regarding front-running attacks on blockchain applications and the proposed solutions, with a series of case studies of DApps deployed on Ethereum (a popular blockchain supporting DApps). We do case studies on decentralized exchanges (\eg Bancor), crypto-collectibles (\eg CryptoKitties), gambling services (\eg Fomo3D), and decentralized name services (\eg Ethereum Name Service). We also study initial coin offerings (ICOs). Finally, we provide a categorization of techniques to eliminate or mitigate front-running including transaction sequencing, cryptographic techniques like commit/reveal, and redesigning the functioning of the DApp to provide the same utility while removing time dependencies.
 
@@ -29,18 +29,18 @@ The mechanics of front-running work on all DApps but front-running is not necess
 % = = = Preliminaries
 % = = = = = = = = = = = = = = = = = = = = = = = = = = %
 
-\section{Traditional Front-running}
+\subsection{Traditional Front-running}
 \label{sec:What is front-running?}
 
 \emph{Front-running} is a course of action where someone benefits from early access to market information about upcoming transactions and trades, typically because of a privileged position along the transmission of this information and is applicable to both financial and non-financial systems. Historically, floor traders might have overheard a broker's negotiation with her client over a large purchase, and literally race the broker to buy first, potentially profiting when the large purchase temporarily reduces the supply of the stock. Alternatively, a malicious broker might front-run their own client's orders by purchasing stock for themselves between receiving the instruction to purchase from the client and actually executing the purchase (similar techniques can be used for large sell orders). Front-running is illegal in jurisdictions with established securities regulation.
 
 Cases of front-running are sometimes difficult to distinguish from related concepts like insider trading and arbitrage. In front-running, a person sees a concrete transaction that is set to execute and reacts to it before it actually gets executed. If the person instead has access to more general privileged information that might predict future transactions but is not reacting at the actual pending trades, we would classify this activity as insider trading. If the person reacts after the trade is executed, or information is made public, and profits from being the fastest to react, this is considered arbitrage and is legal and encouraged because it helps markets integrate new information into prices quickly.
 
-\section{Literature on Traditional Front-running}\label{traditionalFrontrunning}
+\subsection{Literature on Traditional Front-running}\label{traditionalFrontrunning}
 Front-running originates on the Chicago Board Options Exchange (\textit{CBoE}) \cite{markham1988front}. The Securities Exchange Commission \textit{(SEC)} in 1977 defined it as: ``The practice of effecting an options transaction based upon non-public information regarding an impending block transaction\footnote{A block in the stock market is a large number of shares, 10\,000 or more, to sell which will heavily change the price.} in the underlying stock, in order to obtain a profit when the options market adjusts to the price at which the block trades.~\cite{sec1978optionsmarket}'' Self-regulating exchanges (\eg \textit{CBoE}) and the \textit{SEC} spent the ensuing years planning how to detect and outlaw front-running practices~\cite{markham1988front}. The \textit{SEC} stated: ``It seems evident that such behaviour on the part of persons with knowledge of imminent transactions which will likely affect the price of the derivative security constitutes an unfair use of such knowledge.\footnote{Securities Exchange Act Release No. 14156, November 19, 1977, (Letter from George A. Fitzsimmons, Secretary, Securities, and Exchange Commission to Joseph W. Sullivan, President  CBoE).}'' The \textit{CBoE} tried to educate their members on existing rules, however, differences in opinion regarding the unfairness of front-running activities, insufficient exchange rules and lack of a precise definition in this area resulted in no action~\cite{sec1978optionsmarket} until the SEC began the regulation. We refer the reader interested in further details on this early regulatory history to Markham~\cite{markham1988front}. The first front-running policies applied only to certain option markets. In 2002, the rule was expanded to cover all security futures~\cite{finra_2002}. In 2012, it was expanded further with the new amendment, FINRA Rule 5270, to cover trading in options, derivatives, or other financial instruments overlying a security with only a few exceptions~\cite{sec2012frontrunning,finra_2012}. Similar issues have been seen with domain names~\cite{sac022en33:online,edelman2009front} as well.
 
 
-\section{Background on Blockchain Front-running} \label{sec:Front Running on the Blockchains}
+\subsection{Background on Blockchain Front-running} \label{sec:Front Running on the Blockchains}
 
 Blockchain technology (introduced via Bitcoin in 2008~\cite{nakamoto2008bitcoin}) strives to disintermediate central parties that participate in a transaction. However, blockchains also introduce new participants in the process of relaying and finalizing transactions. Miners are in the best position to conduct these attacks as they hold fine-grained control over the exact set of transactions that will execute and in what order and can mix in their own (late) transactions without broadcasting them. Miners do however have to commit to what their own transactions will be before beginning the proof of work required to solve a block.
 
@@ -57,7 +57,7 @@ Any user monitoring network transactions (\eg running a full node) can see uncon
 
 Finally, well-positioned relaying nodes on the network (or part of the broader internet backbone) can attempt to influence how transactions are propagated through the network, which can influence the order miners receive transactions, or if they receive them at all~\cite{HKZG15,MGH18}.
 
-\section{Literature on Blockchain Front-running}
+\subsection{Literature on Blockchain Front-running}
 
 
 % Jeremy: this is well described already, but we should use the bug-bounty example (citing this) somewhere in the paper as it is a nice example
@@ -72,19 +72,6 @@ Aune~\etal discuss how the lack of time priority between broadcasting a transact
 Furthermore, Daian~\etal, looks at the economically motivated front-running attacks by introducing the notion of \textit{Maximum Extractable Value (MEV)}~\cite{daian2019flash}. MEV\footnote{Originally, MEV was centered around Miner Extractable Value. However, with the subsequent development of block builders, the scope of MEV broadened to encompass all network participants.} is defined by actions that facilitates transaction reordering or front-running attacks to profit from the transactions in the mempool. Additionally, they run economical analysis on the MEV occurrences in the wild. 
 
 
-
-% !TEX root = ../main.tex
-
-
-% \section{Recent Progress}
-
-% % TODO: update this part 
-
-% In this chapter, we give an overview of our modular framework designed for blockchain oracles and investigate the feasibility of the use cases came forth in the previous chapter. In each section, we dive deeper in the trust assumptions of each module and finally we classify the current oracle projects based on our proposed modular framework. 
-
-
-% TODO: copy pasted from front running paper! read, update
-
 % = = = = = = = = = = = = = = = = = = = = = = = = = = %
 % = = = Taxonomy
 % = = = = = = = = = = = = = = = = = = = = = = = = = = %
@@ -93,7 +80,7 @@ Furthermore, Daian~\etal, looks at the economically motivated front-running atta
 \section{A Taxonomy of Front-running Attacks}
 \label{sec:taxonomy}
 
-As we will illustrate with examples through-out this chapter, front-running attacks can often be reduced to one of a few basic templates. We emphasize what the adversary is trying to accomplish (without worrying about how) and we distinguish three cases: displacement, insertion, and suppression attacks. In all three cases, Alice is trying to invoke a function on a contract that is in a particular state, and Mallory will try to invoke her own function call on the same contract in the same state before Alice.
+As we will illustrate with examples through-out this chapter, front-running attacks can often be reduced to one of a few basic templates. We emphasize what the adversary is trying to accomplish (without worrying about how) and we distinguish three cases: displacement, insertion, and suppression attacks. In all three cases, Alice is trying to invoke a function on a contract that is in a particular state, and Mallory will try to invoke her own function call on the same contract in the same state before Alice. See Figure~\ref{fig:frontrunningtaxonomy} for a visual representation of the taxonomy.
 
 In the first type of attack, a \textit{displacement attack}, it is not important to the adversary for Alice's function call to run after Mallory runs her function. Alice's can be orphaned or run with no meaningful effect. Examples of displacement include: Alice trying to register a domain name and Mallory registering it first~\cite{kalodner2015empirical}; Alice trying to submit a bug to receive a bounty and Mallory stealing it and submitting it first~\cite{breidenbach2018enter}; and Alice trying to submit a bid in an auction and Mallory copying it. 
 
@@ -102,6 +89,14 @@ In an \textit{insertion attack}, after Mallory runs her function, the state of t
 In a \textit{suppression attack}, after Mallory runs her function, she tries to delay Alice from running her function. After the delay, she is indifferent to whether Alice's function runs or not. We only observe this attack pattern in one DApp and the details are quite specific to it, so we defer discussion until Section~\ref{sec:gambling}.
 
 Each of these attacks have two variants, \textit{asymmetric} and \textit{bulk}. In some cases, Alice and Mallory are performing different operations. For example, Alice is trying to cancel an offer, and Mallory is trying to fulfill it first. We call this \textit{asymmetric displacement}. In other cases, Mallory is trying to run a large set of functions: for example Alice and others are trying to buy a limited set of shares offered by a firm on a blockchain. We call this \textit{bulk displacement}. 
+
+
+\begin{figure}[h]
+    \centering
+{\caption[Front-running Taxonomy]{Front-running Taxonomy}\label{fig:frontrunningtaxonomy}}
+{\includegraphics[width=\textwidth]{figures/frontrunning_taxonomy.png}}
+\end{figure}
+
 
 Further more, Torres~\etal~\cite{torres2021frontrunner} expands on this taxonomy and conducts an analysis of the profitability of each type of frontrunning attacks in the wild. In their research they show that suppression attack has the highest reward but also highest risk, while the displacement attack has no risk as it does not depend on the victims transaction. Insertion attack is the most popular type of attacks mainly on the decentralized exchanges.
 
@@ -260,7 +255,7 @@ One alternative is to sequence transactions pseudorandomly. This can be seen in 
 
 Finally, transactions themselves could enforce order. For example, they could specify the current state of the contract as the only state to execute on. This transaction chaining only prevents certain types of front-running; \ie it prevents insertion attacks but not displacement attacks (recall our taxonomy in Section~\ref{sec:taxonomy}). As transaction chaining only allows one state-changing transaction per state, at most one of a set of concurrent transactions can be confirmed; a drawback for active DApps.
 
-Da Silva~\etal~\cite{da2019fixed} proposes an algorithm, known as Fixed Transaction Ordering and Admission (FTOA), in the consensus protocol that enforces the order of the transactions in the mined blocks, using logical timestamps in a Byzantine setting, to eliminate transaction reordering by miners. This is a theoretical solution and is not trivial to implement in the current Byzantine consensus protocols. Additionally, Kelkar~\etal~\cite{kelkar2020order} proposes a solution by introducing an additional property to the Byzantine consensus protocol, transaction order-fairness, and they analyze the assumptions necessary to realize fair ordering. Another solution is to create a centralized sequencer that orders that transactions, this is a common solution for many scaling Layer two solutions on Ethereum. This solution is not ideal to decentralized applications as it requires a trusted third party to order the transactions. In some cases such as Fomo3D, the fair ordering of the transaction can increase the likely hood of the hacker winning the game by using the similar suppression attack as described in~\ref{sec:gambling}. 
+Da Silva~\etal~\cite{da2019fixed} proposes an algorithm, known as Fixed Transaction Ordering and Admission (FTOA), in the consensus protocol that enforces the order of the transactions in the mined blocks, using logical timestamps in a Byzantine setting, to eliminate transaction reordering by miners. This is a theoretical solution and is not trivial to implement in the current Byzantine consensus protocols. Additionally, Kelkar~\etal~\cite{kelkar2020order} proposes a solution by introducing an additional property to the Byzantine consensus protocol, transaction order-fairness, and they analyze the assumptions necessary to realize fair ordering. Another solution is to create a centralized sequencer that orders that transactions, this is a common solution for many Layer two scaling solutions on Ethereum. This solution is not ideal to decentralized applications as it requires a trusted third party to order the transactions. In some cases such as Fomo3D, the fair ordering of the transaction can increase the likely hood of the hacker winning the game by using the similar suppression attack as described in~\ref{sec:gambling}. 
 
 \subsection{Confidentiality}
 
@@ -268,7 +263,15 @@ Da Silva~\etal~\cite{da2019fixed} proposes an algorithm, known as Fixed Transact
 
 All transaction details in Bitcoin are made public and participant identities are only lightly protected. A number of techniques increase confidentiality~\cite{bunzBulletproofs,maxwell2015confidential} and anonymity ~\cite{miers2013zerocoin,cryptoeprint2015,sasson2014zerocash} for cryptocurrencies. A current research direction is extending these protections to DApps~\cite{aztec2018,ZoeEth2017}. It is tempting to think that a confidential DApp would not permit front-running, as the front-runner would not know the details of the transaction she is front-running. However, there are some nuances here to explore.
 
-A DApp interaction includes the following components: (1) the code of the DApp, (2) the current state of the DApp, (3) the name of the function being invoked, (4) the parameters supplied to the function, (5) the address of the contract the function is being invoked on, and (6) the identity of the sender. Confidentiality applied to a DApp could mean different levels of protection for each of these. For front-running, function calls (3,4) are the most important, however, function calls could be inferred from state changes (2). Hawk~\cite{kosba2016hawk} and Ekiden~\cite{cheng2018ekiden} are examples of (2,3,4)-confidentiality (with limitations we are glossing over).
+A DApp interaction includes the following components: (1) the code of the DApp, (2) the current state of the DApp, (3) the name of the function being invoked, (4) the parameters supplied to the function, (5) the address of the contract the function is being invoked on, and (6) the identity of the sender. Confidentiality applied to a DApp could mean different levels of protection for each of these (See Figure~\ref{fig:confidentialitycomponents}). For front-running, function calls (3,4) are the most important, however, function calls could be inferred from state changes (2). Hawk~\cite{kosba2016hawk} and Ekiden~\cite{cheng2018ekiden} are examples of (2,3,4)-confidentiality (with limitations we are glossing over).
+
+
+\begin{figure}[h]
+    \centering
+{\caption{Components related to any DApp interaction}\label{fig:confidentialitycomponents}}
+{\includegraphics[width=0.8\textwidth]{figures/confidentiality_components.png}}
+\end{figure}
+
 
 The applicability of privacy-preserving blockchains needs to be evaluated on a case-by-case basis. For example, one method used by traditional financial exchanges in dealing with front-running from high frequency traders is a dark pool: essentially a (2,3,4)-confidential order book maintained by a trusted party. A DApp could disintermediate this trusted party. Users whose balances are affected by changes in the contract's state would need to be able to learn this information. Further, if the contract addresses are known (\ie no 5-confidentiality), front-runners can know about the traffic pattern of calls to contracts which could be sufficient grounds for attack; for example, if each asset on an exchange has its own market contract, this leaks trade volume information. As a contrasting example, consider again decentralized domain registration: hiding state changes (2-confidentiality) defeats the entire purpose of the DApp, and protecting function calls is ineffective with a public state change since the state itself reveals the domain being registered.
 
