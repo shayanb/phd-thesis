@@ -17,3 +17,157 @@
 % —> what is manual audit, you still need it. framwork of the OEInternal controls, what could go wrong ! what about airdrops for the balance, get from the vasanth paper add stuff
 % what can be done 
 % borrow from the FC version auditing paper <— 
+
+
+% Based on published work but my opinions?
+
+% Financial audit <> code review audit
+
+
+%++++++++++++++++++++++=======================================+++++++++++++++++++++
+% Similar to frontrunning paper sections
+\section{Introduction} \label{sec:auditing:intro}
+
+
+
+
+
+
+%++++++++++++++++++++++=======================================+++++++++++++++++++++
+\section{Background} \label{sec:auditing:background}
+
+
+\subsection{Ethereum Address types}
+In Ethereum, there are two types of addresses: externally owned accounts (EOA) and smart contracts. EOAs are controlled by private keys and are used to send transactions on the Ethereum network. Smart contracts are accounts that are controlled by code and are used to store and execute code on the Ethereum network. 
+
+%TODO: explain the difference between EOA and smart contract addresses
+
+
+A multi-signature (multisig) account is a smart contract that requires multiple signatures to execute a transaction. Multisig smart contracts are used to increase the security of the funds by requiring multiple parties to sign a transaction. Multisigs are commonly used by companies to store their cryptoassets. There are different possible implementations and configurations on how each multisig smart contract can be set up~\cite{ittay2021wallet}. For example, a multisig smart contract can be set up to require 2 out of 3 signatures to execute a transaction. This means that if there are 3 signatories, any 2 of them can sign a transaction to execute it.
+
+%todo: maybe worth opening this up? 
+We are aware of the possibility of creating multi-signature wallets without the use of smart contracts, as an example by using MPC~\cite{zhao2019secure}, however for the purpose of this paper we will focus on the smart contract based multisig wallets.
+
+\subsection{Cryptoassets}
+
+\subsection{Auditing}
+
+
+
+
+
+%++++++++++++++++++++++=======================================+++++++++++++++++++++
+\section{ Framework} \label{sec:auditing:framework}
+
+
+
+
+
+
+%++++++++++++++++++++++=======================================+++++++++++++++++++++
+\section{Case Studies} \label{sec:auditing:case-studies}
+
+
+
+% here is the what the topic is
+
+% here are the case studies: — start here! centre
+% - experience of the CTO
+% - experience of the auditors
+% - why is the neunces 
+% ===> 3 stories from dili and ethcap
+
+
+% Case study 1: Proof of ownership
+% —> Message signing v.s. self transferred transaction —> proof ownership
+% ——> EOA v.s. multisig wallet
+% 			— manual audit of the variables of the smart contract —> how are the signaturories and what code it’s running, …
+% —> probably find a paper or blog or something to cite
+
+\subsection{Case Study 1: Proof of Ownership} \label{sec:auditing:case-studies:ownership}
+
+In the traditional auditing world, providing proof of ownership of the assets in a company's balance sheet is a common practice, usually in the form of a bank statements or a certificate of ownership. In the blockchain ecosystem, there is no bank or central authority that can provide such a statement~\cite{pimentel2021systemizing}. Instead, the owner of the assets must be able to prove ownership of the assets either by relying on a third party or themselves by using cryptographic techniques. As shortly discussed in Section~\ref{digital_signature}, this can be done by providing a digital signature from the address that holds the assets. However, due to technical nuances of blockchain ecosystem, this is not always a straightforward process. 
+
+In order to provide proof of ownership of any cryptoasset (\eg Bitcoin, ETH, ERC20 tokens, NFTs), historically multiple approaches have been used in financial audit processes. One of the first approaches, started with self-custodial Bitcoin holdings, was to transfer a small amount of bitcoin from and back to the address that holds the assets. This approach is not only time consuming, but also has costs associated with it due to the blockchain transaction fees. Another common approach is to sign a message with the private key associated with the address (\eg digital signature) that holds the assets. This approach is more efficient and cost effective, however, requires tooling to be able to irrefutably verify the validity of the signature by the auditors~\cite{gavinwrightcourt}. Additionally, this approach is not always possible. For example, in the case of Ethereum, the address that holds the asset can be an externally owned account (EOA) or a smart contract. In the case of an EOA, the process is can be done using the digital signature verification. However, in the case of a smart contract, the process is more complicated. 
+
+As described in Section~\ref{sec:auditing:background}, multisig smart contracts are commonly used by companies to securely store their cryptoassets. Unlike EOA addresses, smart contracts do not have a private key associated with them, hence the proof of ownership cannot be done using the digital signature verification. One approach is to fall back on the older method of transferring a small amount of the asset from and back to the smart contract address. Another is to prove the ownership by by verifying the code of the smart contract and the only verify the signatories of the multisig smart contract. This process is more complicated and requires manual auditing of the smart contract code. Additionally, the smart contract can be upgraded or the signatories of the multisig smart contract can be changed at any time, hence the proof of ownership must be done at the time of every audit. 
+
+
+
+
+
+
+% Case Study 2:
+% —> key generation ceremony
+% — key backups
+% —> multisig setup 
+% ——> variables 3of3 less secure
+% —> On Cryptocurrency Wallet Design PAPER
+
+
+
+
+
+\subsection{Case Study 2: Existence} \label{sec:auditing:case-studies:existence}
+% Case Study 3:
+% —> Excistence 
+% OP airdrop —> drop to every keyholder —> required to claim per address
+% —> key holders didn’t have balance, 
+% —> move the balance to main wallet
+% —> Ownership —> Time of ownership 
+% 	—> Existence —> do they exist in the balance sheet
+% —> valuation —> how do you value that?
+% ———> Argument : OP if claimed, and voted some governnace, you’d get a second airdrop . how does that work and what is that considered to be? 
+% —> Airdrop claim expiry 
+
+
+
+% Case study 4:
+% Access Control? if you own a token and that token contract is upgradable, do you have the token forever?
+
+% —> manual audit and monitoring are needed, timelock? 
+
+ 
+
+% —> Key generation ceremony
+
+% =====
+% maybe 1 example of each framework: ownership, existence, valuation, internal control 
+% —> valuation: chapter oracle paper: oracle manupulation attack and tell REKT story? maybe no
+% —> contributes to your solvency
+% —> valuation v.s. oracle manipulation 
+% —> realtime valuation v.s. end of the year valuation 
+% ——> If we move to realtime auditing, then oracle manipulation attack might be relevant
+% 	—> depending on the price feed, it can result in significant changes in the audit snap shots (can make the company insolvant for a short period of time)
+% —> realtime audit CITATIONS
+% —> tech nueances: price feed, we want decentral trustless price feed —> DEX —> Oracles
+
+
+
+
+
+%++++++++++++++++++++++=======================================+++++++++++++++++++++
+\section{Discussion} \label{sec:auditing:discussion}
+% what is the connection between them
+
+% what do you do about it? 
+% - formal analysis, static analysic, manual audits
+% - within the manual audit, how to do it?
+%     - relavant to rest of the chapter
+% - pick up on the technical neuances 
+%     - How do you expect furture 500 companies to get the details?
+
+
+% a bunch of papers on washtrading —> volume issue, not really valuation but you can increase the volume, increase the reputation and hence increase the valuation. not really
+% —> assets with no liability
+
+
+%++++++++++++++++++++++=======================================+++++++++++++++++++++
+\section{Conclusion} \label{sec:auditing:conclusion}
+
+
+
+
+
+
+
