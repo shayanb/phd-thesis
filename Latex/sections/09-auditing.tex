@@ -49,6 +49,8 @@ A multi-signature (multisig) account is a smart contract that requires multiple 
 We are aware of the possibility of creating multi-signature wallets without the use of smart contracts, as an example by using MPC~\cite{zhao2019secure}, however for the purpose of this paper we will focus on the smart contract based multisig wallets.
 
 \subsection{Cryptoassets}
+We use the term cryptoasset and cryptoliability to refer to listings on a firm's balance sheet that exist and are transacted using blockchain technology and have some tradeable value. This includes cryptocurrencies (e.g., bitcoin and ether) as well as tokens (\eg ERC20) issued by smart contracts running on a blockchain. Among others, the main categories of tokens are: (1) \textit{Access tokens}: a service is developed that requires its own custom tokens for using the service; (2) \textit{Backed tokens}: a token issuer claims to be holding something valuable (material or digital) in reserve, and the token represents a claim on these reserves; (3) \textit{Equity tokens}: a firm issues tokens to represent ownership shares of the company; and (4) \textit{Collectable tokens}: the token itself is offered as a contemporary collector's item. 
+
 
 \subsection{Auditing}
 
@@ -57,11 +59,70 @@ We are aware of the possibility of creating multi-signature wallets without the 
 
 
 %++++++++++++++++++++++=======================================+++++++++++++++++++++
-\section{ Framework} \label{sec:auditing:framework}
+\section{Preliminaries and Technical Nuances} \label{sec:auditing:framework} %TODO: maybe merge this with background or change the title
+In this section, we provide a brief overview of the technical nuances of blockchain technology that are relevant to the auditing process. We also provide a brief overview of the auditing process and the relevant auditing standards.
 
 
+\subsection{Proof of Ownership}\label{sec:auditing:framework:ownership}
+
+Auditors must be satisfied that the assets reported on the company's balance sheet do in fact belong to the company, or if the client is operating as a custodian for third-parties (for instance, as an exchange who holds cryptocurrencies received from third-parties), that the assets held do in fact belong to the third-party who claims to possess them. For traditional assets, firms might overcome the ownership issue in several ways. First, a client can demonstrate ownership of an asset with reference to a generally accepted official document. For instance, a property owner can demonstrate ownership of their building with reference to a deed. However, in a blockchain environment, no central authority exists to produce such official documents. Second, firms may engage a custodian to hold assets on their behalf, like a bank. This does not eliminate the issue of ownership but simply shifts the concern from the firm's audit to the audits of central custodians.
+
+\begin{quote}
+One of our first considerations as it relates both existence and ownership is just to think through how the entity is maintaining custody of their assets. And in particular, what's the security mechanism around access to the private key? Which can vary from being held [in many ways] from online to some type of hot storage to on a piece of paper somewhere to in a software tool that is not connected to the internet and kind of offline. Which of course, brings down the risk of it being hacked but then increases the risk of physical loss of the private key. We want to understand what our potential clients are doing related to that. Then, as many of them seem to do, we start to gather that they're using a third party around custody.~\cite{pimentel2021systemizing}
+\end{quote}
+
+Therefore, addressing whether or not a client maintains ownership over their cryptoassets will depend on whether they hold their cryptoassets themselves (self-custody) or through a custodian.
 
 
+\subsubsection{Self-Custody of Assets}
+In the absence of legal registers to support ownership or documents bearing the name of the firm, the auditor must rely on the internal controls of the entity to obtain comfort over the ownership assumption~\cite{pimentel2021systemizing}. A question emerges about what ownership means in this context both temporally and in terms of access to a private key. Temporally, auditors must distinguish between whether they are able to provide support for ownership over an asset at the date of conducting the audit procedure or at the end of the fiscal period under audit. For example, if an auditor verifies that a client owns bitcoin one month after year-end through procedures like signing messages or transferring small amounts to and from the key, this proves that the client controlled the asset on that date but says nothing about whether the client owned those assets at year-end. With inventory, in the absence of performing a count at year-end, the auditor may perform roll-back procedures to verify the transactions between the count date and the year-end date to obtain comfort over the year-end balance. To do so, this would require that the auditor ensure that ownership was maintained over the subsequent events period even if this is not what is required by the auditing standards: 
+
+\begin{quote}
+Do I need to prove that they retained ownership over the subsequent events period? The auditing standard doesn't say that I do. If the client loses ownership during the subsequent events period, do I need to unrecord the whole thing at year end? Likely, this would be an issue of note disclosure. In the past, this has been used before for some fraud cases, but in those cases, it was because those transactions never really occurred.
+\end{quote}
+
+Determining when to test ownership to ensure that evidence is obtained at the correct date becomes a challenge. Best practice would indicate that, like inventory, auditors should test ownership as at the balance sheet date and may wish to provide note disclosure for significant events where ownership is lost. 
+
+A question emerges about what ownership really means in this context. A client may demonstrate that they have access to a private key, but this in and of itself does not demonstrate ownership. ``With ownership, the risk of giving someone else access to the private key is no different than the corporate controller sharing his password to the company bank account with his spouse''. Auditors must determine what types of procedures they can do to validate control and ownership in this context: 
+
+If a client uses self-custody, we can do different procedures to be able to approve ownership like small amount transfers or secret messages, depending on the protocol they're using. 
+
+These practices like small value transfers or the sending of secret messages are part of what are referred to as cryptographic proofs. 
+
+\subsubsection{Cryptographic Keys} 
+
+For most cryptoassets, the asset is considered owned by Alice if Alice possesses a private signing key that can be used to digitally sign a transfer of the asset (See Section~\ref{digital_signature}). Although alternative notions of ownership are possible to define, the idea of a signing key is foundational and seen with bitcoin, Ethereum (ETH), and ERC20 tokens. Thus, demonstrating knowledge of this key is necessary, but not sufficient, to demonstrating ownership. The most direct cryptographic technique is to use a so-called zero-knowledge proof of this private key, and to staple in some information identifying the context of the proof. For standard proofs, this is cryptographically equivalent to simply signing a challenge message with the key. Folklore protocols of sending small cash amounts from an allegedly owned account to the auditor to demonstrate control are also commonly noted in the literature. This offers similar security but may add ethical complexities for the auditor in accepting the amount transferred. 
+
+We note that while cryptographic proof is necessary, it is not sufficient. A cryptographic proof simply demonstrates that the purported owner has access to the person holding the signing key. A malicious company might arrange for the owner of cryptoassets to engage in signing statements or moving test amounts fraudulently on their behalf. This issue is not new: an insolvent retail store might borrow inventory from elsewhere to inflate its assets during an inventory count. Auditors mitigate this by arranging a common date for all audits of physical inventory and, similarly, cryptographic audits could be synchronized on a fixed schedule to prevent the same assets from being counted for different companies in different audits~\cite{dagher2015provisions}. 
+
+One type of proof includes sending a small amount of money to the auditor from the private key, while another proof involves demonstrating that the client can respond to a cryptographically-protected message that only the private key holder could open. Independently, neither of these procedures demonstrate that the client owns the private key. However, auditors rely on the sum of several procedures to obtain reasonable assurance over this assertion: 
+
+\begin{quote}
+With ownership, it's not a specific procedure but rather the body of evidence that can be performed by signing messages, by testing internal controls, by understanding how the client protects passwords. The clear expectation of ownership is changing. In a traditional audit, the client represents that they own certain things. We see an invoice and we see that they own it. But did they really pay for it? Was it paid for by another company and consigned to them? We perform several procedures to feel comfortable enough to say that they have ownership at that point in time. Our expectations of what ownership means in this area is evolving.
+\end{quote}
+
+Many clients are concerned about self-custody due to security risks over holding their own private keys and are turning to custodians to fulfill this function for them. Auditors must adapt their audit procedures to their clients' unique internal control environments and consider competing sources of evidence before coming to a conclusion about ownership. 
+
+\subsubsection{Third-Party Custodianship}
+In a traditional audit context, the reliance on a third-party custodian is commonplace. Clients might have bank accounts with multiple banks or investment accounts with various brokerage houses. Obtaining confirmations from these custodians is valued as a high-quality evidence due to its provenance from a regulated third-party. Confirmations in the cryptoasset space are not as straightforward because the entities the auditor would be requesting confirmations from, such as a crypto-exchange, are not regulated. This raises questions over the reliability of their responses. 
+
+In order to address the reliability of the confirmations from service providers such as cryptocurrency exchanges or other types of custodians, auditors look to the robustness of the internal controls at the service organization. The robustness of these controls is evidenced by the presence of a service organization control (SOC) report. In order to rely on the controls of a service organization such as a payroll provider or investment custodian, auditors often obtain SOC reports, which provide assurance over the processes and data security at the custodian. Two types of reports are available: an SOC 1 report provides assurance over the controls used by a service provider who processes financial data; an SOC 2 report provides assurance over controls over the processing of non-financial data in accordance with Trust Services Criteria~\cite{bdosocreports}. 
+
+While some firms have been able to obtain SOC reports, the mere fact of having the report is insufficient. Obtaining an SOC report is not a box-checking exercise and that the auditor must review the report carefully to understand which controls it has addressed and can be relied on.
+
+A related issue to the robustness of the internal controls relates to how the custodian segregates the assets in their possession: 
+
+\begin{quote}
+We also have heard that many of these custodians are co-mingling or combining assets into a single account or wallet. That muddies the water a bit and it's difficult in some type of SOC reports to understand what they are really doing to maintain a client's assets. There's a chance that there actually are no assets. If you've given your assets to someone else to hold for you, you may think that they still are yours and that they still exist, but that can be difficult to ascertain.
+\end{quote}
+
+When evaluating whether they can rely on the representations from a custodian, the auditor should evaluate how the custodian segregates the assets in their possession. 
+
+In short, in order for auditors to validate ownership, their procedures will depend on whether the client has custody of their keys or uses a third-party. Self-custody will depend on the client's internal controls, while reliance on a custodian will depend on the ability to obtain comfort over the reliability of the custodian. Additionally, cryptographic proofs play an important role in the ability to rely on either party. In order to avoid double-counting of keys, an industry standard common date should be arranged to provide a generally agreed upon ``state of the world'' where keyholders can demonstrate ownership. 
+
+However, not all auditors may be as aware of the importance of SOC reports. One common method is to rely on confirmations from exchanges as a way to corroborate the existence and ownership of the client's assets, since third-party audit evidence is traditionally viewed as the highest quality of audit evidence for addressing these assertions. 
+
+This finding raises two issues. First, auditors believing they could rely on technologists at their firm to compensate for their lack of knowledge. However, having access to expert knowledge is not the same as deploying it. As we have cautioned throughout the paper, it is incumbent on auditors to develop a fundamental knowledge of blockchain technology to be able to leverage the skills of specialized professionals. And this synergy is only possible when auditors and technologists collaborate~\cite{bauer2019one}. Second is the lack of guidance on how to audit cryptoassets. We believe that by providing rigorous sets of standards and through ongoing inspections by audit oversight bodies, a corpus of generally accepted auditing standards for this sector will develop. These standards will provide guidelines that auditors who are not blockchain experts can use when attempting to make inroads into this sector. 
 
 
 %++++++++++++++++++++++=======================================+++++++++++++++++++++
@@ -81,16 +142,19 @@ We are aware of the possibility of creating multi-signature wallets without the 
 % Case study 1: Proof of ownership
 % —> Message signing v.s. self transferred transaction —> proof ownership
 % ——> EOA v.s. multisig wallet
-% 			— manual audit of the variables of the smart contract —> how are the signaturories and what code it’s running, …
+% 			— manual audit of the variables of the smart contract —> how are the signaturories and what code it's running, …
 % —> probably find a paper or blog or something to cite
 
 \subsection{Case Study 1: Proof of Ownership} \label{sec:auditing:case-studies:ownership}
 
-In the traditional auditing world, providing proof of ownership of the assets in a company's balance sheet is a common practice, usually in the form of a bank statements or a certificate of ownership. In the blockchain ecosystem, there is no bank or central authority that can provide such a statement~\cite{pimentel2021systemizing}. Instead, the owner of the assets must be able to prove ownership of the assets either by relying on a third party or themselves by using cryptographic techniques. As shortly discussed in Section~\ref{digital_signature}, this can be done by providing a digital signature from the address that holds the assets. However, due to technical nuances of blockchain ecosystem, this is not always a straightforward process. 
+In the traditional auditing context, providing proof of ownership of the assets in a company's balance sheet is a common practice (See Section ~\ref{sec:auditing:framework:ownership}), usually in the form of a bank statements or a certificate of ownership. In the blockchain ecosystem, there is no bank or central authority that can provide such a statement~\cite{pimentel2021systemizing}. Instead, the owner of the assets must be able to prove ownership of the assets either by relying on a third party or themselves by using cryptographic techniques. As shortly discussed in Section~\ref{digital_signature}, this can be done by providing a digital signature from the address that holds the assets. However, due to technical nuances of blockchain ecosystem, this is not always a straightforward process. 
 
 In order to provide proof of ownership of any cryptoasset (\eg Bitcoin, ETH, ERC20 tokens, NFTs), historically multiple approaches have been used in financial audit processes. One of the first approaches, started with self-custodial Bitcoin holdings, was to transfer a small amount of bitcoin from and back to the address that holds the assets. This approach is not only time consuming, but also has costs associated with it due to the blockchain transaction fees. Another common approach is to sign a message with the private key associated with the address (\eg digital signature) that holds the assets. This approach is more efficient and cost effective, however, requires tooling to be able to irrefutably verify the validity of the signature by the auditors~\cite{gavinwrightcourt}. Additionally, this approach is not always possible. For example, in the case of Ethereum, the address that holds the asset can be an externally owned account (EOA) or a smart contract. In the case of an EOA, the process is can be done using the digital signature verification. However, in the case of a smart contract, the process is more complicated. 
 
-As described in Section~\ref{sec:auditing:background}, multisig smart contracts are commonly used by companies to securely store their cryptoassets. Unlike EOA addresses, smart contracts do not have a private key associated with them, hence the proof of ownership cannot be done using the digital signature verification. One approach is to fall back on the older method of transferring a small amount of the asset from and back to the smart contract address. Another is to prove the ownership by by verifying the code of the smart contract and the only verify the signatories of the multisig smart contract. This process is more complicated and requires manual auditing of the smart contract code. Additionally, the smart contract can be upgraded or the signatories of the multisig smart contract can be changed at any time, hence the proof of ownership must be done at the time of every audit. 
+As described in Section~\ref{sec:auditing:background}, multisig smart contracts are commonly used by companies to securely store their cryptoassets. Unlike EOA addresses, smart contracts do not have a private key associated with them, hence the proof of ownership cannot be done using the digital signature verification. One approach is to fall back on the older method of transferring a small amount of the asset from and back to the smart contract address. Another is to prove the ownership by by verifying the code of the smart contract and the only verify the signatories of the multisig smart contract. This process is more complicated and requires manual auditing of the smart contract code. Additionally, the smart contract can be upgraded or the signatories of the multisig smart contract can be changed at any time, hence the proof of ownership must be done at the time of every audit, and manually verified by technical experts.
+
+%TODO: probably some technical depth here is needed on multisig stuff
+
 
 
 
@@ -112,12 +176,12 @@ As described in Section~\ref{sec:auditing:background}, multisig smart contracts 
 % Case Study 3:
 % —> Excistence 
 % OP airdrop —> drop to every keyholder —> required to claim per address
-% —> key holders didn’t have balance, 
+% —> key holders didn't have balance, 
 % —> move the balance to main wallet
 % —> Ownership —> Time of ownership 
 % 	—> Existence —> do they exist in the balance sheet
 % —> valuation —> how do you value that?
-% ———> Argument : OP if claimed, and voted some governnace, you’d get a second airdrop . how does that work and what is that considered to be? 
+% ———> Argument : OP if claimed, and voted some governnace, you'd get a second airdrop . how does that work and what is that considered to be? 
 % —> Airdrop claim expiry 
 
 
