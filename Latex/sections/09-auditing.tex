@@ -1,5 +1,5 @@
 % !TEX root = main.tex
-\chapter{Auditing Blockchain-based Assets} \label{sec:auditing}
+\chapter{Audits: from Financial Statements to Smart Contracts} \label{sec:auditing}
 
 
 \begin{quote}
@@ -9,12 +9,16 @@
 \end{quote}
 
 
-%TODO a paragraph connecting this chapter to the previous chapter or the theme of the thesis
 
-This chapter is slightly different than the previous chapters. In all previous chapters, we focused on the technical aspects of the blockchain ecosystem, and how they can result in unforeseen consequences. In this chapter, we will focus on the financial auditing process of blockchain-based assets (cryptoassets), and how the technical nuances of the blockchain ecosystem can result in challenges for the auditors. These challenges are important to address as they can result in inaccurate financial statements, and potentially misleading investors and other stakeholders.
+\section{Introduction} \label{sec:auditing:intro}
+
+In the previous chapters, we looked at the technical aspects of the blockchain ecosystem, and how they can result in unforeseen consequences. In contrast, in this chapter we will focus on the financial auditing process of blockchain-based assets (cryptoassets), and how the technical nuances of the blockchain ecosystem can result in challenges for the financial auditors. These challenges are important to address as they can result in inaccurate financial statements, and potentially misleading investors and other stakeholders.
+
+In certain common circumstances, firms operating in the blockchain space will require their financial statements to be audited by an external firm. Annual audits are legally mandatory for publicly traded companies in most countries, and audits might also be required when a firm borrows from a bank or raises capital from investors. Auditing is a timely subject and usually performed by a third party, who is independent of the firm being audited. The auditor's role is to provide an opinion on the financial statements of the firm, and to provide reasonable assurance that the financial statements are free of material misstatements. The auditor's opinion is based on the audit evidence obtained during the audit process. 
+
+Throughout this chapter, we focus on financial audit of the cryptoassets and the company's balance sheet, and not the technical audit (\eg security code review) of the smart contracts. However, we will discuss and conclude that they are not mutually exclusive, and the technical audit of the smart contracts can be used as a tool to assist the financial auditors in their process (See Section~\ref{sec:auditing:case-studies:ownership} for an example).
 
 
-% Auditing <— as a chapter 
 % ConsenSys diligence work —> borrow from auditing paper with Erica, illusion of chapter is paper reviewed but adding the framework of the existence, evaluation, ownership, internal control weave in stuff from code review and and CTO stuff. (no on the interviews)
 
 % shine on what people do, for crypto auditing. <— (wait on Jeremy for a paper)
@@ -29,8 +33,7 @@ This chapter is slightly different than the previous chapters. In all previous c
 
 
 %++++++++++++++++++++++=======================================+++++++++++++++++++++
-% Similar to frontrunning paper sections
-\section{Introduction} \label{sec:auditing:intro}
+\section{Background and Motivation} \label{sec:auditing:background}
 
 The blockchain industry is comprised of firms (raising more than \$15B in unregulated funding and \$2.5B in venture capital in 2018~\cite{coindesk2018}) that issue and manage cryptoassets (worth a combined \$1.64T at the time of writing~\cite{coinmarketcap}). While this market is experiencing rapid growth, it is dominated by startups that lack the financial sophistication and maturity of similarly valued traditional firms, and that rely on outside funding to develop and grow. These small firms will require audited financial statements to obtain traditional forms of credit such as bank loans or to gain access to public markets. For instance, SEC registrants must file audited financial statements that have an unqualified audit opinion (except under limited circumstances)~\cite{securities2009financial}. If registrants are unable to provide unqualified audited statements, they will be unable to raise capital on public markets. At the time of writing, auditing firms are hesitant to provide audit opinions to the blockchain sector. Furthermore, several crypto companies such as Impak Finance (who undertook the first legal ICO in Canada~\cite{AMFImpactFinance}), Hut 8 Mining Corp., Vogogo Inc. and DMG Blockchain Solutions Inc., were placed on cease trade for failure to produce timely financial statements when their auditors abruptly stepped down and the companies were unable to find replacement auditors~\cite{posadzki2019crypto}). Therefore, the inability to obtain audited financial statements is a pressing issue as both new and existing firms are having difficulty finding auditing firms who wish to provide opinions to crypto companies.
 
@@ -40,9 +43,8 @@ Our research has uncovered that major accounting firms are hesitating to provide
 This chapter aims to bring forth issues associated with auditing blockchain-based assets by making parallels to traditional financial statement audits. 
 
 
-
 %++++++++++++++++++++++=======================================+++++++++++++++++++++
-\section{Background} \label{sec:auditing:background}
+% \section{Background} \label{sec:auditing:background}
 
 
 \subsection{Ethereum Address types}

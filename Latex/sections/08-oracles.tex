@@ -1,14 +1,16 @@
 % !TEX root = main.tex
-\chapter{Oracles; from the ground truth to market manipulation} ~\label{sec:oracles}
+\chapter{Oracles: from Ground Truth to Market Manipulation} ~\label{sec:oracles}
 
 \begin{quote}
 	\textit{This chapter is based on the paper ``Oracles; from the ground truth to market manipulation''~\cite{eskandari2021sok} published at 3rd ACM Conference on Advances in Financial Technologies. This paper was supervised by Jeremy Clark, and co-authored by Mehdi Salehi and Wanyun Catherine Gu.}
 \end{quote}
 
+\section{Introduction}
+
 In the previous chapter, we discussed the frontrunning attacks that can change the underlying information a user's transaction is based on and change the state of the execution prior to the transaction. In this chapter, we focus on the source of truth and how the information flow can be manipulated by different actors depending on the ~\textit{oracle} technical design. These attacks vary from abuse of the trust to technical nuances of the design that can be manipulated by malicious network participants. We start by introducing the oracle problem and the different oracle designs. We then present a modular framework for oracle designs and discuss the different attacks that can be performed on each module. We conclude by presenting a taxonomy of oracle designs and discuss the different oracle designs in the context of the taxonomy. 
 
 
-\section{Background}
+\section{Background and Motivation}
 
 
 With billions of dollars at stake, decentralized networks are prone to attacks. It is essential that the smart contracts, which govern how systems are run on these networks, are executed correctly. Public blockchains, like Ethereum, ensure the correct execution of smart contract code by taking the consensus of a large, open network of nodes operating the Ethereum software. For consensus to form, many nodes need to make decisions based on the exact same input data. Hypothetically, if a decision requires nodes to fetch data or use a service provider outside of the blockchain, there can be no guarantee that every node in a global network has the same access and view of this external source. For this reason, blockchains only execute on internal sources: data and code provided in a current transaction, or past data and code already stored on the blockchain.

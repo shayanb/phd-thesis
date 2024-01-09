@@ -1,7 +1,7 @@
 % front-running
 
 
-\chapter{Transparent Dishonesty: front-running attacks on Blockchains} \label{sec:frontrunning}
+\chapter{Front-running: from Secretive Trades to Transparent Blockchains} \label{sec:frontrunning}
 
 % !TEX root = main.tex
 
@@ -13,13 +13,15 @@
 \end{quote}
 
 
+\section{Introduction}
+
 Front-running has been an issue in financial instrument markets since the 1970s. With the advent of the blockchain technology, front-running has resurfaced in new forms we explore here, instigated by blockchain’s decentralized and transparent nature. Due to this technical nuance of blockchains, any actor can act as the actor with privileged information and abuse this early access to information to profit from it. In the financial markets, the privileged information is mostly regarding trades and financial data, however, as blockchains have other use cases, front-running attack are expanded to many other applications, as discussed in this chapter. 
 
-
-
-\section{Background}
-
 In this section, we briefly describe what front-running is in the traditional markets and how it is related to other concepts regarding its legality and ethics. Additionally, we discuss the background of front-running on the blockchain applications and how the advancement and complexity of the technology has increased the attack vector to applications that previously were not vulnerable to information flow attacks. Finally, we discuss the related literature in this area. 
+
+
+\section{Background and Motivation}
+
 
 The mechanics of front-running work on all DApps but front-running is not necessarily beneficial, depending on the DApp's internal logic and/or as any mitigation it might implement. Therefore, DApps need to be studied individually or in categories. In this chapter, we draw from a scattered body of knowledge regarding front-running attacks on blockchain applications and the proposed solutions, with a series of case studies of DApps deployed on Ethereum (a popular blockchain supporting DApps). We do case studies on decentralized exchanges (\eg Bancor), crypto-collectibles (\eg CryptoKitties), gambling services (\eg Fomo3D), and decentralized name services (\eg Ethereum Name Service). We also study initial coin offerings (ICOs). Finally, we provide a categorization of techniques to eliminate or mitigate front-running including transaction sequencing, cryptographic techniques like commit/reveal, and redesigning the functioning of the DApp to provide the same utility while removing time dependencies.
 
