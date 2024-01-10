@@ -3,9 +3,8 @@
 
 
 \begin{quote}
-	\textit{This chapter is based on the paper ``Systemizing the Challenges of Auditing Blockchain-Based Assets''~\cite{pimentel2021systemizing} published on American Accounting Association Journal of Information Systems. This paper was supervised by Jeremy Clark, and co-authored by Erica Pimentel and Emilio Boulianne}
+	\textit{This chapter references and excerpts from portions of the paper ``Systemizing the Challenges of Auditing Blockchain-Based Assets''~\cite{pimentel2021systemizing} published on American Accounting Association Journal of Information Systems. This paper was supervised by Jeremy Clark, and co-authored by Erica Pimentel and Emilio Boulianne}
 	% TODO: change this to reflect the contribution and modifications
-
 \end{quote}
 
 
@@ -70,7 +69,34 @@ We use the term cryptoasset and cryptoliability to refer to listings on a firm's
 
 %++++++++++++++++++++++=======================================+++++++++++++++++++++
 \section{Framework and Technical Nuances} \label{sec:auditing:framework} %TODO: maybe merge this with background or change the title
-In this section, we provide a brief overview of the technical nuances of blockchain technology that are relevant to the auditing process while discussing the proposed auditing framework. We also provide a brief overview of the auditing process and the challenges that auditors face when auditing blockchain-based assets.
+In this section, we provide a brief overview of the technical nuances of blockchain technology that are relevant to the auditing process while discussing the proposed auditing framework. This framework consists of Existence, Ownership, Valuation, and Internal Control. We also provide a brief overview of the auditing process and the challenges that auditors face when auditing blockchain-based assets.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/audit_framework.png}
+    \caption{Audit Framework for Cryptoassets}
+    \label{fig:dataflow}
+\end{figure}	
+	
+
+\subsection{Existence} \label{sec:auditing:framework:existence}
+Auditors need to establish that financial statements, as reported, are free of material misstatements. One area that was repeatedly cited as a challenging area for our respondents was the existence of cryptocurrencies. The major challenges to verifying existence are related to the reliability of a blockchain and the custodianship of assets.
+
+\subsubsection{Reliability of a Blockchain}
+One challenge of auditing the existence of cryptoassets is simply due to their non-physical nature~\cite{pimentel2021systemizing}. Unlike inventory or land that auditors can observe, auditors are required to find alternative evidence for these intangible assets. Evaluating the existence of a cryptoasset necessarily requires relying on a blockchain upon which a cryptoasset resides. Further, determining whether a given blockchain is reliable or not can prove difficult. Although blockchains are touted as immutable, not all blockchains are created equally. Hence, the ability to rely on a blockchain will depend on factors such as the robustness of the consensus mechanism, depth of the community supporting the blockchain, and reliability of the cryptography involved, among other things.
+A fundamental question is the reliability of that blockchain to be used as audit evidence. Blockchain is viewed as trustless but it is still a piece of code. For instance, if we're talking Bitcoin, there is a larger community supporting it, resulting in a longer chain, more mining, more hashpower, more robust cryptography, more robust consensus mechanism, quicker resolution of forks. Not just because of the size of the community, but the manpower to resolve these issues makes the blockchain more reliable. If we're talking about an obscure altcoin, then it's something different. In that case, maybe it's a weaker protocol, a weaker consensus mechanism, or lower hashpower. There is less support.
+Auditors must be able to evaluate the reliability of the blockchain they are relying on to provide evidence for the existence of cryptoassets. This is a challenge because it requires a level of technical expertise that many auditors do not possess.
+
+The challenge lies in determining how much work is involved in validating the blockchain itself. Whether a full code review or investigation of the underlying blockchain's cryptography is necessary will be a case-by-case decision. However, this may result in duplicate work if each firm is providing an in-depth review of each blockchain for each mandate. Best practice would involve firms developing a library of blockchains which have been tested (for instance, blockchains for which a code review has been done at a certain date) and which future engagement teams within the firm network can rely on to reduce the duplication of work.
+
+Another challenge remains determining how to rely on transactions that are not on the blockchain. For instance, many exchanges pool or commingle the accounts of several clients. In a secondary ledger (not on the blockchain), they record the positions of each client and then may record offsetting positions of those clients in this secondary ledger and not actually record the exchange on the blockchain.
+
+Auditors must be careful when evaluating audit evidence to verify the source for their existence support. While there are procedures that will allow the auditor to rely on the blockchain to validate existence, the auditor must validate that the transaction actually took place on that blockchain. If not, the immutability of the blockchain is irrelevant.
+
+
+\subsubsection{Forks and Airdrops} \label{sec:auditing:framework:existence:airdrops}
+Existing accounting standards do not contemplate how to account for non-reciprocal transfers of assets like in the case of forks or airdrops. For example, in August 2017, when a hard fork created Bitcoin Cash from Bitcoin main ledger, holders of Bitcoin had two types of assets on hand. Bitcoin Cash was not paid for but resulted from a split between the two currencies. However, if existing accounting standards require the measurement of transactions at historical cost (what was paid for the assets), then recipients of Bitcoin Cash would report this new asset on their books at a value of \$0. Certainly, this does not represent the true value acquired through the fork~\cite{webb2018fork}. Therefore, auditors must address the issue of an accounting standard that does not contemplate how to measure the value of cryptoassets when considering whether the financial statements they are reporting on are accurate in all substantial respects. More commonly for ERC-20 tokens on Ethereum, the recipient of the tokens sometimes don't have the option to reject the deposits nor would get notified of the new tokens received, which could result in issues with completeness. However, in some other instances, such as Optimism Airdrop~\cite{allen2023airdrop}, the recipient of the tokens must claim the tokens in order to receive them. In this case, the auditor must ensure that the client has claimed the tokens, and the price of the time of the claim, in order to include them in the financial statements.
 
 
 \subsection{Proof of Ownership}\label{sec:auditing:framework:ownership}
@@ -136,25 +162,6 @@ This finding raises two issues. First, auditors believing they could rely on tec
 
 
 
-\subsection{Existence} \label{sec:auditing:framework:existence}
-Auditors need to establish that financial statements, as reported, are free of material misstatements. One area that was repeatedly cited as a challenging area for our respondents was the existence of cryptocurrencies. The major challenges to verifying existence are related to the reliability of a blockchain and the custodianship of assets.
-
-\subsubsection{Reliability of a Blockchain}
-One challenge of auditing the existence of cryptoassets is simply due to their non-physical nature~\cite{pimentel2021systemizing}. Unlike inventory or land that auditors can observe, auditors are required to find alternative evidence for these intangible assets. Evaluating the existence of a cryptoasset necessarily requires relying on a blockchain upon which a cryptoasset resides. Further, determining whether a given blockchain is reliable or not can prove difficult. Although blockchains are touted as immutable, not all blockchains are created equally. Hence, the ability to rely on a blockchain will depend on factors such as the robustness of the consensus mechanism, depth of the community supporting the blockchain, and reliability of the cryptography involved, among other things.
-A fundamental question is the reliability of that blockchain to be used as audit evidence. Blockchain is viewed as trustless but it is still a piece of code. For instance, if we're talking Bitcoin, there is a larger community supporting it, resulting in a longer chain, more mining, more hashpower, more robust cryptography, more robust consensus mechanism, quicker resolution of forks. Not just because of the size of the community, but the manpower to resolve these issues makes the blockchain more reliable. If we're talking about an obscure altcoin, then it's something different. In that case, maybe it's a weaker protocol, a weaker consensus mechanism, or lower hashpower. There is less support.
-Auditors must be able to evaluate the reliability of the blockchain they are relying on to provide evidence for the existence of cryptoassets. This is a challenge because it requires a level of technical expertise that many auditors do not possess.
-
-The challenge lies in determining how much work is involved in validating the blockchain itself. Whether a full code review or investigation of the underlying blockchain's cryptography is necessary will be a case-by-case decision. However, this may result in duplicate work if each firm is providing an in-depth review of each blockchain for each mandate. Best practice would involve firms developing a library of blockchains which have been tested (for instance, blockchains for which a code review has been done at a certain date) and which future engagement teams within the firm network can rely on to reduce the duplication of work.
-
-Another challenge remains determining how to rely on transactions that are not on the blockchain. For instance, many exchanges pool or commingle the accounts of several clients. In a secondary ledger (not on the blockchain), they record the positions of each client and then may record offsetting positions of those clients in this secondary ledger and not actually record the exchange on the blockchain.
-
-Auditors must be careful when evaluating audit evidence to verify the source for their existence support. While there are procedures that will allow the auditor to rely on the blockchain to validate existence, the auditor must validate that the transaction actually took place on that blockchain. If not, the immutability of the blockchain is irrelevant.
-
-
-\subsubsection{Forks and Airdrops} \label{sec:auditing:framework:existence:airdrops}
-Existing accounting standards do not contemplate how to account for non-reciprocal transfers of assets like in the case of forks or airdrops. For example, in August 2017, when a hard fork created Bitcoin Cash from Bitcoin main ledger, holders of Bitcoin had two types of assets on hand. Bitcoin Cash was not paid for but resulted from a split between the two currencies. However, if existing accounting standards require the measurement of transactions at historical cost (what was paid for the assets), then recipients of Bitcoin Cash would report this new asset on their books at a value of \$0. Certainly, this does not represent the true value acquired through the fork~\cite{webb2018fork}. Therefore, auditors must address the issue of an accounting standard that does not contemplate how to measure the value of cryptoassets when considering whether the financial statements they are reporting on are accurate in all substantial respects. More commonly for ERC-20 tokens on Ethereum, the recipient of the tokens sometimes don't have the option to reject the deposits nor would get notified of the new tokens received, which could result in issues with completeness. However, in some other instances, such as Optimism Airdrop~\cite{allen2023airdrop}, the recipient of the tokens must claim the tokens in order to receive them. In this case, the auditor must ensure that the client has claimed the tokens, and the price of the time of the claim, in order to include them in the financial statements.
-
-
 
 \subsection{Valuation of Cryptoassets} \label{sec:auditing:framework:valuation}
 When values are reported on financial statements, they must be reported in the functional currency of the firm, meaning the primary governmental currency used. A challenge for blockchain entities is to determine the valuation of cryptoassets on the financial statement date or the conversion rate for sales and expenditures made throughout the year. Auditors must be satisfied that the values reported in the financial statements are accurate and represent the underlying economic reality.
@@ -194,24 +201,6 @@ As discussed in Section~\ref{sec:auditing:framework:ownership:custodianship}, au
 % ===> 3 stories from dili and ethcap
 
 
-% Case study 1: Proof of ownership
-% —> Message signing v.s. self transferred transaction —> proof ownership
-% ——> EOA v.s. multisig wallet
-% 			— manual audit of the variables of the smart contract —> how are the signaturories and what code it's running, …
-% —> probably find a paper or blog or something to cite
-
-
-
-% maybe 1 example of each framework: ownership, existence, valuation, internal control 
-\subsection{Case Study 1: Proof of Ownership} \label{sec:auditing:case-studies:ownership}
-
-In the traditional auditing context, providing proof of ownership of the assets in a company's balance sheet is a common practice (See Section ~\ref{sec:auditing:framework:ownership}), usually in the form of a bank statements or a certificate of ownership. In the blockchain ecosystem, there is no bank or central authority that can provide such a statement~\cite{pimentel2021systemizing}. Instead, the owner of the assets must be able to prove ownership of the assets either by relying on a third party or themselves by using cryptographic techniques. As shortly discussed in Section~\ref{digital_signature}, this can be done by providing a digital signature from the address that holds the assets. However, due to technical nuances of blockchain ecosystem, this is not always a straightforward process. 
-
-In order to provide proof of ownership of any cryptoasset (\eg Bitcoin, ETH, ERC20 tokens, NFTs), historically multiple approaches have been used in financial audit processes. One of the first approaches, started with self-custodial Bitcoin holdings, was to transfer a small amount of bitcoin from and back to the address that holds the assets. This approach is not only time consuming, but also has costs associated with it due to the blockchain transaction fees. Another common approach is to sign a message with the private key associated with the address (\eg digital signature) that holds the assets. This approach is more efficient and cost effective, however, requires tooling to be able to irrefutably verify the validity of the signature by the auditors~\cite{gavinwrightcourt}. Additionally, this approach is not always possible. For example, in the case of Ethereum, the address that holds the asset can be an externally owned account (EOA) or a smart contract. In the case of an EOA, the process is can be done using the digital signature verification. However, in the case of a smart contract, the process is more complicated. 
-
-As described in Section~\ref{sec:auditing:background}, multisig smart contracts are commonly used by companies to securely store their cryptoassets. Unlike EOA addresses, smart contracts do not have a private key associated with them, hence the proof of ownership cannot be done using the digital signature verification. One approach is to fall back on the older method of transferring a small amount of the asset from and back to the smart contract address. Another is to prove the ownership by by verifying the code of the smart contract and the only verify the signatories of the multisig smart contract. This process is more complicated and requires manual auditing of the smart contract code. Additionally, the smart contract can be upgraded or the signatories of the multisig smart contract can be changed at any time, hence the proof of ownership must be done at the time of every audit, and manually verified by technical experts.
-
-%TODO: probably some technical depth here is needed on multisig stuff
 
 
 
@@ -236,6 +225,33 @@ In order to audit the existence of the airdropped tokens, the auditor must ensur
 % —> valuation —> how do you value that?
 % ———> Argument : OP if claimed, and voted some governnace, you'd get a second airdrop . how does that work and what is that considered to be? 
 % —> Airdrop claim expiry 
+
+
+
+
+
+
+
+% Case study 1: Proof of ownership
+% —> Message signing v.s. self transferred transaction —> proof ownership
+% ——> EOA v.s. multisig wallet
+% 			— manual audit of the variables of the smart contract —> how are the signaturories and what code it's running, …
+% —> probably find a paper or blog or something to cite
+
+
+
+% maybe 1 example of each framework: ownership, existence, valuation, internal control 
+\subsection{Case Study 1: Proof of Ownership} \label{sec:auditing:case-studies:ownership}
+
+In the traditional auditing context, providing proof of ownership of the assets in a company's balance sheet is a common practice (See Section ~\ref{sec:auditing:framework:ownership}), usually in the form of a bank statements or a certificate of ownership. In the blockchain ecosystem, there is no bank or central authority that can provide such a statement~\cite{pimentel2021systemizing}. Instead, the owner of the assets must be able to prove ownership of the assets either by relying on a third party or themselves by using cryptographic techniques. As shortly discussed in Section~\ref{digital_signature}, this can be done by providing a digital signature from the address that holds the assets. However, due to technical nuances of blockchain ecosystem, this is not always a straightforward process. 
+
+In order to provide proof of ownership of any cryptoasset (\eg Bitcoin, ETH, ERC20 tokens, NFTs), historically multiple approaches have been used in financial audit processes. One of the first approaches, started with self-custodial Bitcoin holdings, was to transfer a small amount of bitcoin from and back to the address that holds the assets. This approach is not only time consuming, but also has costs associated with it due to the blockchain transaction fees. Another common approach is to sign a message with the private key associated with the address (\eg digital signature) that holds the assets. This approach is more efficient and cost effective, however, requires tooling to be able to irrefutably verify the validity of the signature by the auditors~\cite{gavinwrightcourt}. Additionally, this approach is not always possible. For example, in the case of Ethereum, the address that holds the asset can be an externally owned account (EOA) or a smart contract. In the case of an EOA, the process is can be done using the digital signature verification. However, in the case of a smart contract, the process is more complicated. 
+
+As described in Section~\ref{sec:auditing:background}, multisig smart contracts are commonly used by companies to securely store their cryptoassets. Unlike EOA addresses, smart contracts do not have a private key associated with them, hence the proof of ownership cannot be done using the digital signature verification. One approach is to fall back on the older method of transferring a small amount of the asset from and back to the smart contract address. Another is to prove the ownership by by verifying the code of the smart contract and the only verify the signatories of the multisig smart contract. This process is more complicated and requires manual auditing of the smart contract code. Additionally, the smart contract can be upgraded or the signatories of the multisig smart contract can be changed at any time, hence the proof of ownership must be done at the time of every audit, and manually verified by technical experts.
+
+%TODO: probably some technical depth here is needed on multisig stuff
+
+
 
 
 
