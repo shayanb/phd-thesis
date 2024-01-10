@@ -110,10 +110,6 @@ Existing accounting standards do not contemplate how to account for non-reciproc
 
 Auditors must be satisfied that the assets reported on the company's balance sheet do in fact belong to the company, or if the client is operating as a custodian for third-parties (for instance, as an exchange who holds cryptocurrencies received from third-parties), that the assets held do in fact belong to the third-party who claims to possess them. For traditional assets, firms might overcome the ownership issue in several ways. First, a client can demonstrate ownership of an asset with reference to a generally accepted official document. For instance, a property owner can demonstrate ownership of their building with reference to a deed. However, in a blockchain environment, no central authority exists to produce such official documents. Second, firms may engage a custodian to hold assets on their behalf, like a bank. This does not eliminate the issue of ownership but simply shifts the concern from the firm's audit to the audits of central custodians.
 
-\begin{quote}
-One of our first considerations as it relates both existence and ownership is just to think through how the entity is maintaining custody of their assets. And in particular, what's the security mechanism around access to the private key? Which can vary from being held [in many ways] from online to some type of hot storage to on a piece of paper somewhere to in a software tool that is not connected to the internet and kind of offline. Which of course, brings down the risk of it being hacked but then increases the risk of physical loss of the private key. We want to understand what our potential clients are doing related to that. Then, as many of them seem to do, we start to gather that they're using a third party around custody.~\cite{pimentel2021systemizing}
-\end{quote}
-
 Therefore, addressing whether or not a client maintains ownership over their cryptoassets will depend on whether they hold their cryptoassets themselves (self-custody) or through a custodian.
 
 
@@ -138,7 +134,7 @@ For most cryptoassets, the asset is considered owned by Alice if Alice possesses
 
 We note that while cryptographic proof is necessary, it is not sufficient. A cryptographic proof simply demonstrates that the purported owner has access to the person holding the signing key. A malicious company might arrange for the owner of cryptoassets to engage in signing statements or moving test amounts fraudulently on their behalf. This issue is not new: an insolvent retail store might borrow inventory from elsewhere to inflate its assets during an inventory count. Auditors mitigate this by arranging a common date for all audits of physical inventory and, similarly, cryptographic audits could be synchronized on a fixed schedule to prevent the same assets from being counted for different companies in different audits~\cite{dagher2015provisions}. 
 
-One type of proof includes sending a small amount of money to the auditor from the private key, while another proof involves demonstrating that the client can respond to a cryptographically-protected message that only the private key holder could open. Independently, neither of these procedures demonstrate that the client owns the private key. However, auditors rely on the sum of several procedures to obtain reasonable assurance over this assertion: 
+One type of proof includes sending a small amount of money to the auditor from the private key, while another proof involves demonstrating that the client can respond to a cryptographically-protected message that only the private key holder could open. Independently, neither of these procedures demonstrate that the client owns the private key. It should be noted that due to technical nuances of the cryptographic implementation, this requires tooling to be able to irrefutably verify the validity of the signature by the auditors~\cite{gavinwrightcourt}. However, auditors rely on the sum of several procedures to obtain reasonable assurance over this assertion: 
 
 \begin{quote}
 With ownership, it's not a specific procedure but rather the body of evidence that can be performed by signing messages, by testing internal controls, by understanding how the client protects passwords. The clear expectation of ownership is changing. In a traditional audit, the client represents that they own certain things. We see an invoice and we see that they own it. But did they really pay for it? Was it paid for by another company and consigned to them? We perform several procedures to feel comfortable enough to say that they have ownership at that point in time. Our expectations of what ownership means in this area is evolving.
@@ -169,7 +165,6 @@ This finding raises two issues. First, auditors believing they could rely on tec
 
 
 
-
 \subsection{Valuation of Cryptoassets} \label{sec:auditing:framework:valuation}
 When values are reported on financial statements, they must be reported in the functional currency of the firm, meaning the primary governmental currency used. A challenge for blockchain entities is to determine the valuation of cryptoassets on the financial statement date or the conversion rate for sales and expenditures made throughout the year. Auditors must be satisfied that the values reported in the financial statements are accurate and represent the underlying economic reality.
 
@@ -197,76 +192,48 @@ As discussed in Section~\ref{sec:auditing:framework:ownership:custodianship}, au
 %++++++++++++++++++++++=======================================+++++++++++++++++++++
 \section{Case Studies} \label{sec:auditing:case-studies}
 
-
-
-% here is the what the topic is
-
-% here are the case studies: — start here! centre
-% - experience of the CTO
-% - experience of the auditors
-% - why is the neunces 
-% ===> 3 stories from dili and ethcap
+The following case studies are based on our professional experience in the industry, and interviews with executives of the companies or the publicly known material. The professional experiences includes but not limited to Blockchain Engineer at a Bitaccess --A Bitcoin ATM company--, Senior Security Auditor at ConsenSys Diligence, Chief Technology Officer at Ethical Capital --A publicly traded company holding cryptoassets--, and Research Chair at Raymond Chabot Grant Thornton(RCGT). Although the case studies are based on real life experiences, the scenarios mentioned here are fictional and do not represent any of the companies mentioned above. Some quotes in this chapter are based on the interviews conducted by my co-author Erica Pimentel, See the paper~\cite{pimentel2021systemizing} for description of the interviewees.
 
 
 
 
+\subsection{Case Study 1} \label{sec:auditing:case-studies:existence} % Existence
+The Optimism~\cite{optimismgithub} team decided to airdrop \texttt{OP} tokens to the Ethereum addresses that met a criteria of activity on the Ethereum mainnet (\eg part of the multisig smart contract). In this section, we do not discuss what Optimism is, and how it works, and we only focus on the auditing challenges of the airdrop for the auditors and the cryptoasset holders (See Section~\ref{sec:auditing:framework:existence:airdrops}). The airdrop was done in two phases, the first phase was done in May 2022, and the second phase was done in February 2023. The first airdrop was done in a way that the recipient of the tokens must claim the tokens in order to receive them. This is different that many previously push airdrops, where the recipient of the tokens did not have the option to reject the deposits nor would get notified of the new tokens received. 
 
+There are some technical nuances that are worthy of mentioning. Assume a company has a multisig smart contract account as their main address, and 10 key holders for the multisig smart contract (the threshold here does not matter). Each of the key holders were included in the recipients list of the airdrop. In order for the company to receive the airdropped tokens, each of the key holders must claim the tokens by sending a transaction. For normal use of the multisig smart contract (\eg Gnosis Safe), the keyholders do not require an Ether balance to pay for gas, however this transaction requires an onchain transaction and gas. After the claim process is done, the tokens required to be transferred to the main address of the company, which required more gas to be paid. This process is cumbersome and requires manual review of the transactions to ensure the correctness of the process. To make the matter more complicated, the airdrop was done in two phases\footnote{There were three consecutive airdrops, however, for the sake of simplicity in this case study, we will focus only on the first two, as the second and third airdrops were technically identical, rendering the examination of the third phase redundant.}, and the second phase was done after the first phase was completed and only airdropped to addresses that have claimed and participated with the governance of the Optimism protocol~\cite{allen2023airdrop}. The second phase of the airdrop did not need to be claimed and was sent to the eligible addresses, which made the auditing process more complicated and different from the first phase. 
 
-\subsection{Case Study 2: Existence} \label{sec:auditing:case-studies:existence}
-As described in Section~\ref{sec:auditing:framework:existence}, the existence of cryptoassets is a challenging area for auditors. For this case study, we will focus on the example from~\ref{sec:auditing:framework:existence:airdrops} and discuss the challenges of auditing the existence of airdropped tokens, specifically Optimism~\cite{optimismgithub} Airdrop. In this section, we do not discuss what Optimism is, and how it works, and we only focus on the auditing challenges of the airdrop for the auditors and the cryptoasset holders.
+\paragraph{Analysis.} In here we assume all the technical details of the claim process has been handled by the technical team of the company, and the auditor only needs to ensure that the tokens have been claimed. It should be noted that this process by itself is not defined in the auditing standards or procedure and is a novel process that the auditor must develop a procedure for. In order to audit the existence of the airdropped tokens, the auditor must ensure that the client has claimed the tokens, the cost of the claim (gas), and the price of the time of the claim, in order to include them in the financial statements.  This process is not straightforward and requires manual auditing of the client's Ethereum addresses. Additionally, the auditor must ensure that the client has claimed the tokens before the end of the fiscal year, otherwise the tokens must be excluded from the financial statements. There are many open challenges in this process, as each transfer of tokens requires to be recorded and explained in the audit report. Additionally, many of these airdropped tokens, are not listed on any exchanges or have really low valuation to be considered material, hence the auditor must rely on the client's internal valuation of the tokens. 
 
-The Optimism team decided to airdrop OP tokens to the Ethereum addresses that met a criteria of activity on the Ethereum mainnet (\eg part of the multisig smart contract). The airdrop was done in two phases, the first phase was done in May 2022, and the second phase was done in February 2023. The airdrop was done in a way that the recipient of the tokens must claim the tokens in order to receive them. This is different that many previously push airdrops, where the recipient of the tokens did not have the option to reject the deposits nor would get notified of the new tokens received. 
+% TODO: (ask jeremy) Another unknown factor here, is the ``participation in the governance'' of Optimism, which is by itself not defined, as it requires more transactions to cast the vote or select a governance delegate in order to be eligible for the second airdrop. This process requires more gas (has costs), and can impact the result of a governance vote. The latter, falls outside the normal audit procedure and requires more technical expertise to be able to audit. 
 
-There are some technical nuances that are worthy of mentioning. Assume a company has a multisig smart contract account as their main address, and 10 key holders for the multisig smart contract (the threshold here does not matter). Each of the key holders were included in the recipients list of the airdrop. In order for the company to receive the airdropped tokens, each of the key holders must claim the tokens by sending a transaction. For normal use of the multisig smart contract (\eg Gnosis Safe), the keyholders do not require a balance to pay for gas, however this transaction requires an onchain transaction and gas. After the claim process is done, the tokens required to be transferred to the main address of the company. This process is cumbersome and requires manual review of the transactions to ensure the correctness of the process. To make the matter more complicated, the airdrop was done in two phases\footnote{There were three consecutive airdrops, however, for the sake of simplicity in this case study, we will focus only on the first two, as the second and third airdrops were technically identical, rendering the examination of the third phase redundant.}, and the second phase was done after the first phase was completed and only airdropped to addresses that have claimed and interacted with the governance of the Optimism protocol~\cite{allen2023airdrop}. The second phase of the airdrop did not need to be claimed and was sent to the eligible addresses, which made the auditing process more complicated and different from the first phase. 
-
-In order to audit the existence of the airdropped tokens, the auditor must ensure that the client has claimed the tokens, the cost of the claim (gas), and the price of the time of the claim, in order to include them in the financial statements. This process is not straightforward and requires manual auditing of the client's Ethereum addresses. Additionally, the auditor must ensure that the client has claimed the tokens before the end of the fiscal year, otherwise the tokens must be excluded from the financial statements. There are many open challenges in this process, as each transfer of tokens requires to be recorded and explained in the audit report. Additionally, many of these airdropped tokens, are not listed on any exchanges or have really low valuation to be considered material, hence the auditor must rely on the client's internal valuation of the tokens.
-
-
-% Case Study 3:
-% —> Excistence 
-% OP airdrop —> drop to every keyholder —> required to claim per address
-% —> key holders didn't have balance, 
-% —> move the balance to main wallet
-% —> Ownership —> Time of ownership 
-% 	—> Existence —> do they exist in the balance sheet
-% —> valuation —> how do you value that?
-% ———> Argument : OP if claimed, and voted some governnace, you'd get a second airdrop . how does that work and what is that considered to be? 
-% —> Airdrop claim expiry 
+This case study mainly is focused on the ~\textit{existence} (See Section~\ref{sec:auditing:framework:existence}) of the tokens and how the auditor must develop a procedure to ensure that the tokens have been claimed, transferred, and accounted for in the financial statements. However, such as the valuation of the tokens, and the internal controls of the client (in the claim process) are also important factors that must be considered by the auditor.
 
 
 
 
 
+\subsection{Case Study 2} \label{sec:auditing:case-studies:ownership} % Proof of Ownership
+Sean, the CTO of a publicly traded company, is preparing for the year-end audit of the company's financial statements. The company holds a significant amount of cryptoassets, and the auditor has requested proof of ownership of the cryptoassets. The company holds all the cryptoassets in a hardware wallet~\cite{EBSC15} stored in a safety deposit box at a bank. Sean, using the hardware wallet, with auditors as observers, creates a message based on the day's newspaper headline, and signs the message using the hardware wallet. The auditor, using the public key of the hardware wallet, verifies the signature and confirms the ownership of the cryptoassets.
 
+In the following year, Sean upgrades the security of the company infrastructure by moving the cryptoassets to a multisignature smart contract. The key holders are part of the management and another part board members, separated by responsibility and geographical locations for added security~\cite{c4ccssa}. 
 
-% Case study 1: Proof of ownership
-% —> Message signing v.s. self transferred transaction —> proof ownership
-% ——> EOA v.s. multisig wallet
-% 			— manual audit of the variables of the smart contract —> how are the signaturories and what code it's running, …
-% —> probably find a paper or blog or something to cite
+The following quarter, the auditors ask for proof of ownership of the cryptoassets and expect the similar procedure as the last year. However, the company has moved the cryptoassets to a multisignature smart contract, and the auditors must develop a new procedure to be able to verify the ownership of the cryptoassets as the technical details of the custody has significantly changed.
 
+\paragraph{Analysis.} As described in Section~\ref{sec:auditing:background}, multisig smart contracts are commonly used by companies to securely store their cryptoassets. Unlike EOA addresses, smart contracts do not have a private key associated with them, hence the proof of ownership cannot be done using the digital signature verification. One approach is to fall back on the older method of transferring a small amount of the asset from and back to the smart contract address. Another is to prove the ownership by by verifying the code of the smart contract and the only verify the signatories of the multisig smart contract. This process is more complicated and requires manual auditing of the smart contract code and variables. Additionally, the smart contract can be upgraded or the signatories of the multisig smart contract can be changed at any time, hence the proof of ownership must be done at the time of every audit, and manually verified by technical experts. 
 
+\begin{quote}
+	\textit{One of our first considerations as it relates both existence and ownership is just to think through how the entity is maintaining custody of their assets. And in particular, what's the security mechanism around access to the private key? Which can vary from being held [in many ways] from online to some type of hot storage to on a piece of paper somewhere to in a software tool that is not connected to the internet and kind of offline. Which of course, brings down the risk of it being hacked but then increases the risk of physical loss of the private key. We want to understand what our potential clients are doing related to that. Then, as many of them seem to do, we start to gather that they're using a third party around custody.}~\cite{pimentel2021systemizing}
+\end{quote}
 
-% maybe 1 example of each framework: ownership, existence, valuation, internal control 
-\subsection{Case Study 1: Proof of Ownership} \label{sec:auditing:case-studies:ownership}
-
-In the traditional auditing context, providing proof of ownership of the assets in a company's balance sheet is a common practice (See Section ~\ref{sec:auditing:framework:ownership}), usually in the form of a bank statements or a certificate of ownership. In the blockchain ecosystem, there is no bank or central authority that can provide such a statement~\cite{pimentel2021systemizing}. Instead, the owner of the assets must be able to prove ownership of the assets either by relying on a third party or themselves by using cryptographic techniques. As shortly discussed in Section~\ref{digital_signature}, this can be done by providing a digital signature from the address that holds the assets. However, due to technical nuances of blockchain ecosystem, this is not always a straightforward process. 
-
-In order to provide proof of ownership of any cryptoasset (\eg Bitcoin, ETH, ERC20 tokens, NFTs), historically multiple approaches have been used in financial audit processes. One of the first approaches, started with self-custodial Bitcoin holdings, was to transfer a small amount of bitcoin from and back to the address that holds the assets. This approach is not only time consuming, but also has costs associated with it due to the blockchain transaction fees. Another common approach is to sign a message with the private key associated with the address (\eg digital signature) that holds the assets. This approach is more efficient and cost effective, however, requires tooling to be able to irrefutably verify the validity of the signature by the auditors~\cite{gavinwrightcourt}. Additionally, this approach is not always possible. For example, in the case of Ethereum, the address that holds the asset can be an externally owned account (EOA) or a smart contract. In the case of an EOA, the process is can be done using the digital signature verification. However, in the case of a smart contract, the process is more complicated. 
-
-As described in Section~\ref{sec:auditing:background}, multisig smart contracts are commonly used by companies to securely store their cryptoassets. Unlike EOA addresses, smart contracts do not have a private key associated with them, hence the proof of ownership cannot be done using the digital signature verification. One approach is to fall back on the older method of transferring a small amount of the asset from and back to the smart contract address. Another is to prove the ownership by by verifying the code of the smart contract and the only verify the signatories of the multisig smart contract. This process is more complicated and requires manual auditing of the smart contract code. Additionally, the smart contract can be upgraded or the signatories of the multisig smart contract can be changed at any time, hence the proof of ownership must be done at the time of every audit, and manually verified by technical experts.
-
-%TODO: probably some technical depth here is needed on multisig stuff
+This case study mainly is focused on the ~\textit{proof of ownership} (See Section~\ref{sec:auditing:framework:ownership}) of the cryptoassets and how the auditor must develop a unique procedure based on the technical details of how the company custody their cryptoassets. Also this process is fairly technical and requires in depth knowledge of the cryptographic and blockchain tooling, and the smart contract implementations. There are also many factors regarding the internal controls of the client that must be considered by the auditor, such as how the keys (for each keyholder) are generated, how they are backed up and stored, and the multisig deployment.
 
 
 
 
-
-
-
-
-\subsection{Case Study 3: Valuation} \label{sec:auditing:case-studies:valuation}
+\subsection{Case Study} \label{sec:auditing:case-studies:valuation} %  3: Valuation
 In Section~\ref{sec:auditing:framework:valuation}, we discussed some of the challenges of valuing cryptoassets for financial audits. In this case study, we will depict a future where the auditing frameworks have adapted to the blockchain ecosystem and integrates real-time auditing into the financial audit process. 
+
+
 
 In this scenario, the quantity of cryptoassets held by the company is fetched from a blockchain full node independently by the auditors (or any other entity), and the valuation of the cryptoassets is done using the real-time price feed from a decentralized exchange (DEX). 
 
