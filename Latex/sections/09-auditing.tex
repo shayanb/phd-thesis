@@ -178,7 +178,7 @@ The same cryptoasset might have different market values across different jurisdi
 
 
 
-\subsection{Internal Controls and Monitoring} \label{sec:auditing:framework:internalcontrol}
+\subsection{Internal Controls} \label{sec:auditing:framework:internalcontrol}
 Auditors must be satisfied that the financial statements they are reporting on are free of material misstatements. In order to do so, auditors must obtain reasonable assurance that the internal controls of the client are effective. This is done by testing the design and operating effectiveness of the internal controls. In the context of cryptoassets, this is challenging because the adequate internal controls are novel to the auditors, often not well documented and are not always securely automated.
 
 It is necessary for a firm to be able to demonstrate the existence and ownership of its crypto-assets, however it must further demonstrate that it has adequate procedures in place to prevent or detect fraud and theft. Consider a firm holding DAO governance tokens. Internally, it must ensure proper controls over the signing keys these DAO tokens are assigned to. External to the firm, the DAO smart contract maintaining these tokens on Ethereum's blockchain must itself be secure (which in the case of the DAO, it was not~\cite{siegel2016daohack}). Auditing internal procedures over cryptographic keys is not unprecedented---maintaining certificate authority keys is critical to some security firm's financial prospects (a security breach at one firm, DigiNotar, bankrupted it~\cite{van2013diginotar}). However, the use of cryptographic keys is not yet commonplace in financial auditing.
@@ -230,52 +230,26 @@ This case study mainly is focused on the ~\textit{proof of ownership} (See Secti
 
 
 
-\subsection{Case Study} \label{sec:auditing:case-studies:valuation} %  3: Valuation
-In Section~\ref{sec:auditing:framework:valuation}, we discussed some of the challenges of valuing cryptoassets for financial audits. In this case study, we will depict a future where the auditing frameworks have adapted to the blockchain ecosystem and integrates real-time auditing into the financial audit process. 
+\subsection{Case Study 3} \label{sec:auditing:case-studies:valuation} %  3: Valuation
+Bob is the CTO of a company holding cryptoassets. He believes the future of auditing is access to real-time financial reporting, and he wants to be one of the first companies to implement real-time financial reporting and auditing. Bob has developed a system that allows the auditors (or any other entity) to fetch the quantity of the cryptoassets held by the company from a blockchain full node, and the valuation of the cryptoassets is done using a decentralized price feed as the oracle (See Chapter~\ref{sec:oracles}). The auditors are satisfied with the system and the company is one of the first companies to implement real-time accounting and auditing. %TODO does this need more? 
+
+
+\paragraph{Analysis.} In such scenario, the auditing process is more efficient and less prone to errors, as the auditors do not need to rely on the client's internal records for the quantity of the cryptoassets held by the company. However, this scenario is not without its own challenges. For example, the auditors must ensure that the price feed is reliable and not manipulated. Additionally, the auditors must ensure that the price feed is not delayed, as the price of the cryptoassets can fluctuate significantly in a short period of time. Any mistake in the price feed can result in significant changes in the audit snap shots, which can make the company insolvent for a short period of time. Any oracle manipulation attack, explained further in Chapter~\ref{sec:oracles}, can result in either over or under valuation of the cryptoassets, resulting in an inaccurate financial statement.
+
+This case study mainly is focused on the ~\textit{valuation} (See Section~\ref{sec:auditing:framework:valuation}) of the cryptoassets and how the auditor must develop a procedure to ensure that the price feed is reliable and not manipulated. Additionally, the auditor must validate the real-time financial reporting implementation for any accounting errors and review the internal control of how the quantity of cryptoassets and the price is fetched and included in the financial statements. We believe there are merits in real-time financial reporting standardization~\cite{bakarich2020use,yu2018blockchain} that can benefit both the auditors and the clients, however, the technical nuances of the implementation could result in unforeseen challenges for the accurate reporting of the financial statements.
 
 
 
-In this scenario, the quantity of cryptoassets held by the company is fetched from a blockchain full node independently by the auditors (or any other entity), and the valuation of the cryptoassets is done using the real-time price feed from a decentralized exchange (DEX). 
+\subsection{Case Study 4} \label{sec:auditing:case-studies:internalcontrol} %: Internal Controls
+Ian is an auditor working in one of the big 4 auditing firms. He is assigned to audit a company holding cryptoassets. This company uses a multisig smart contract to custody their cryptoassets. The multisig smart contract is a 2 of 3 multisig smart contract, and the signatories are the CEO, the CFO, and the CTO of the company. The company has acquired a SOC1 report from their custodian, and Ian is satisfied with the internal controls of the custodian. However, the company has a multisig smart contract, and Ian must ensure that the internal controls of the multisig smart contract are adequate. Ian is not familiar with the technical details of the multisig smart contract, and he must rely on the expertise of the company's technical team to ensure that the internal controls of the multisig smart contract are adequate.
 
-%TODO: explain on why this is a potential future that we are heading towards and why it is important to discuss it here
+To expand on the example, SOC1 report consist of two parts~\cite{RCGTsocreport}, the description of the system, and the auditor's opinion on the design and operating effectiveness of the controls. The description of the system includes the controls in place, and the auditor's opinion is based on the description of the system. However, the SOC1 report is not a panacea. The auditor must still evaluate the report to determine whether the controls are adequate for the purposes of the audit. In this scenario, Ian might consider asking for SOC2 report, as it might be more appropriate. SOC2 provides assurance over controls over the processing of non-financial data in accordance with Trust Services Criteria~\cite{bdosocreports}, which might be more relevant to the internal controls of the multisig smart contract. 
 
-In such scenario, the auditing process is more efficient and less prone to errors, as the auditors do not need to rely on the client's internal records for the quantity of the cryptoassets held by the company. Additionally, the valuation of the cryptoassets is done using a decentralized price feed as the oracle (See Chapter~\ref{sec:oracles}). However, this scenario is not without its own challenges. For example, the auditors must ensure that the price feed is reliable and not manipulated. Additionally, the auditors must ensure that the price feed is not delayed, as the price of the cryptoassets can fluctuate significantly in a short period of time. Any mistake in the price feed can result in significant changes in the audit snap shots, which can make the company insolvent for a short period of time. Any oracle manipulation attack, explained further in Chapter~\ref{sec:oracles}, can result in either over or under valuation of the cryptoassets, resulting in an inaccurate financial statement.
+\paragraph{Analysis.} As described in Section~\ref{sec:auditing:framework:internalcontrol}, auditors must be satisfied that the internal controls of the client are effective. This is done by testing the design and operating effectiveness of the internal controls. In the context of cryptoassets, this is challenging because the adequate internal controls are novel to the auditors, and the expertise to evaluate and test theses controls are not always available. Even if the company has acquired their SOC reports, it is still not sufficient to assume the adequacy of the internal controls. There are better suited standards that test the appropriate checks and balances for the internal controls of the cryptoassets, such as the C4 Cryptoasset Security Standard Audit~\cite{c4ccssa}. However these standards are not adopted by any of the big 4 auditing firms at the time of the writing. 
 
-% —> valuation: chapter oracle paper: oracle manupulation attack and tell REKT story? maybe no
-% —> contributes to your solvency
-% —> valuation v.s. oracle manipulation 
-% —> realtime valuation v.s. end of the year valuation 
-% ——> If we move to realtime auditing, then oracle manipulation attack might be relevant
-% 	—> depending on the price feed, it can result in significant changes in the audit snap shots (can make the company insolvant for a short period of time)
-% —> realtime audit CITATIONS
-% —> tech nueances: price feed, we want decentral trustless price feed —> DEX —> Oracles
+This case study mainly is focused on the ~\textit{internal controls} (See Section~\ref{sec:auditing:framework:internalcontrol}) of the cryptoassets custody and key management. SOC reports that are commonly use can ensure the basics of the internal controls and security, however, technical nuances around key management and smart contract security are not covered by such reports. We believe there are merits in adopting standards, such as the C4 Cryptoasset Security Standard Audit~\cite{c4ccssa}, by the big 4 auditing firms, as it is a more appropriate standard for the internal controls of the cryptoassets. CCSS standard includes review of the private key generation process, secure backups, the multisig setup, and manual audit of the multisig implementation and source code. 
 
 
-
-\subsection{Case Study 4: Internal Controls \& Monitoring} \label{sec:auditing:case-studies:internalcontrol}
-% Case study 4:
-% Access Control? if you own a token and that token contract is upgradable, do you have the token forever?
-
-As described in Section~\ref{sec:auditing:framework:internalcontrol}, auditors must be satisfied that the internal controls of the client are effective. This is done by testing the design and operating effectiveness of the internal controls. In the context of cryptoassets, this is challenging because the adequate internal controls are novel to the auditors, and the expertise to evaluate and test theses controls are not always available. Even if the company has acquired their SOC reports, it is still not sufficient to assume the adequacy of the internal controls.
-
-As an example, we will discuss the internal controls of a multisig smart contract. As described in Section~\ref{sec:auditing:background}, multisig smart contracts are commonly used by companies to securely store their cryptoassets. Unlike EOA addresses, smart contracts do not have a private key associated with them, hence the proof of ownership cannot be done using the digital signature verification. Other than the proof of ownership, the internal controls of the multisig smart contract must be evaluated and tested. This process is more complicated as it includes review of the private key generation process, secure backups, the multisig setup, and manual audit of the smart contract code and deployment. Additionally, the smart contract can be upgraded or the signatories of the multisig smart contract can be changed at any time, hence the requirement to put in place a monitoring system to ensure all the stakeholders will be notified of any proposed changes to the multisig smart contract. It should be noted that this monitoring can be done by any entity that has access to the blockchain, and does not necessarily need to be done by the auditors, however, the auditors must ensure that the monitoring is done by the client or a third party.
-
-
-% Connect this back to why 
-% anything on key generation ceremony? 
-% —> manual audit and monitoring are needed, timelock? 
-
-
-% Case Study 2:
-% —> key generation ceremony
-% — key backups
-% —> multisig setup 
-% ——> variables 3of3 less secure
-% —> On Cryptocurrency Wallet Design PAPER
-
-% —> Key generation ceremony
-
-% =====
 
 %++++++++++++++++++++++=======================================+++++++++++++++++++++
 \section{Discussion} \label{sec:auditing:discussion}
