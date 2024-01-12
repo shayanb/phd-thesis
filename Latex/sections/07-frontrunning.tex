@@ -49,7 +49,7 @@ Blockchain technology (introduced via Bitcoin in 2008~\cite{nakamoto2008bitcoin}
 \begin{figure}[h]
     \centering
     % \floatbox[{\capbeside\thisfloatsetup{capbesideposition={left,top},capbesidewidth=0.3\linewidth}}]{figure}[\FBwidth]
-    {\caption[Simple Front-running flow on a blockchain]{The front-runner upon spotting the profitable transaction \textit{Buy(1000)} sends his own transaction with higher gas price to bribe the miners to prioritize his transaction over initial transaction.}\label{fig:RegularFrontrunning}}
+    {\caption[Simple Front-running Flow on a Blockchain]{The front-runner upon spotting the profitable transaction \textit{Buy(1000)} sends his own transaction with higher gas price to bribe the miners to prioritize his transaction over initial transaction.}\label{fig:RegularFrontrunning}}
     {\includegraphics[width=0.7\textwidth]{figures/Regular_frontrunning.png}}
     \end{figure}
     %https://www.lucidchart.com/invitations/accept/f8ca2662-5269-425d-9deb-deb14af2aac7
@@ -95,7 +95,7 @@ Each of these attacks have two variants, \textit{asymmetric} and \textit{bulk}. 
 
 \begin{figure}[h]
     \centering
-{\caption[Front-running Taxonomy]{Front-running Taxonomy}\label{fig:frontrunningtaxonomy}}
+{\caption[Blockchain Front-running Taxonomy]{Front-running Taxonomy}\label{fig:frontrunningtaxonomy}}
 {\includegraphics[width=\textwidth]{figures/frontrunning_taxonomy.png}}
 \end{figure}
 
@@ -120,7 +120,7 @@ To find example DApps to study, we used the top 25 DApps based on recent user ac
 \centering
 
 % \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,bottom},capbesidewidth=0.3\linewidth}}]{figure}[\FBwidth]
-{\caption[Miner Front-running flow]{The adversarial miner monitors the Ethereum mempool for decentralized exchange transactions. Upon spotting a profitable cancellation transaction, he puts his buy order prior to the cancel transaction in the block he mines. Doing so, the miner can profit from the underlying trade and also get the gas included in the cancel transaction.}\label{fig:MinerFrontrunning}}
+{\caption[Miner Front-running Flow]{The adversarial miner monitors the Ethereum mempool for decentralized exchange transactions. Upon spotting a profitable cancellation transaction, he puts his buy order prior to the cancel transaction in the block he mines. Doing so, the miner can profit from the underlying trade and also get the gas included in the cancel transaction.}\label{fig:MinerFrontrunning}}
 {\includegraphics[width=0.5\textwidth]{figures/Miner_reorder_frontrun.png}}
 \end{figure}
 %https://www.lucidchart.com/invitations/accept/c8768786-4a3f-4c78-b3c8-aa04a6b81d06
@@ -190,7 +190,7 @@ During the time frame the ICO was open for participation, there were reports of 
 \begin{figure}[h]
     \centering
 % \floatbox[{\capbeside\thisfloatsetup{capbesideposition={left,bottom},capbesidewidth=0.35\linewidth}}]{figure}[\FBwidth]
-{\caption[Ethereum blocks producers during the time of Status.im ICO]{The percentage of Ethereum blocks mined between block 3903900 and 3908029, this is the time frame in which Status.im ICO was running. This percentage roughly shows the hashing power ratio each miner had at that time.}\label{fig:mining_pool_ratio}}
+{\caption[Ethereum Blocks Producers During the Time of Status.im ICO]{The percentage of Ethereum blocks mined between block 3903900 and 3908029, this is the time frame in which Status.im ICO was running. This percentage roughly shows the hashing power ratio each miner had at that time.}\label{fig:mining_pool_ratio}}
 {\includegraphics[width=0.7\textwidth]{figures/Mining_pool_ratio.png}}
 \end{figure}
 
@@ -205,14 +205,14 @@ As shown in Figure~\ref{fig:Transactions_miners_while_status_ico_cut}, most of t
 \begin{figure}[h]
     \centering
 % \floatbox[{\capbeside\thisfloatsetup{capbesideposition={left,top},capbesidewidth=0.3\linewidth}}]{figure}[\FBwidth]
-{\caption[Miner behaviour during the time of Status.im ICO]{This chart shows the miners behaviour on the time frame that Status.im ICO was running. It is clear that the number of successful transactions mined by F2Pool do not follow the random homogeneous pattern of the rest of the network.}\label{fig:Transactions_miners_while_status_ico_cut}}
+{\caption[Miner Behaviour During the Time of Status.im ICO]{This chart shows the miners behaviour on the time frame that Status.im ICO was running. It is clear that the number of successful transactions mined by F2Pool do not follow the random homogeneous pattern of the rest of the network.}\label{fig:Transactions_miners_while_status_ico_cut}}
 {\includegraphics[width=0.7\textwidth]{figures/Transactions_miners_while_status_ico_cut_only_icotx.png}}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
 % \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,bottom},capbesidewidth=0.5\linewidth}}]{figure}[\FBwidth]
-{\caption[Status.im funds flow visualization]{Prior to \textit{Status.im} ICO  \textit{F2Pool} deposited 100 Ether in multiple new Ethereum addresses. On the time of the ICO, transactions sent from these addresses to \textit{Status} ICO smart contract were prioritized in their mining pool, resulting in purchasing \textit{ERC20} tokens. This method was used to overcome the dynamic ceiling algorithm of the ICO smart contract. Later on they sent the refunded Ether back to their own address.\protect\footnotemark \label{fig:f2poolfront-run}}}
+{\caption[Status.im Funds Flow Visualization]{Prior to \textit{Status.im} ICO  \textit{F2Pool} deposited 100 Ether in multiple new Ethereum addresses. On the time of the ICO, transactions sent from these addresses to \textit{Status} ICO smart contract were prioritized in their mining pool, resulting in purchasing \textit{ERC20} tokens. This method was used to overcome the dynamic ceiling algorithm of the ICO smart contract. Later on they sent the refunded Ether back to their own address.\protect\footnotemark \label{fig:f2poolfront-run}}}
 {\includegraphics[width=0.4\textwidth]{figures/F2Pool_transactions_to_StatusICO_and_Refunds.png}}
 \end{figure}
 
@@ -268,7 +268,7 @@ A DApp interaction includes the following components: (1) the code of the DApp, 
 
 \begin{figure}[h]
     \centering
-{\caption{Components related to any DApp interaction}\label{fig:confidentialitycomponents}}
+{\caption{Components Related to Any DApp Interaction}\label{fig:confidentialitycomponents}}
 {\includegraphics[width=0.8\textwidth]{figures/confidentiality_components.png}}
 \end{figure}
 
@@ -289,7 +289,7 @@ Recall that a commitment scheme enables one to commit to a digital value (\eg a 
 \begin{figure}[h]
     \centering
 % \floatbox[{\capbeside\thisfloatsetup{capbesideposition={left,bottom},capbesidewidth=0.5\linewidth}}]{figure}[\FBwidth]
-{\caption[Commit and Reveal mechanism]{Commit and Reveal. User sends a commitment transaction with the hash of the data, After the commitment period is over, user sends her reveal transaction to the DApp revealing the information that matches the commitment.}\label{fig:commitReveal}}
+{\caption[Commit and Reveal Mechanism]{Commit and Reveal. User sends a commitment transaction with the hash of the data, After the commitment period is over, user sends her reveal transaction to the DApp revealing the information that matches the commitment.}\label{fig:commitReveal}}
 {\includegraphics[width=0.5\textwidth]{figures/commit-reveal.png}}
 \end{figure}
 
@@ -329,7 +329,7 @@ Some might argue that faster blockchains are immune to frontrunning attacks. Thi
 %TODO: maybe expand this better. are there citations to include here? 
 
 
-\section{Follow up work}
+\section{Follow-up Work}
 Our paper is one of the first research papers that studies front-running attacks on the blockchains and specifically for Ethereum DApps. Since the publication of our paper, there has been a number of follow up work that studies more complex front-running attacks and mitigation methods. In this section, we briefly discuss some of these works.
 
 There has been countless articles and research paper analyzing the real world blockchain front-running attacks and their impact. Torres~\etal uses our front-running attacks taxonomy (See Section~\ref{sec:taxonomy}) and conducts an analysis of the profitability of each type of frontrunning attacks in the wild. Zhou~\etal conducted a quantitative research on the extracted value and the front-running strategies on chain~\cite{qin2022quantifying}, and in another research they showcased how some other attacks can utilize flashloans to increase the attacker's profit in DeFi applications~\cite{qin2021attacking}. 

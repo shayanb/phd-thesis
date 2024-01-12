@@ -79,7 +79,7 @@ For our main contribution, we deconstruct how an oracle operates into several mo
 \begin{figure}[t!]
     \centering
     \includegraphics[width=0.35\textwidth]{figures/data_flow_vertical.png}
-    \caption{A visualization of our oracle workflow}
+    \caption{A Visualization of Our Oracle Workflow}
     \label{fig:dataflow}
 \end{figure}	
 	
@@ -126,9 +126,9 @@ Provenance is a highly cited application of blockchain, where products are tagge
 
 Sensors can produce noisy data or malfunction. The hardware of a sensor can also be modified when remote or physical access is unauthenticated (or weakly authenticated as many sensors are constrained devices). Probably the highest profile sensor attack (outside of blockchain) is Stuxnet~\cite{langner2011stuxnet}---malware that manipulated the vibration sensors, the valve control sensors, and the rotor speed sensors of Iran's nuclear centrifuges, causing the system to quietly fail~\cite{stuxnetattack}.
 
-\subsubsection{Databases and application programming interfaces (APIs).} 
+\subsubsection{Databases and APIs.} 
 
-The most common mechanism used by software to fetch data is to use an API to obtain the data directly from a centralized database. A database is a set of tables that collect system events, while the API is an interface with the database. For example, a financial exchange keeps track of information in a database about every trade that has been executed. A data source that needs the daily traded volume of an asset could use the appropriate API of the exchange's database to extract the data from the related table in the database.
+The most common mechanism used by software to fetch data is to use an API (Application Programming Interfaces) to obtain the data directly from a centralized database. A database is a set of tables that collect system events, while the API is an interface with the database. For example, a financial exchange keeps track of information in a database about every trade that has been executed. A data source that needs the daily traded volume of an asset could use the appropriate API of the exchange's database to extract the data from the related table in the database.
 
 An active attacker can attack the system from two points. Modifying the data at rest in the database, or modifying the data in transit before and after the API call. 
 
@@ -229,7 +229,7 @@ Another approach used by Tellor oracle~\cite{tellorWhitepaper} is a simple Proof
 
 
 
-\subsubsection{Evaluation Framework on the selection of data feeders}\label{evaluation_framework}
+\subsubsection{Evaluation Framework on the Data Feeders Selection}\label{evaluation_framework}
 To compare designs for data feeder selection, we provide an evaluation framework. The definition of each evaluation criteria (\ie column of the table) follows, specifying what it means to receive a full dot (\full), partial dot (\prt) or to not receive a dot. 
 
 \emph{No Trusted Third Party.} \textit{A selection process that is distributed or decentralized among several equally-powerful entities earns a full dot (\full). A process that relies on a single entity for critical functions is not awarded a dot.}
@@ -310,7 +310,7 @@ In the optimistic case, an oracle system will feed and finalize truthful data, w
 Data is correct & Correct & False Positive \\
 Data is incorrect & False Negative & Correct \\
 \end{tabular}
-\caption[Dispute phase types of errors]{Dispute phase types of errors}
+\caption[Dispute Phase Types of Errors]{Dispute phase types of errors}
 \end{table}
 
 Dispute resolution in oracle systems focus on false positives. Incentivizing the discovery of false positives is present in some staking-based systems, however false negatives are not otherwise dealt with. In order to resolve a false positive, correct data must be used as a reference but, of course, if correct data is available as a reference, then it could replace the entire oracle system. That leaves two reasons for why an oracle system might still exist: (a) the reference for correct data is too expensive to consult on a regular basis, or (b) there is no reference for correct data and it must be approximated. 
@@ -357,7 +357,7 @@ While we can find some sort of implementation for most of the projects listed in
 % = = = Blockchain Interactions
 % = = = = = = = = = = = = = = = = = = = = = = = = = = %
 
-\section{Interacting with the blockchain}\label{Interoperability}
+\section{Interacting with the Blockchain}\label{Interoperability}
 
 While the initial inputs to an oracle are generally \textit{off-chain} (with the exception of pulling data from another smart contract) and the final output is by definition \textit{on-chain}, the oracle designer will choose to implement the intermediary modules---data feeder selection, aggregation and dispute resolution---as either off-chain or on-chain. Generally, on-chain modules are preferred for transparency and immutability, while off-chain modules are preferred for lower costs and greater scalability. 
 

@@ -46,7 +46,7 @@ The idea of in-browser mining started in the early days of Bitcoin. Bitcoin Plus
 
 In addition to unprofitability, browser-based mining faced legal challenges. In May 2015, the New Jersey Attorney General's office reached a settlement with the developers of ``Tidbit'', a browser-based Bitcoin miner. Terms of the settlement included ceasing operations of Tidbit. Then acting Attorney General John J. Hoffman stated ``No website should tap into a person's computer processing power without clearly notifying the person and giving them the chance to opt out.''~\cite{njcourtbitcoinjsminer}.
 
-\subsubsection{From one CPU to ASICS and mining pools} \label{sec:cryptojackingasic}
+\subsubsection{From One CPU to ASICS and Mining Pools} \label{sec:cryptojackingasic}
 
 
 The first Bitcoin block mined on a GPU happened on July 18th, 2010 by a user named ArtForz~\cite{bitcoinhistory}, by using a private mining code that he developed himself. It was not until mid-2011 that others started implementing and releasing open source GPU-based mining tools. These tools greatly increased mining efficiency due to the hashing power of a GPU and the massive parallelizing possible with multiple GPUs (also known as mining rigs). The move from software to hardware followed shortly after. First, programmable FPGA chips resulting in custom-built circuits specifically for mining\footnote{Custom FPGA Board for Sale! (August 18, 2011) \url{https://bitcointalk.org/index.php?topic=37904.0}}. Then by mid-2012, companies started selling ASICs designed specifically for Bitcoin mining. After delay of about a year in delivering ASIC products, Bitcoin mining started transitioning from GPUs to ASICs where it remains today. Consequently, the hashing power of the Bitcoin network increased and the mining difficulty followed. To illustrate the change, consider a desktop PC CPU mining at 10 MH/s: on expectation, it will take 425 years before mining a single block~\cite{huang2014botcoin}. 
@@ -75,16 +75,16 @@ Monero built on its early success and continued to gain in popularity over the y
 \section{Threat Model}
 In-browser mining is considered as an abuse unless user's consent is granted. The attack surface to abuse users' browsers through cryptojacking is broad, and there are multiple vectors where various entities can inject mining scripts in the website's codebase. We summarize those here. 
 
-\subsection{Webmaster initiated} 
+\subsection{Webmaster Initiated} 
 
 A website administrator can add a mining script to her webpage, with or without informing users. Website owners may do this to monetize their sites, especially when they have been blacklisted or blocked by standard advertising platforms. In one example, a researcher found Coinhive on a large Russian website offering child pornography to users~\cite{coinhiveonchildporn}. Revenue estimates, based on the website traffic data available, were roughly \$10,000 a month after converting the value of XMR mined to USD.
 
-\subsection{Third-party services} 
+\subsection{Third-party Services} 
 
 Many websites serve active Javascript from third parties within their own webpages. This could be ads from an ad network, accessibility tools or tracking and analytics services. Third parties with these privileges can inject cryptojacking scripts into the sites that use them, either intentionally or as a result of a breach. The first two incidents, Coinhive was injected into the websites of Movistar\footnote{Movistar is a major telecommunications brand owned by Telefonica, operating in Spain and in many Hispanic American countries \url{https://www.movistar.com/}} and Globovision\footnote{Globovision is a 24-hour television news network in Venezuela and Latin America \url{http://globovision.com/}} using Google Tag Manager\footnote{Google Tag Manager is a tag management system created by Google to manage JavaScript and HTML tags used for tracking and analytics on websites}. Movistar stated that Coinhive was not put on their website by a hacker, but instead was due to \textit{``internal error''} while they were conducting ``production tests''. No statement was provided by Globovision on why the cryptojacking scripts appeared on their site on November 15, 2017~\cite{googletagcoinhive}. Another high-profile cryptojacking case involving a Google platform occurred in January 2018 when Trend Micro researchers found advertisements containing Coinhive miner script were shown to YouTube users in Japan, France, Taiwan, Italy, and Spain for nearly a week~\cite{trendmicrocoinhive}. Similar to Showtime, YouTube inherently has a high average visit duration as a video streaming site and thus is prime target for cryptojacking operations.
 
 
-\subsection{Browser extensions} 
+\subsection{Browser Extensions} 
 
 Cryptojacking was not limited to websites in 2017. The Chrome extension \textit{Archive Poster} remained on the Chrome Web Store for days while silently cryptojacking an unknown portion of their 100,000+ users. After multiple user reports, followed by multiple news media outlets covering the issue, the extension was removed~\cite{chromeextentioncoinhive}. Similar cryptojacking extensions has been identified on less popular Mozilla Firefox add-ons as well. 
 
@@ -113,12 +113,12 @@ A user's web traffic is often routed through intermediaries that may have plaint
 
 \section{Measurements}
 
-\subsection{Prevalence of Coinhive and alternatives}
+\subsection{Prevalence of Coinhive and Alternatives}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{figures/usage_of_coinhive_over_time.png}
-\caption[Coinhive usage over the first three months]{The number of instances of the Coinhive miner scripts found using the query in Figure~\ref{lst:bigquery} in top one million websites over a three month period beginning with the release of Coinhive in September 2017.\label{fig:topmil}}
+\caption[Coinhive Usage Over the First 3 Months]{The number of instances of the Coinhive miner scripts found using the query in Figure~\ref{lst:bigquery} in top one million websites over a three month period beginning with the release of Coinhive in September 2017.\label{fig:topmil}}
 \end{figure}
 
 
@@ -151,14 +151,14 @@ This type of measurement will become less accurate moving forward. Cryptojacking
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.9\linewidth]{figures/non-coinhive-miners-pie.png}
-\caption[Coinhive alternatives market shares]{Share of websites using a Coinhive alternative, details in Table~\ref{tab:findcoinhive} } \label{fig:copycat}
+\caption[Coinhive Alternatives Market Shares]{Share of websites using a Coinhive alternative, details in Table~\ref{tab:findcoinhive} } \label{fig:copycat}
 \end{figure}
 
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.9\linewidth]{figures/usage_over_time2.png}
-\caption[Google Trend over last 12 months]{Google Trend over last 12 months: there has been more interest in Coinhive than the broader, related search term ``Browser mining''. Comparing to other services offering Monero browser mining API, Coinhive had the advantage of being the first to offer the service. \label{fig:trend}}
+\caption[Google Trend Over Last 12 Months]{Google Trend over last 12 months: there has been more interest in Coinhive than the broader, related search term ``Browser mining''. Comparing to other services offering Monero browser mining API, Coinhive had the advantage of being the first to offer the service. \label{fig:trend}}
 \end{figure}
 
 
@@ -166,7 +166,7 @@ This type of measurement will become less accurate moving forward. Cryptojacking
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.9\linewidth]{figures/coinhive_blocked.png}
-\caption[Concordia University blocking coinhive website]{Concordia university has categorized the coinhive.com website as malicious and has blocked it.\label{fig:concordia}}
+\caption[Concordia University Blocking Coinhive Website]{Concordia university has categorized the coinhive.com website as malicious and has blocked it.\label{fig:concordia}}
 \end{figure}
 
 Coinhive has begun to be blocked by enterprises. One example is shown in Figure~\ref{fig:concordia}. This blocking seems to have sent Coinhive operators to lesser known alternatives with the same or similar functionality. We used the same methodology on PublicWWW dataset to find the usage of Coinhive and its alternatives on the internet. Table~\ref{tab:findcoinhive} shows the keywords used to identify these services. The result can be found on Figure~\ref{fig:coinhivevscopycats} and Figure~\ref{fig:copycat}.
@@ -191,7 +191,7 @@ AFMiner & 46 & `afminer.com/code/miner.php`	  \\  \hline
 Papoto & 42 & `papoto.com/lib/papoto.js`  \\ \hline
 \end{tabular}
 \bigskip
-\caption[Cryptojacking identifying data]{Cryptojacking data was gathered by totalling the number of websites which had the following libraries in their source codes, indexed by PublicWWW by 12/24/2017. Figure~\ref{fig:coinhivevscopycats} and Figure~\ref{fig:copycat} are visualizations of these result.\label{tab:findcoinhive}}
+\caption[Cryptojacking Identifying Data]{Cryptojacking data was gathered by totalling the number of websites which had the following libraries in their source codes, indexed by PublicWWW by 12/24/2017. Figure~\ref{fig:coinhivevscopycats} and Figure~\ref{fig:copycat} are visualizations of these result.\label{tab:findcoinhive}}
 \end{table}
 
 
@@ -201,17 +201,17 @@ Coinhive has also reacted by focusing on adding methods to enforce asking for us
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.9\linewidth]{figures/usage_of_authedmine_over_time.png}
-	\caption[AuthedMine statistics]{Usage of AuthedMine Miner scripts in top one million websites since its introduction} \label{fig:authmine}
+	\caption[AuthedMine Statistics]{Usage of AuthedMine Miner scripts in top one million websites since its introduction} \label{fig:authmine}
 \end{figure}
 
-\subsection{Client impact}
+\subsection{Client Impact}
 
 Most cryptojacking scripts discovered were configured to use around 25\% of user's CPU, which can be justified as it will be under the threshold of attracting the user's attention, and it could be argued as fair-usage of their hardware. During the first few days, however, there were some reports of 100\% CPU usage while visiting websites containing these scripts~\cite{piratesbayblog}, which can be characterized as malicious. By default, the Coinhive JavaScript library will use all available CPU resources. The user implementing the script must include a throttle value to reduce the client-side CPU usage during mining operations. We show an example in Figure~\ref{fig:cpu}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{figures/windows_cpu_usage.png}
-	\caption[Cryptojacking CPU usage]{Comparison of CPU usage of browser without and with browser mining enabled.}\label{fig:cpu}
+	\caption[Cryptojacking CPU Usage]{Comparison of CPU usage of browser without and with browser mining enabled.}\label{fig:cpu}
 \end{figure}
 
 
@@ -221,7 +221,7 @@ Most cryptojacking scripts discovered were configured to use around 25\% of user
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/experiment_analytics_results.png}
-\caption[Google Analytics dashboard]{Google Analytics dashboard showing the number of visitors to a domain parking service of 11\,000 domains.}\label{fig:domain2}
+\caption[Google Analytics Dashboard]{Google Analytics dashboard showing the number of visitors to a domain parking service of 11\,000 domains.}\label{fig:domain2}
 \end{figure}
 
 
@@ -230,7 +230,7 @@ Coinhive developers estimate a monthly revenue of about 0.3 XMR (about \$101 USD
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\linewidth]{figures/experiment_coinhive_results.png}
-\caption[Coinhive earnings dashboard]{Coinhive dashboard showing the earnings of a domain parking service that runs Coinhive on 11\,000 domains. Over the course of about 3 months, the operator earned 0.02417 XMR (currently \$7.69 USD).}\label{fig:domain1}
+\caption[Coinhive Earnings Dashboard]{Coinhive dashboard showing the earnings of a domain parking service that runs Coinhive on 11\,000 domains. Over the course of about 3 months, the operator earned 0.02417 XMR (currently \$7.69 USD).}\label{fig:domain1}
 \end{figure}
 
 
@@ -240,7 +240,7 @@ Coinhive developers estimate a monthly revenue of about 0.3 XMR (about \$101 USD
 
 We discuss the ethics of cryptojacking in the next section, but in the case of cryptojacking without user consent, it is seems natural to us to presuppose users want to be protected. Protection might take a few forms, which we outline here.
 
-\subsection{Obtaining consent}
+\subsection{Obtaining Consent}
 
 Cryptojacking tools might attempt to legitimize the practice by first obtaining user consent on a service provider level. An example of this is the Authedmine service from Coinhive discussed previously. Malicious sites might also opt for a service like Authedmine if it is whitelisted on its users` networks and then attempt to circumvent the consent process. For example, consent that requires a click from the user has been shown in some circumstances to be vulnerable to clickjacking attacks~\cite{rydstedt2010busting}.
 
@@ -248,7 +248,7 @@ While cryptojacking is nowhere near the prevalence of tracking cookies, eventual
 
 In addition to regulation and standardizing, better security design is required to narrow down the attack surface, such as using SSL/TLS and tokenizing the requests to make sure websites get user`s consent before running these scripts. DNS TXT records could also be implemented to verify domain name ownership before browser mining scripts would be authorized to run on the website.
 
-\subsection{Browser-level mitigation}
+\subsection{Browser-level Mitigation}
 
 Browser developers have begun discussion of intervening in cryptojacking\footnote{`Please consider intervention for high cpu usage js' \url{https://bugs.chromium.org/p/chromium/issues/detail?id=766068}}. Potential mitigations include: throttling clientside scripting, warning users when clientside scripting consumes excessive resources, and blocking the sources of known cryptojacking scripts. Determining appropriate for thresholds for client-side processing that are high enough to allow legitimate applications and low enough to deter cryptojacking is an open research problem, as would be the wording of any notifications to the user that would lead the user to make an informed decision about allowing or not allowing resource consumption (\cf SSL/TLS warnings~\cite{SEAAC09,SHB11,Acer:2017:WWR:3133956.3134007}).
 Browsers such as Opera, have taken a stance against cryptojacking scripts and blocked them via their ``NoCoin'' blacklist~\cite{operanocoin}. It is too early to determine the effectiveness of using a blacklist to block such activities.  A few other detection mechanism that were released after our paper was published are discussed in ~\ref{sec:cryptojackingfollowup}.
@@ -274,7 +274,7 @@ The third case is the use of cryptojacking without user consent. Moor, in "What 
 
 
 
-\section{Follow up work}\label{sec:cryptojackingfollowup}
+\section{Follow-up Work}\label{sec:cryptojackingfollowup}
 Coinhive shutdown their official service on March 2019, and with that most of the cryptojacking scripts stopped working. However due to the vast amount of copycats there are still some websites that are using cryptojacking scripts~\cite{varlioglu2020cryptojacking}. 
 
 We were the first paper published on ~\textit{cryptojacking}, and since then there has been over 200 papers citing our paper. We have seen a lot of research in this area, and we will discuss some of the main research avenues that have been explored since our paper was published.
