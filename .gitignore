@@ -301,3 +301,7 @@ TSWLatexianTemp*
 #*Notes.bib
 .DS_Store
 Sample Thesis/*
+.cspell/custom-dictionary-workspace.txt
+.vscode/ltex.dictionary.en-US.txt
+.vscode/settings.json
+cspell.json
