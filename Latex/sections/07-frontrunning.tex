@@ -145,11 +145,19 @@ Bancor is an exchange DApp that allows users to exchange their tokens without an
 
 \subsection{Crypto-Collectibles Games}\label{sec:cryptogames}
 
-The second category of DApp in Table~\ref{tab:top25DApps} is crypto-collectables. Consider Cryptokitties~\cite{cryptokitties}, the most active DApp in this category and third most active overall. Each kitty is a cartoon kitten with a set of unique features to distinguish it from other cryptokitties, some features are rarer and harder to obtain. They can be bought, sold, or bred with other cryptokitties. At the Ethereum level, the kitty is a token implemented with \textit{ERC-721: Non-Fungible Token Standard}~\cite{erc721}. Kitties are generally bought and sold on-chain through auction smart contracts. See Sections ~\ref{sec:frontrunningExchanges} and ~\ref{sec:ens} for more details on auction-based front-running attacks.
+The second category of DApp in Table~\ref{tab:top25DApps} is crypto-collectables. Consider Cryptokitties~\cite{cryptokitties}, the most active DApp in this category and third most active overall. Each kitty is a cartoon kitten with a set of unique features to distinguish it from other cryptokitties, some features are rarer and harder to obtain. They can be bought, sold, or bred with other cryptokitties (Figure~\ref{fig:cryptokittie} shows an example of a Cryptokitty). At the Ethereum level, the kitty is a token implemented with \textit{ERC-721: Non-Fungible Token Standard}~\cite{erc721}. Kitties are generally bought and sold on-chain through auction smart contracts. See Sections ~\ref{sec:frontrunningExchanges} and ~\ref{sec:ens} for more details on auction-based front-running attacks.
 
 ERC-721 are similar enough to ERC-20 tokens that they can be listed on exchanges that are ERC-20 compatible. To buy a kitty from their main website, the user sends the following bid transaction: \texttt{bid(uint256 \_tokenId)}. This is similar to open auctions and markets on section~\ref{sec:frontrunningExchanges}, bid value and the object (tokenId) bidding on is visible to the network and any user could easily front-run using insertion or displacement attack. The front-runner can see there is an interest in a specific kitty and insert a pair of transactions to buy it and re-auctioning it at a higher price, keeping any profit. %we call this auction-frontrunning.
 % https://etherscan.io/tx/0x62a76b7e345e8abd463487d0348c118a9314b197024e090fee7b1fbce434da40
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\linewidth]{figures/cryptokittie842912.png}
+    \caption{Cryptokitty \#842912 \- Gen 8 \- Snappy Cooldown}
+    \label{fig:cryptokittie}
+\end{figure}
+    
+    
 Specific to Cryptokitties protocol, they can breed and give birth. When cryptokitties breed, the smart contract sets from which future block the pregnancy of the cat can be completed. Anyone can complete the pregnancy by calling \texttt{giveBirth()} after the birthing block, and they will receive a reward in ether\footnote{As there are no automated function calls in Ethereum, this incentive model --known as \textit{Action Callback}~\cite{klerosGeneralizedFrontrunner2019}-- is used to encourage users to call these functions.}. Even though front-running these calls would not affect the protocol workflow, but this displacement attack could result in financial profit for front-runners~\cite{qin2021attacking,cryptoMidwivesBot2018}.
 
 % = = =
