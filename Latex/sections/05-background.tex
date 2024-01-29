@@ -1,3 +1,4 @@
+% !TEX root = ../main.tex
 
 % \pagenumbering{arabic}
 % \setcounter{page}{1}
@@ -6,31 +7,32 @@
 \chapter{Background} \label{sec:background}
 
 
-In this chapter, we explain the basic concepts required for comprehending this dissertation.
-
-
+In this chapter, we go over the building blocks for blockchain technology and other concepts required for understanding this dissertation.
 
 \section{Blockchain}
-A long-standing technical challenge to have a decentralized network was to have a consensus mechanism (See section~\ref{consensus_mechanism}) that does not require trust between the participants. To have an online ledger on one single computer was easy, to have a database and expose the right endpoints online, so everyone can read, and only the appropriate users can write. However, as soon as you begin to have more computers in the decentralized network, the question arises, how to keep updating the database and enforce honesty amongst the network participants? There were many attempts to solve this problem, and later in 2008 by Nakamoto~\cite{nakamoto2008bitcoin} released the Bitcoin whitepaper that offered a solution. The solution was to have a decentralized network of nodes that are incentivized to maintain the network. The nodes are incentivized by receiving rewards in the form of cryptocurrency. The nodes are also responsible for verifying the transactions and adding them to the blockchain. The blockchain is a chain of blocks, each block containing a list of transactions. The order of the transactions in each block is important as it indicates the order of events in the blockchain. Each transaction is a value transfer or a function call within a smart contract. We will explain the details of this mechanism in this section and further more in ~\ref{block_creation}.
+A long-standing technical challenge to have a decentralized network was to have a consensus mechanism (See section~\ref{consensus_mechanism}) that does not require trust between the participants \textblue{Trust is vague, can you be more specific. Also long-standing means what?}. To have an online ledger on one single computer was easy---to have a database and expose the right endpoints online, so everyone can read, and only the appropriate users can write \textblue{Easy in terms of what? Trust? If not, how does it related to trust? Introduce the idea of a trusted party that either runs the server or maintains a list of people who can run servers. That is the specific problem Bitcoin solves}. However, as soon as you begin to have more computers in the decentralized network, the question arises, how to keep updating the database and enforce honesty amongst the network participants? There were many attempts to solve this problem \textblue{starting in 198x} but each of these \textblue{gap?}. In 2008, Nakamoto~\cite{nakamoto2008bitcoin} released the Bitcoin whitepaper that offered a novel solution \textblue{that closed this gap}. The solution was to have a decentralized network of nodes that are incentivized to maintain the network \textblue{Decentralized means... no one in charge, no master list of nodes, open network where anyone can join or leave at any time....}. 
 
-Public blockchains are the most promising underlying technology for many applications. They are aiming to be decentralized, transparent, and immutable. However, they are also slow, expensive, and have limited functionality. They can and will replace many intermediary entities we know of today. However, as we will dive deeper in this subject, blockchain, as a technology is in its infancy. The public aspect of these blockchains changes many assumptions developers and system designers have about the data flow within their applications. 
+Such nodes in Bitcoin (called miners\footnote{\textblue{Technically there are different kinds of nodes...}}) are incentivized by receiving rewards in the form of cryptocurrency. The nodes are also responsible for verifying the transactions and adding them to the blockchain. \textblue{What is a transaction?} The blockchain is a chain of blocks, each block containing a list of transactions \textblue{invert and go from transactions to blocks to blockchain}. The order of the transactions in each block is important as it indicates the order of events in the blockchain \textblue{forward pointer to front running chapter}. Each transaction is a value transfer or a function call within a smart contract \textblue{Somehow it went from Bitcoin to Ethereum, maybe keep it with Bitcoin for now and describe it as scripting}. We will explain the details of this mechanism in this section and further more in ~\ref{block_creation}.
+
+Public blockchains are a promising underlying technology for many applications. Their aim of providing decentralization, transparency, and immutability correlates with the security goals of many use-cases. However, blockchains are also slow, expensive, and have practical limits to their functionality. I predict they can and will replace many intermediary entities we know of today. There is a gap in the mental model of what people (industry and academia) think blockchain provides and what it actually does~\cite{RKYCC20}. Even developers need to change many assumptions given the public aspect of how a blockchain works, and system designers have to rethink the data flow within their applications. We hope to illustrate this throughout the dissertation. 
 
 
-\begin{figure}[h]
+\begin{figure}[t]
     \centering
-    {\caption[The Building Blocks of Blockchain Technology]{The building blocks of blockchain technology}}
-    {\includegraphics[width=0.9\textwidth]{figures/blockchain-buildingblocks.jpg}}
+     \includegraphics[width=0.9\textwidth]{figures/blockchain-buildingblocks.jpg}
+    \caption[The Building Blocks of Blockchain Technology]{The building blocks of blockchain technology} \textblue{Throughout your thesis, change all [h] to [t]. It is standard in academia to place figures at top. Also place caption below the include graphics.}.
 \end{figure}
 
 
-This technology has the potential of many interesting applications, from digital cash (\eg Bitcoin~\cite{nakamoto2008bitcoin}), prediction markets~\cite{clark2014decentralizing}, and decentralized governance~\cite{aragonwebsite}. Bitcoin, started in 2009, was the first application of blockchain technology and since then the concept of decentralized ledger has grown to many other applications that just a ledger holding transaction data. 
+This technology has the potential of many interesting applications, from digital cash (\eg Bitcoin~\cite{nakamoto2008bitcoin}), prediction markets~\cite{clark2014decentralizing}, and decentralized governance~\cite{aragonwebsite}. Bitcoin, started in 2009, was the first application of blockchain technology and since then the concept of decentralized ledger has grown to many other applications that just a ledger holding transaction data.\textblue{Weird list. Maybe look at Ruoti et al paper and just repeat the categories from it, while citing}.
+
+\textblue{Add a quick landscape of different blockchains including at least Bitcoin, Ethereum, and Monero as these you use later. Just a high-level that gets across Bitcoin came first. People saw that Bitcoin wasn't complete. Monero, zcash, etc add privacy. Ethereum adds functionality. Ethereum is slow, so people trying now to speed it up or use layer 2s.}
 
 
 \subsection{Consensus Mechanism}\label{consensus_mechanism}
-A consensus mechanism is a fundamental protocol within blockchain technology that enables network participants, often referred to as nodes, to agree on the state of the ledger, despite the absence of trust amongst them. It is the bedrock of blockchain's reliability and security, ensuring that each participant has a consistent view of the transaction record (final state of the blockchain). This mechanism is crucial in decentralized systems like Bitcoin and Ethereum, where no central authority dictates or confirms the validity of transactions.
+A consensus mechanism is a fundamental protocol within blockchain technology that enables network participants, often referred to as nodes \textblue{if you want a general term, I would use validators which is a bit more specific than nodes but not as specific as miner}, to agree on the state of the ledger, despite the absence of anyone coordinating their actions or them trusting each other fully. It is the bedrock of blockchain's reliability and security, ensuring that each participant has a consistent view of the transaction record (final state of the blockchain). This mechanism is crucial in decentralized systems like Bitcoin and Ethereum, where no central authority confirms the validity of transactions, or dictates who can play the role of a validator in the system. 
 
 In essence, a consensus mechanism involves a series of processes and rules that nodes follow to validate new transactions, add them to the blockchain, and achieve agreement on the current state of the ledger. These processes are designed to prevent fraudulent activities and to mitigate the influence of any single entity over the network. The most widely recognized consensus mechanisms are Proof of Work (PoW) and Proof of Stake (PoS).
-
 
 \subsubsection{Proof of Work (PoW)} 
 Employed initially by Bitcoin and Ethereum, PoW requires nodes, called \textit{miners}, to solve cryptographic puzzles. The first miner to solve the puzzle gets the right to add a new block of transactions to the blockchain. This method, while robust in maintaining network security, is often criticized for its high energy consumption. In order to understand PoW a few cryptography primitives need to be explained.
