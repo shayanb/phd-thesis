@@ -85,7 +85,7 @@ We are aware of the possibility of creating multi-signature wallets without the 
 We use the term cryptoasset and cryptoliability to refer to listings on a firm's balance sheet that exist and are transacted using blockchain technology and have some tradable value. This includes cryptocurrencies (e.g., bitcoin and ether) as well as tokens (\eg ERC20) issued by smart contracts running on a blockchain. Among others, the main categories of tokens are: (1) \textit{Access tokens}: a service is developed that requires its own custom tokens for using the service; (2) \textit{Backed tokens}: a token issuer claims to be holding something valuable (material or digital) in reserve, and the token represents a claim on these reserves; (3) \textit{Equity tokens}: a firm issues tokens to represent ownership shares of the company; and (4) \textit{Collectable tokens}: the token itself is offered as a contemporary collector's item. 
 
 
-\subsection{Auditing}
+\subsection{Related Work}
 The blockchain technology has been referred to as an irrefutable record-keeping system~\cite{crosby2016blockchain}, however, it does not verify whether a transaction was correctly accounted for under financial reporting rules or has a legitimate business purpose. While a blockchain verifies whether a transaction occurred and at what amount and on what date, it does not provide an examination of the internal controls that underlie the financial reporting process to prevent or detect fraud and errors, as would a financial statement audit. An audit is much more than a verification of routine transactions, being a holistic assessment of the robustness of a firm's internal controls, financial reporting policies and the reasonability of significant estimates. This activity cannot, in our view, be supplanted by just the blockchain.
 
 A challenge for any auditor taking on a mandate in this space is demonstrating that they have sufficient competence to address the relevant technological risks. One way to achieve this would be for auditors to obtain the necessary level of technical knowledge through training~\cite{curtis2009auditors}. Another way would be to engage technical experts to join the audit team. Bauer~\etal~\cite{bauer2019one} explore the relationship between IT specialists and audit teams to find that the quality of the relationship between these parties can impact the quality of the audit evidence gathered. Hirsch~\cite{hirsch2020effect} studies the spatial distance and domain knowledge distinctiveness between auditors and IT specialists to suggest that auditors will rely differently on IT specialists whether they possess similar or different knowledge levels, and whether or not the specialists are in-house. In our research approach, we combine a multi-disciplinary group of blockchain experts and auditors, in addition to our own professional experience, to demonstrate that it is possible for auditors and technology professionals to work together to combine their mutual knowledge.
@@ -93,7 +93,7 @@ A challenge for any auditor taking on a mandate in this space is demonstrating t
 Broby~\etal~\cite{broby2017financial} provide a broad outline of issues that the auditor faces, such as forks, transaction malleability, and third-party custody, among others, coming to the conclusion that audits are not sufficiently robust in their current format to tackle the challenges of blockchain. We, however, disagree and will demonstrate how many of the issues with auditing the blockchain are surmountable, subject to certain caveats.
 
 
-\textblue{I am removing two subsections below. They are only of interest to accounting people. If you want to summarize what they say in a paragraph, go for it. I kept two sentences: Dai sentence -> case study 3. Broby sentence -> above.}
+\textblue{I am removing two subsections below. They are only of interest to accounting people. If you want to summarize what they say in a paragraph, go for it. I kept two sentences: Dai sentence $\rightarrow$ case study 3. Broby sentence $\rightarrow$ above.}
 
 %\subsubsection{Using Blockchain as an Accounting Tool}
 %Some have explored how to exploit the blockchain's decentralized ledger technology for accounting purposes. Grigg~\cite{grigg2005triple} describes a system he refers to as ``triple entry accounting,'' whereby a digitally signed receipt is created to represent a form of mutual authorization for a transaction between a buyer and a seller that a transaction has been carried out according to their specifications. This digitally signed receipt, coupled with a double-entry accounting system, complete a ``triple entry system,'' which can leverage the power of financial cryptography to provide confidence over each accounting transaction entered into a company's accounting records. Yet, Dai~\etal~\cite{dai2017toward} argue that ``this [triple-entry accounting] mechanism requires an independent and reliable intermediary to ‘verify’ each individual transaction. In addition, entries stored by the intermediary are also exposed to the risk of loss or unauthorized changes due to cyber-attacks.'' A blockchain could be used to take on this intermediary role and act as a centralized, secure repository for accounting records. This chapter aims to expand on this work to explore the procedures auditors could carry out to validate the occurrence, measurement, and rights and obligations associated with these recorded transactions.
@@ -105,9 +105,8 @@ Broby~\etal~\cite{broby2017financial} provide a broad outline of issues that the
 % JC: I am
 
 %++++++++++++++++++++++=======================================+++++++++++++++++++++
-\section{Framework} \label{sec:auditing:framework} 
- Based on extensive interviews in our paper~\cite{} propose a framework for  consists of Existence, Ownership, Valuation, and Internal Control (See figure~\ref{fig:audit_framework}). We also provide a brief overview of the auditing process and the challenges that auditors face when auditing blockchain-based assets.
 
+\section{Framework} \label{sec:auditing:framework} 
 
 \begin{figure}[t]\label{fig:audit_framework}
     \centering
@@ -115,6 +114,9 @@ Broby~\etal~\cite{broby2017financial} provide a broad outline of issues that the
     \caption[Audit Framework for Cryptoassets]{Audit Framework for Cryptoassets. Simply put, a cryptoasset \textit{exists} when it has a material \textit{value} and is \textit{owned} by an entity. Ownership requires \textit{internal control} to keep the asset accessible and safe.}
 \end{figure}	
 % https://app.diagrams.net/#G1y7zKo_RABPdLiRYjitMpIwxWSk-9ey47	
+
+We first set out to organize auditing issues into themes and establish a framework for analyzing them. In our paper~\cite{pimentel2021systemizing}, we report on an extensive set of interviews we conducted with auditors at large and medium sized firms. Applying thematic analysis to the interviews, we developed the framework in Figure~\ref{fig:audit_framework}. The framework breaks auditing issue into four themes: existence, ownership, valuation, and internal control. This can generally be applied to any asset, however we consider how it applies to crytoassets specifically below.
+
 
 \subsection{Existence} \label{sec:auditing:framework:existence}
 Auditors need to establish that financial statements, as reported, are free of material misstatements. One area that was repeatedly cited as a challenging area for our respondents was the existence of cryptocurrencies. The major challenges to verifying existence are related to the reliability of a blockchain and the custodianship of assets.
