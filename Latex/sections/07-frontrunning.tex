@@ -166,6 +166,13 @@ Specific to Cryptokitties protocol, they can breed and give birth. When cryptoki
 
 The third category of DApp in Table~\ref{tab:top25DApps} is gambling services. While a large category of gambling games are based on random outcomes, DApps do not have unique access to an unpredictable data stream to harvest for randomness~\cite{pierrot2018malleability}. Any candidate source of randomness (such as block headers) is accessible to all DApp functions and can also be manipulated to an extent by miners.
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/fomo3d.pdf}
+    \caption{Ethereum blocks spanning the Fomo3D block suppression attack, showing a decrease in number of transactions and an increase in gasPrice.}
+    \label{fig:fomo3d}
+\end{figure}
+
 \textsf{Fomo3D} is an example of a game style (known as \textsf{Exit Scam}\footnote{\url{https://exitscam.me/play}}) not based on random outcomes, and it is the most active game on Ethereum in our sample. The aim of this game is to be the last person to have purchased a ticket when a timer goes to zero in a scenario where anyone can buy a ticket and each purchase increases the timer by 30 seconds. Many speculated such a game would never end but on August 22, 2018, the first round of the game ended with the winner collecting 10,469 Ether\footnote{The first winner of Fomo3D, won 10,469 Ether \url{ https://etherscan.io/tx/0xe08a519c03cb0aed0e04b33104112d65fa1d3a48cd3aeab65f047b2abce9d508}} equivalent to \$2.1M USD at the time.
 Blockchain forensics indicate a sophisticated winning strategy to displace any new ticket purchases~\cite{fomo3dhacker} that would reset the counter. The winner appears to have started by deploying many high gas consumption DApps unrelated to the game. When the timer of the game reached about 3 minutes, the winner bought 1 ticket and then sent multiple high gasPrice transactions to her own DApps. These transactions congested the network and bribed miners to prioritize them ahead of any new ticket purchases in \textsf{Fomo3D}. Recall this basic form of bribery is called a \textit{Gas Auction}; See related work ~\cite{mccorry2018smart,bonneau2016buy} for more sophisticated bribery contracts. 
 
