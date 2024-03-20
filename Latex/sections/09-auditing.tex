@@ -83,7 +83,7 @@ A more involved access control pattern is a multi-signature (multisig) where mor
 
 
 
-\subsection{Related Work}
+\subsection{Related Work from Auditing}
 
 In Chapter 2, we reviewed the academic literature and the technical details of blockchain technology. Here we briefly survey the accounting and auditing literature as it pertains to the technology. Blockchain technology has been referred to as an irrefutable record-keeping system~\cite{crosby2016blockchain}, however, it does not verify whether a transaction was correctly accounted for under financial reporting rules or has a legitimate business purpose. While a blockchain verifies whether a transaction occurred and at what amount and on what date, it does not provide an examination of the internal controls that underlie the financial reporting process to prevent or detect fraud and errors, as would a financial statement audit. An audit is much more than a verification of routine transactions, being a holistic assessment of the robustness of a firm's internal controls, financial reporting policies and the reasonability of significant estimates. This activity cannot, in our view, be supplanted by just the blockchain.
 
@@ -112,6 +112,11 @@ We first set out to organize auditing issues into themes and establish a framewo
 \subsection{Existence} \label{sec:auditing:framework:existence}
 Auditors need to establish that financial statements, as reported, are free of material misstatements. One area that was repeatedly cited as a challenging area for our respondents was the existence of cryptocurrencies. The major challenges to verifying existence are related to the reliability of a blockchain and the custodianship of assets. \textblue{I am expecting subsections on these two challenges, but the second one is not there. Is it an existence issue in fact or internal controls?}
 
+
+\subsubsection{ Fraud Detection}
+
+Make up a token and say you have it. (Tulip Fund)
+
 \subsubsection{Reliability of a Blockchain}
 
 One challenge of auditing the existence of cryptoassets is simply due to their non-physical nature~\cite{pimentel2021systemizing}. Unlike inventory or land that auditors can observe, auditors are required to find alternative evidence for these intangible assets. Evaluating the existence of a cryptoasset necessarily requires relying on a blockchain upon which a cryptoasset resides. Further, determining whether a given blockchain is reliable or not can prove difficult. Although blockchains are touted as immutable, not all blockchains are created equally. Hence, the ability to rely on a blockchain will depend on factors such as the robustness of the consensus mechanism, depth of the community supporting the blockchain, and reliability of the cryptography involved, among other things. If all nodes stop operating a blockchain protocol, the blockchain will effectively cease to exist. Consider Bitcoin: there is a large community supporting it, firms are involved, miners devote material hashpower to it, the cryptography and consesus mechanism have been reviewed by experts. The existence of BTC is less questionable than the native currency on an obscure altcoin.
@@ -124,14 +129,17 @@ Auditors must be careful when evaluating audit evidence to verify the source for
 
 \textblue{Other existence points: I could make up a token and say it exists. Say I create a token contract but it does not follow ERC20, is it a token? How do you figure that out?}
 
+\textblue{Shorten above}
+
 
 \subsubsection{Forks and Airdrops} \label{sec:auditing:framework:existence:airdrops}
 
 Existing accounting standards do not contemplate how to account for non-reciprocal transfers of assets like in the case of forks or airdrops.\textblue{Justify this. Also we have standards for gifts, how is this different from airdrops? If a publicly traded company spins off a new entity, how is a stock spinoff different than a fork?}
 
-For example, in August 2017, when a hard fork created Bitcoin Cash from Bitcoin's main ledger, holders of Bitcoin before the fork were assigned Bitcoin Cash in the same amounts. However, if existing accounting standards require the measurement of transactions at historical cost (what was paid for the assets), then recipients of Bitcoin Cash would report this new asset on their books at a value of \$0. Certainly, this does not represent the true value acquired through the fork~\cite{webb2018fork}. Therefore, auditors must address the issue of an accounting standard that does not contemplate how to measure the value of cryptoassets when considering whether the financial statements they are reporting on are accurate in all substantial respects. \textblue{This sounds like a valuation issue, below, rather than an existence issue. What is the existence issue? If none, you can move it to valuation.}
+For example, in August 2017, when a hard fork created Bitcoin Cash from Bitcoin's main ledger, holders of Bitcoin before the fork were assigned Bitcoin Cash in the same amounts. 
 
-More commonly for ERC-20 tokens on Ethereum, the recipient of the tokens often does not have the option to reject the deposits, nor would they get notified of the new tokens received, which could result in issues with completeness. \textblue{Can you add something here to make it more real? Like "author's personal account" received XX tokens over YY years.} However, in some other instances, such as Optimism Airdrop~\cite{allen2023airdrop}, the recipient of the tokens must claim the tokens in order to receive them. In this case, the auditor must ensure that the client has claimed the tokens, and the price of the time of the claim, in order to include them in the financial statements.
+\textblue{Expand a little, focus on existence, forward pointers to other aspects.}
+
 
 
 \subsection{Ownership}\label{sec:auditing:framework:ownership}
@@ -140,9 +148,12 @@ Auditors must be satisfied that the assets reported on the company's balance she
 
 Therefore, addressing whether or not a client maintains ownership over their cryptoassets will depend on whether they hold their cryptoassets themselves (self-custody) or through a custodian.
 
+\subsubsection{ Fraud Detection}
+
+Token exists but you don't actually own it. 
 
 \subsubsection{Self-Custody of Assets}
-In the absence of legal registers to support ownership or documents bearing the name of the firm, the auditor must rely on the internal controls of the entity to obtain comfort over the ownership assumption~\cite{pimentel2021systemizing}. A question emerges about what ownership means in this context both temporally and in terms of access to a private key. Temporally, auditors must distinguish between whether they are able to provide support for ownership over an asset at the date of conducting the audit procedure or at the end of the fiscal period under audit. For example, if an auditor verifies that a client owns bitcoin one month after year-end through procedures like signing messages or transferring small amounts to and from the key, this proves that the client controlled the asset on that date but says nothing about whether the client owned those assets at year-end. With inventory, in the absence of performing a count at year-end, the auditor may perform roll-back procedures to verify the transactions between the count date and the year-end date to obtain comfort over the year-end balance. To do so, this would require that the auditor ensure that ownership was maintained over the subsequent events period even if this is not what is required by the auditing standards: 
+In the absence of legal registers to support ownership or documents bearing the name of the firm, the auditor must rely on the internal controls of the entity to obtain comfort over the ownership assumption~\cite{pimentel2021systemizing}. A question emerges about what ownership means in this context both temporally and in terms of access to a private key. Temporally, auditors must distinguish between whether they are able to provide support for ownership over an asset at the date of conducting the audit procedure or at the end of the fiscal period under audit. For example, if an auditor verifies that a client owns bitcoin one month after year-end through procedures like signing messages or transferring small amounts to and from the key, this proves that the client controlled the asset on that date but says nothing about whether the client owned those assets at year-end. With inventory, in the absence of performing a count at year-end, the auditor may perform roll-back procedures to verify the transactions between the count date and the year-end date to obtain comfort over the year-end balance. To do so, this would require that the auditor ensure that ownership was maintained over the subsequent events period even if this is not what is required by the auditing standards. \textblue{An auditor from our [paper] says:}
 
 \begin{quote}
 Do I need to prove that they retained ownership over the subsequent events period? The auditing standard doesn't say that I do. If the client loses ownership during the subsequent events period, do I need to unrecord the whole thing at year-end? Likely, this would be an issue of note disclosure. In the past, this has been used before for some fraud cases, but in those cases, it was because those transactions never really occurred.
@@ -168,7 +179,7 @@ For most cryptoassets, the asset is considered owned by Alice if Alice possesses
 
 We note that while cryptographic proof is necessary, it is not sufficient. A cryptographic proof simply demonstrates that the purported owner has access to the person holding the signing key. A malicious company might arrange for the owner of cryptoassets to engage in signing statements or moving test amounts fraudulently on their behalf. This issue is not new: an insolvent retail store might borrow inventory from elsewhere to inflate its assets during an inventory count. Auditors mitigate this by arranging a common date for all audits of physical inventory and, similarly, cryptographic audits could be synchronized on a fixed schedule to prevent the same assets from being counted for different companies in different audits~\cite{dagher2015provisions}. 
 
-One type of proof includes sending a small amount of money to the auditor from the private key, while another proof involves demonstrating that the client can respond to a cryptographically-protected message that only the private keyholder could open. Independently, neither of these procedures demonstrate that the client owns the private key. It should be noted that due to technical nuances of the cryptographic implementation, this requires tooling to be able to irrefutably verify the validity of the signature by the auditors~\cite{gavinwrightcourt}. However, auditors rely on the sum of several procedures to obtain reasonable assurance over this assertion: 
+One type of proof includes sending a small amount (the amount is random challenge) of money to the auditor from the private key, while another proof involves demonstrating that the client can respond to a cryptographically-protected message that only the private keyholder could open. Independently, neither of these procedures demonstrate that the client owns the private key. It should be noted that due to technical nuances of the cryptographic implementation, this requires tooling to be able to irrefutably verify the validity of the signature by the auditors~\cite{gavinwrightcourt}. However, auditors rely on the sum of several procedures to obtain reasonable assurance over this assertion: 
 
 \begin{quote}
 With ownership, it's not a specific procedure but rather the body of evidence that can be performed by signing messages, by testing internal controls, by understanding how the client protects passwords. The clear expectation of ownership is changing. In a traditional audit, the client represents that they own certain things. We see an invoice and we see that they own it. But did they really pay for it? Was it paid for by another company and consigned to them? We perform several procedures to feel comfortable enough to say that they have ownership at that point in time. Our expectations of what ownership means in this area is evolving.
@@ -180,13 +191,55 @@ Many clients are concerned about self-custody due to security risks over holding
 
 \subsubsection{Third-Party Custodianship}\label{sec:auditing:framework:ownership:custodianship}
 
+
+
 In a traditional audit context, the reliance on a third-party custodian is commonplace. Clients might have bank accounts with multiple banks or investment accounts with various brokerage houses. Auditors consider confirmations from these regulated custodians as high-quality evidence. Confirmations in the cryptoasset space are not as straightforward because the entities the auditor would be requesting confirmations from, such as a crypto-exchange, are not always regulated. This raises questions over the reliability of their responses. 
 
 In order to address the reliability of the confirmations from service providers such as cryptocurrency exchanges or other types of custodians, auditors look to the robustness of the internal controls at the service organization. The robustness of these controls is evidenced by the presence of a service organization control (SOC) report. In order to rely on the controls of a service organization such as a payroll provider or investment custodian, auditors often obtain SOC reports, which provide assurance over the processes and data security at the custodian. Two types of reports are available: an SOC 1 report provides assurance over the controls used by a service provider who processes financial data; an SOC 2 report provides assurance on controls over the processing of non-financial data in accordance with Trust Services Criteria~\cite{bdosocreports}. 
 
 While some blockchain firms have been able to obtain SOC reports, the mere fact of having the report is insufficient. Obtaining an SOC report is not a box-checking exercise and that the auditor must review the report carefully to understand which controls it has addressed and can be relied on.
 
+
+\subsubsection{Airdrops again}
+More commonly for ERC-20 tokens on Ethereum, the recipient of the tokens often does not have the option to reject the deposits, nor would they get notified of the new tokens received, which could result in issues with completeness. \textblue{Can you add something here to make it more real? Like "author's personal account" received XX tokens over YY years.} However, in some other instances, such as Optimism Airdrop~\cite{allen2023airdrop}, the recipient of the tokens must claim the tokens in order to receive them. In this case, the auditor must ensure that the client has claimed the tokens, and the price of the time of the claim, in order to include them in the financial statements.
+
+
+
+
+\subsection{Valuation of Cryptoassets} \label{sec:auditing:framework:valuation}
+When values are reported on financial statements, they must be reported in the functional currency of the firm, meaning the primary governmental currency used. A challenge for blockchain entities is to determine the valuation of cryptoassets on the financial statement date or the conversion rate for sales and expenditures made throughout the year. Auditors must be satisfied that the values reported in the financial statements are accurate and represent the underlying economic reality~\cite{eyvaluation}. This issue can be considered a subset of the "Oracle Problem" which is discussed further in the context of decentralized applications (DApps) and smart contracts in Chapter~\ref{sec:oracles}, however, the issue discussed here is more related to the valuation of cryptoassets on the financial statements of the company.
+
+\subsubsection{ Fraud Detection}
+
+Token exits, you do own it, but it is worth less than you claim. 
+
+\subsubsection{Fair Value of Cryptoassets}
+A significant obstacle for obtaining audited financial statements is the determination of a fair value for cryptoassets. Cryptoassets are often difficult to value because it is challenging to determine their underlying value and there may not be a generally accepted, quoted value to use as a reference. As an analogy, firms value foreign currencies at the closing rate on the transaction date, as reported by the central bank servicing the firm's area. No universal central bank offers rates for currency-like cryptoassets. At the time of writing, only a few Fortune 500 financial firms, \eg CME (Chicago Mercantile Exchange), offers a daily reference rate for bitcoin and ether, but not for most cryptocurrencies or cryptoassets.
+While bitcoin and ether enjoy around-the-clock trading across many markets, lesser-known coins, tokens, assets, or liabilities may trade slowly, and in low volumes. Generally speaking, low liquidity results in stale last sale prices and large bid-ask spreads. This is challenging but not unprecedented in financial auditing: privately held stocks and over-the-counter financial instruments share a similar profile. Auditors must familiarize themselves with the exchange markets for the cryptocurrencies held by their client to assist in validating their valuation.
+
+\subsubsection{Geographical Variation}
+The same cryptoasset might have different market values across different jurisdictions — because of market frictions, arbitrage does not resolve these differences~\cite{kroeger2017law}. If a firm applies International Financial Reporting Standards (IFRS), any financial assets measured at fair value that they hold must be determined with reference to their principal market (if available), which refers to the ``market with the greatest volume and level of activity for the asset''~\cite{ifrs13fairvalue}. Therefore, this standard precludes a firm from using the valuation of a cryptocurrency based on an obscure market price. Auditors will need to look carefully at the record of a client`s trading activity to determine the location of a client`s principal cryptoassets market and ensure that the assets are valued accordingly on the financial statements.
+
+\subsubsection{Fungability }
+
+Tainted ETH from Tornado Cash. Dusting attacks
+
+\subsubsection{Airdrops again}
+
+However, if existing accounting standards require the measurement of transactions at historical cost (what was paid for the assets), then recipients of Bitcoin Cash would report this new asset on their books at a value of \$0. Certainly, this does not represent the true value acquired through the fork~\cite{webb2018fork}. Therefore, auditors must address the issue of an accounting standard that does not contemplate how to measure the value of cryptoassets when considering whether the financial statements they are reporting on are accurate in all substantial respects. \textblue{This sounds like a valuation issue, below, rather than an existence issue. What is the existence issue? If none, you can move it to valuation.}
+
+
+
+\subsection{Internal Controls} \label{sec:auditing:framework:internalcontrol}
+
+Auditors must be satisfied that the financial statements they are reporting on are free of material misstatements. \textblue{this sentence is a repeat} In order to do so, auditors must obtain reasonable assurance that the internal controls of the client are effective. This is done by testing the design and operating effectiveness of the internal controls. In the context of cryptoassets, this is challenging because the adequate internal controls are novel to the auditors, often not well documented and are not always securely automated.
+
+
 \subsubsection{Segregation}
+
+\textblue{Trade-off between ownership and internal controls. Safer internal controls like multisig make proviing ownership harder. Single EOA is good for proving ownership but made for internal controls.}
+
+\textblue{Keys. System to protect keys. Policies around keys. Keys need to be used, policies around that, who allowed to do a transaction, how is logged. Cold wallets vs. hot wallets. Auditors role? Diversity/redundancy of software/hardware.}
 
 A related issue to the robustness of the internal controls relates to how the custodian segregates the assets in their possession: 
 
@@ -203,23 +256,7 @@ However, not all auditors may be as aware of the importance of SOC reports. One 
 This finding raises two issues. First, auditors believing they could rely on technologists at their firm to compensate for their lack of knowledge. However, having access to expert knowledge is not the same as deploying it. As we have cautioned throughout the paper, it is incumbent on auditors to develop a fundamental knowledge of blockchain technology to be able to leverage the skills of specialized professionals. And this synergy is only possible when auditors and technologists collaborate~\cite{bauer2019one}. Second is the lack of guidance on how to audit cryptoassets. We believe that by providing rigorous sets of standards and through ongoing inspections by audit oversight bodies, a corpus of generally accepted auditing standards for this sector will develop. These standards will provide guidelines that auditors who are not blockchain experts can use when attempting to make inroads into this sector. 
 
 
-
-\subsection{Valuation of Cryptoassets} \label{sec:auditing:framework:valuation}
-When values are reported on financial statements, they must be reported in the functional currency of the firm, meaning the primary governmental currency used. A challenge for blockchain entities is to determine the valuation of cryptoassets on the financial statement date or the conversion rate for sales and expenditures made throughout the year. Auditors must be satisfied that the values reported in the financial statements are accurate and represent the underlying economic reality~\cite{eyvaluation}. This issue can be considered a subset of the "Oracle Problem" which is discussed further in the context of decentralized applications (DApps) and smart contracts in Chapter~\ref{sec:oracles}, however, the issue discussed here is more related to the valuation of cryptoassets on the financial statements of the company.
-
-
-\subsubsection{Fair Value of Cryptoassets}
-A significant obstacle for obtaining audited financial statements is the determination of a fair value for cryptoassets. Cryptoassets are often difficult to value because it is challenging to determine their underlying value and there may not be a generally accepted, quoted value to use as a reference. As an analogy, firms value foreign currencies at the closing rate on the transaction date, as reported by the central bank servicing the firm's area. No universal central bank offers rates for currency-like cryptoassets. At the time of writing, only a few Fortune 500 financial firms, \eg CME (Chicago Mercantile Exchange), offers a daily reference rate for bitcoin and ether, but not for most cryptocurrencies or cryptoassets.
-While bitcoin and ether enjoy around-the-clock trading across many markets, lesser-known coins, tokens, assets, or liabilities may trade slowly, and in low volumes. Generally speaking, low liquidity results in stale last sale prices and large bid-ask spreads. This is challenging but not unprecedented in financial auditing: privately held stocks and over-the-counter financial instruments share a similar profile. Auditors must familiarize themselves with the exchange markets for the cryptocurrencies held by their client to assist in validating their valuation.
-
-\subsubsection{Geographical Variation}
-The same cryptoasset might have different market values across different jurisdictions — because of market frictions, arbitrage does not resolve these differences~\cite{kroeger2017law}. If a firm applies International Financial Reporting Standards (IFRS), any financial assets measured at fair value that they hold must be determined with reference to their principal market (if available), which refers to the ``market with the greatest volume and level of activity for the asset''~\cite{ifrs13fairvalue}. Therefore, this standard precludes a firm from using the valuation of a cryptocurrency based on an obscure market price. Auditors will need to look carefully at the record of a client`s trading activity to determine the location of a client`s principal cryptoassets market and ensure that the assets are valued accordingly on the financial statements.
-
-
-
-\subsection{Internal Controls} \label{sec:auditing:framework:internalcontrol}
-
-Auditors must be satisfied that the financial statements they are reporting on are free of material misstatements. \textblue{this sentence is a repeat} In order to do so, auditors must obtain reasonable assurance that the internal controls of the client are effective. This is done by testing the design and operating effectiveness of the internal controls. In the context of cryptoassets, this is challenging because the adequate internal controls are novel to the auditors, often not well documented and are not always securely automated.
+\subsubsection{Old Text}
 
 It is necessary for a firm to be able to demonstrate the existence and ownership of its crypto-assets, however it must further demonstrate that it has adequate procedures in place to prevent or detect fraud and theft. Consider a firm holding DAO governance tokens. Internally, it must ensure proper controls over the signing keys these DAO tokens are assigned to. External to the firm, the DAO smart contract maintaining these tokens on Ethereum's blockchain must itself be secure (which in the case of the DAO, it was not~\cite{siegel2016daohack}). Auditing internal procedures over cryptographic keys is not unprecedented---maintaining certificate authority keys is critical to some security firm's financial prospects (a security breach at one firm, DigiNotar, bankrupted it~\cite{van2013diginotar}). However, the use of cryptographic keys is not yet commonplace in financial auditing.
 
