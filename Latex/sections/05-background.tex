@@ -29,7 +29,7 @@ This technology has the potential of many interesting applications, from financi
 
 Bitcoin pioneered the use of a decentralized ledger for tracking cryptocurrency transactions. However, its limitations prompted the development of other blockchain technologies seeking to enhance its original model. Ethereum, introduced by Vitalik Buterin, expanded on Bitcoin’s capabilities by incorporating smart contracts, allowing for complex, programmable transactions beyond simple value transfers~\cite{buterin2014next}. This added functionality, however, comes at the cost of speed and efficiency, with Ethereum facing scalability challenges. To address these, developers are exploring solutions such as layer 2 protocols~\cite{clark2018sok:online,optimismgithub,kalodner2018arbitrum}, which operate on top of the Ethereum blockchain to increase transaction speeds and reduce costs.
 
-In parallel, privacy-focused cryptocurrencies like Monero~\cite{monero} and Zcash~\cite{hopwood2016zcash} have been developed to address another limitation of Bitcoin: privacy. These platforms implement advanced cryptographic techniques to offer enhanced privacy and anonymity for users, making transaction details and participant identities obscure~\cite{van2013cryptonote, miers2013zerocoin}. Monero, for example, uses ring signatures and stealth addresses to protect user privacy~\cite{cryptoeprint2015}, distinguishing itself from Bitcoin's transparent transaction ledger. It should be noted that these privacy features are not perfect yet and have been found vulnerable in the past~\cite{kumar2017traceability,miller2017empirical}.
+In parallel, privacy-focused cryptocurrencies like Monero~\cite{monero} and Zcash~\cite{hopwood2016zcash} have been developed to address another limitation of Bitcoin: privacy. These platforms implement advanced cryptographic techniques to offer enhanced privacy and anonymity for users, making transaction details and participant identities obscure~\cite{van2013cryptonote, miers2013zerocoin}. Monero, for example, uses ring signatures and stealth addresses to protect user privacy~\cite{cryptoeprint2015}, distinguishing itself from Bitcoin's transparent transaction ledger. It should be noted that these privacy features are not perfect yet and have been found vulnerable in the past~\cite{kumar2017traceability,MMLN17}.
 
 
 
@@ -75,7 +75,7 @@ Mining pools exist particularly in networks that utilize the Proof of Work (PoW)
 
 
 
-\subsubsection{Proof of Stake (PoS).}
+\subsubsection{Proof of Stake (PoS)}
 Proof of Stake is a system that relies on validators who ``stake'' their cryptocurrency holdings as collateral to participate in the process of managing the blockchain. Unlike Proof of Work (PoW), which requires energy-intensive computational work, PoS selects validators based on the amount of their staked cryptocurrency, creating a more energy-efficient process.
 
 In PoS, the likelihood of a validator being chosen to propose or validate a block correlates with the size of their stake. Validators lock up a certain amount of cryptocurrency (32 ETH in Ethereum per validator), demonstrating their commitment to the network. This stake acts as a security deposit; validators who act against the network's rules or try to approve fraudulent transactions can lose part of their stake as a penalty, called slashing. This incentivizes good behaviour and secures the network. 
