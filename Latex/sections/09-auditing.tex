@@ -205,13 +205,13 @@ For auditors, these issues present unique challenges in valuing cryptoassets. Th
 
 
 
-\subsubsection{Airdrops and Forks}
+\subsubsection{Forks and Airdrops}
 Continuing the airdrop challenges from sections ~\ref{sec:auditing:framework:existence:airdrops} and~\ref{sec:auditing:framework:ownership:airdrops}, if existing accounting standards require the measurement of transactions at historical cost (what was paid for the assets), then recipients of Bitcoin Cash, fork of Bitcoin, would report this new asset on their books at a value of \$0. Certainly, this does not represent the true value acquired through the fork~\cite{webb2018fork}. Therefore, auditors must address the issue of an accounting standard that does not contemplate how to measure the value of cryptoassets when considering whether the financial statements they are reporting on are accurate in all substantial respects.
 
 
 \subsection{Internal Controls} \label{sec:auditing:framework:internalcontrol}
 
-Auditors must be satisfied that the financial statements they are reporting on are free of material misstatements. \textblue{this sentence is a repeat} In order to do so, auditors must obtain reasonable assurance that the internal controls of the client are effective. This is done by testing the design and operating effectiveness of the internal controls. In the context of cryptoassets, this is challenging because the adequate internal controls are novel to the auditors, often not well documented and are not always securely automated.
+Following our audit framework, after the cryptoassets' existence and ownership are verified, at an established valuation, auditors must obtain reasonable assurance that the internal controls of the client are effective. In the context of cryptoassets, this is challenging because the adequate internal controls are novel to the auditors, often not well documented and are not always securely automated. Internal Controls are encapsulated in operational processes and policies, access control, (private) key management, and IT infrastructure. 
 
 
 \subsubsection{Segregation}
@@ -244,6 +244,11 @@ It is necessary for a firm to be able to demonstrate the existence and ownership
 As discussed in Section~\ref{sec:auditing:framework:ownership:custodianship}, auditors rely heavily on SOC reports to obtain comfort over the internal controls of a custodian. However, SOC reports are not always available, and even when they are, they do not always cover the relevant controls for custody of cryptocurrencies. SOC reports require the company to provide a description of the system, including the controls in place, and the auditor to provide an opinion on the design and operating effectiveness of the controls. However, the SOC report is not a panacea. The auditor must still evaluate the report to determine whether the controls are adequate for the purposes of the audit. Additionally, the SOC report is only as good as the date it was issued. If the SOC report is dated after the balance sheet date, the auditor must obtain additional evidence to ensure that the controls were in place at the balance sheet date.
 
 %TODO: dig deeper here that what the SOC report requires and what it doesn't
+
+\subsubsection{Forks and Airdrops} 
+
+Assuming the auditors previously have verified that the new token exists, it is owned by the client, and it is valued at an established price, furthermore, they need to assess the processes for claiming the airdrop or forked token. This process commonly involved creating a transaction (or signing a message) on a newly created blockchain (smartcontract) and interact with external code. The complexity of this process depends on the technical nuances of the airdrop or fork; however, the risk of losing the main coins is imminent. As an example, in 2016, after the DAO hack~\cite{siegel2016daohack} emergency network upgrade, Ethereum was forked into the ETC (Ethereum Classic), and ETH (Ethereum). Many users lost their ETH after transferring their ETC to another account~\cite{ethereumClassic}, as the blockchains were so similar that transactions could be replayed on the other chain --``replay attack''--. To mitigate this issue some toolings were developed to add \textit{relay protection} to the transactions and the blockchain. 
+
 
 
 %++++++++++++++++++++++=======================================+++++++++++++++++++++
