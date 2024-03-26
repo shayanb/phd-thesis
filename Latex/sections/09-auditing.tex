@@ -143,11 +143,9 @@ Do I need to prove that they retained ownership over the subsequent events perio
 
 Determining when to test ownership to ensure that evidence is obtained at the correct date becomes a challenge. Best practice would indicate that, like inventory, auditors should test ownership as at the balance sheet date and may wish to provide note disclosure for significant events where ownership is lost. 
 
-A question emerges about what ownership really means in this context. A client may demonstrate that they have access to a private key, but this in and of itself does not demonstrate ownership. ``With ownership, the risk of giving someone else access to the private key is no different than the corporate controller sharing his password to the company bank account with his spouse''. Auditors must determine what types of procedures they can do to validate control and ownership in this context: 
+A question emerges about what ownership really means in this context. A client may demonstrate that they have access to a private key, but this in and of itself does not demonstrate ownership. ``With ownership, the risk of giving someone else access to the private key is no different from the corporate controller sharing his password to the company bank account with his spouse''. Auditors must determine what types of procedures they can do to validate control and ownership in this context.
 
-If a client uses self-custody, we can do different procedures to be able to approve ownership like small amount transfers or secret messages, depending on the protocol they're using. 
-
-These practices like small value transfers or the sending of secret messages are part of what are referred to as cryptographic proofs. 
+If a client uses self-custody, we can do different procedures to be able to approve ownership like small amount transfers or secret messages, depending on the protocol they're using. These practices like small value transfers or the sending of secret messages are part of what are referred to as cryptographic proofs. 
 
 \subsubsection{Cryptographic Keys} 
 
@@ -179,7 +177,7 @@ In order to address the reliability of the confirmations from service providers 
 While some blockchain firms have been able to obtain SOC reports, the mere fact of having the report is insufficient. Obtaining an SOC report is not a box-checking exercise and that the auditor must review the report carefully to understand which controls it has addressed and can be relied on.
 
 
-\subsubsection{Forks and Airdrops}
+\subsubsection{Forks and Airdrops}\label{sec:auditing:framework:ownership:airdrops}
 More commonly for ERC-20 tokens on Ethereum, the recipient of the tokens often does not have the option to reject the deposits, nor would they get notified of the new tokens. As mentioned in section~\ref{sec:auditing:framework:existence:airdrops}, all ETH holders received ETH PoW on the time of the merge~\cite{themerge}, however required new software to access them. However, in some other instances, such as Optimism Airdrop~\cite{allen2023airdrop}, the recipient of the tokens must claim the tokens in order to receive them (See Figure~\ref{fig:opairdrop}). In this case, the auditor must ensure that the client has claimed the tokens, the price of the time of the claim, and the validity of the claim from the client's keys in order to include them in the financial statements.
 
 
@@ -195,14 +193,20 @@ While bitcoin and ether enjoy around-the-clock trading across many markets, less
 \subsubsection{Geographical Variation}
 The same cryptoasset might have different market values across different jurisdictions — because of market frictions, arbitrage does not resolve these differences~\cite{kroeger2017law}. If a firm applies International Financial Reporting Standards (IFRS), any financial assets measured at fair value that they hold must be determined with reference to their principal market (if available), which refers to the ``market with the greatest volume and level of activity for the asset''~\cite{ifrs13fairvalue}. Therefore, this standard precludes a firm from using the valuation of a cryptocurrency based on an obscure market price. Auditors will need to look carefully at the record of a client`s trading activity to determine the location of a client`s principal cryptoassets market and ensure that the assets are valued accordingly on the financial statements.
 
-\subsubsection{Fungability }
 
-Tainted ETH from Tornado Cash. Dusting attacks
+\subsubsection{Fungibility}\label{fungibility}
+Fungibility represents a critical yet often overlooked challenge for auditors in the realm of cryptoassets. The concept of fungibility refers to the ability of an asset to be interchangeable with other individual assets of the same type, implying that each unit is indistinguishable from another. In traditional finance, currencies and commodities often embody this principle, where each unit holds the same value and is interchangeable without distinction. However, the digital nature of cryptoassets introduces complexities that can compromise their fungibility, leading to significant implications for valuation and auditing.
 
-\subsubsection{Airdrops again}
+A prominent issue in the crypto space is the differentiation between ``dirty'' coins and ``clean'' coins. Dirty coins are those that have been involved in illicit activities or are otherwise tainted by their transaction history, making them potentially less desirable or even subject to seizure and legal action. This contrasts with clean coins, which have no such associations and are freely usable and exchangeable. The case of tainted ETH from now sanctioned Tornado Cash~\cite{ofactornadocash,pertsev2019tornado}, a privacy tool designed to obscure the origins of Ethereum tokens, exemplifies this challenge. Funds with history of being mixed through Tornado Cash are flagged by regulatory bodies and exchanges, affecting their acceptance and fungibility. 
 
-However, if existing accounting standards require the measurement of transactions at historical cost (what was paid for the assets), then recipients of Bitcoin Cash would report this new asset on their books at a value of \$0. Certainly, this does not represent the true value acquired through the fork~\cite{webb2018fork}. Therefore, auditors must address the issue of an accounting standard that does not contemplate how to measure the value of cryptoassets when considering whether the financial statements they are reporting on are accurate in all substantial respects. \textblue{This sounds like a valuation issue, below, rather than an existence issue. What is the existence issue? If none, you can move it to valuation.}
+% Moreover, "dusting attacks" further complicate the fungibility of cryptoassets. In such attacks, small amounts of a cryptocurrency, known as dust, are sent to a large number of addresses. This tactic can breach privacy by identifying the owners of those addresses if they move the dust along with other funds, inadvertently linking their wallets. Dusting attacks not only pose privacy concerns but also impact the fungibility of the assets involved, as the dust may be traced back to illegal activities, thereby tainting the recipient's entire wallet.
 
+For auditors, these issues present unique challenges in valuing cryptoassets. The presence of dirty coins, the risk of dusting attacks, and the potential for assets to be tainted by association with privacy tools or illicit activities necessitate careful consideration and due diligence. Auditors must navigate these complexities, employing advanced blockchain analysis tools and staying up to date with regulatory developments to accurately assess the fungibility and, by extension, the valuation of cryptoassets in their audits.
+
+
+
+\subsubsection{Airdrops and Forks}
+Continuing the airdrop challenges from sections ~\ref{sec:auditing:framework:existence:airdrops} and~\ref{sec:auditing:framework:ownership:airdrops}, if existing accounting standards require the measurement of transactions at historical cost (what was paid for the assets), then recipients of Bitcoin Cash, fork of Bitcoin, would report this new asset on their books at a value of \$0. Certainly, this does not represent the true value acquired through the fork~\cite{webb2018fork}. Therefore, auditors must address the issue of an accounting standard that does not contemplate how to measure the value of cryptoassets when considering whether the financial statements they are reporting on are accurate in all substantial respects.
 
 
 \subsection{Internal Controls} \label{sec:auditing:framework:internalcontrol}
