@@ -74,7 +74,7 @@ Recall that Ethereum allows the creation of smart contracts. A smart contract is
 
 ETH and other assets sent the address of a smart contract cannot be transferred out of the contract without support from the code of the contract. Contracts typically implement access control, the simplest being the designation of a single EOA that can perform sensitive tasks like transacting the assets belonging to the contract's address. 
 
-\subsection{Multisig}
+\subsubsection{Multisig}
 
 A more involved access control pattern is a multi-signature (multisig) where more than one EOA (or contract address) must support the operation. For example, a multisig might require support from 7 of 12 addresses. There are different possible implementations and configurations on how each multisig smart contract can be set up~\cite{ittay2021wallet}.  
  
@@ -153,7 +153,7 @@ Although alternative notions of ownership are possible to define, the idea of a 
 
 We note that while cryptographic proof is necessary, it is not sufficient. A cryptographic proof simply demonstrates that the purported owner has access to the person holding the signing key. A malicious company might arrange for the owner of cryptoassets to engage in signing statements or moving test amounts fraudulently on their behalf. This issue is not new: an insolvent retail store might borrow inventory from elsewhere to inflate its assets during an inventory count. Auditors mitigate this by arranging a common date for all audits of physical inventory and, similarly, cryptographic audits could be synchronized on a fixed schedule to prevent the same assets from being counted for different companies in different audits~\cite{dagher2015provisions}. 
 
-One type of proof includes sending a small amount (the amount is random challenge) of money to the auditor from the private key, while another proof involves demonstrating that the client can respond to a cryptographically-protected message that only the private keyholder could open. Independently, neither of these procedures demonstrate that the client owns the private key. Effectively, sending a small amount on chain leaves an evidence for the auditor to observe if another entity have access to these keys (or the same company is double counting their assets), however, the digital signature does not leave any on-chain evidence. 
+One type of proof includes sending a small amount determined by the auditor (the amount is ``random challenge'') of cryptoassets using the private key, while another proof involves demonstrating that the client can respond to a cryptographically-protected message that only the private keyholder could open. Independently, neither of these procedures demonstrate that the client owns the private key. Effectively, sending a small amount on chain leaves an evidence for the auditor to observe if another entity have access to these keys (or the same company is double counting their assets), however, the digital signature does not leave any on-chain evidence. 
 
 % \textblue{On reflection, I guess there is a difference between off-chain signing, OP\_RETURN or equivalent, and sending small amounts. The second two leave on-chain evidence, while the first does not. So if I am sharing assets with another insolvent entity with different auditors, we are more likely to get caught by the second two methods than the first one.}
 
