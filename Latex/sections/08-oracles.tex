@@ -112,7 +112,6 @@ Humans may also act maliciously and deliberately report wrong data when they per
 
 % Biases, social engineering
 
-% \todo{add wiki nigeria election problem . also lazy voters, single source of truth (wiki)}
  %Talking about importance of using different data sources ...
 
 % JC: 
@@ -142,10 +141,6 @@ Smart contract could be used as a data source similar to a database. Decentraliz
 % add details and possible attacks (whale attack) for cofixwhitepaper and nestwhitepaper. also include possibility of oracle malfunction for dodopmm and how it might react to such misinformation - PMM attacks
 
 One potential attack vector to the auto price discovery mechanism in an AMM is to manipulate prices provided by an algorithm, since the algorithmic rules used by an AMM is written in the smart contract and therefore how prices are quoted by the AMM can be calculated in advance. a real case example on \textit{bZx} is described in Section~\ref{oracle_smart_contract}. In addition to market manipulation, \textit{smart contract vulnerabilities}~\cite{atzei2017survey,chen2020survey} could possibly be used to influence the data coming from the oracle, which we will discuss more in section~\ref{smart_contract}.
-
-
-% JC: this is described at the end
-%Using a real case example, a margin trading DeFi platform, \textit{bZx}, was attacked in what is known as a flash loan attack~\cite{bzxPeckShield,bzxflashloanattack,qin2020attacking}. A flash loan allows anyone to borrow large amounts of crypto funds on leverage at very low cost to execute a series of trades within one atomic transaction so long as the full borrowed amount can be returned at the end of that atomic transaction. In the bZx attack, an adversary executed a trade at an unrealistic price to corrupt the price discovery data on Uniswap, which was then subsequently consumed and used by another DeFi service. The adversary gained more from corrupting the second DeFi service than from losing the trades in the first trade by manipulating the prices. A solution to fix this issue, as implemented in Uniswap V2, is to introduce time frames (TWAP) for price discovery over several blocks (\eg mean price in the last 10 blocks), which mitigates the vulnerabilities caused by flash loans. However, AMM is still nonetheless prone to high-capital market manipulations. % TODO: reduce the size of this paragraph
 
 
 % = = = = = = = = = = = = = = = = = = = = = = = = = = %
