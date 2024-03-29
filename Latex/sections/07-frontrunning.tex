@@ -325,7 +325,7 @@ Commit/reveal is a two-round protocol, and aborting after the first round (early
     \centering
 % \floatbox[{\capbeside\thisfloatsetup{capbesideposition={left,bottom},capbesidewidth=0.5\linewidth}}]{figure}[\FBwidth]
 {\includegraphics[width=0.5\textwidth]{figures/LibSubmarine.png}}
-{\caption[Submarine Send]{Submarine Send~\cite{libsubmarine}. User generates an \textit{Unlock} transaction from which the commitment address is retrieved using ECDSA ECRecover. \textsf{1.} by funding the \textit{commitment address}, user is committed to the transaction. \textsf{2.} User sends the \textit{reveal transaction} to the DApp, revealing the nature of the commitment transaction. \textsf{3.} She broadcasts the \textit{unlock transaction} to unlock the funds in the commitment address. \textsf{4.} After the \textit{``Auction''} is over, anyone can call \textit{Finalize} function to finalize the process.}\label{fig:LibSubmarine}}
+{\caption[Submarine Send]{Submarine Send~\cite{libsubmarine}. User generates an \textit{Unlock} transaction from which the commitment address is retrieved using ECDSA \texttt{ECRecover}. \textsf{1.} by funding the \textit{commitment address}, user is committed to the transaction. \textsf{2.} User sends the \textit{reveal transaction} to the DApp, revealing the nature of the commitment transaction. \textsf{3.} She broadcasts the \textit{unlock transaction} to unlock the funds in the commitment address. \textsf{4.} After the \textit{``Auction''} is over, anyone can call \textit{Finalize} function to finalize the process.}\label{fig:LibSubmarine}}
 \end{figure}
 %https://www.lucidchart.com/invitations/accept/3a259b74-1162-4fb5-8023-eb0311018295
 
