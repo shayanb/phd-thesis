@@ -3,7 +3,7 @@
 
 
 Revisions
-
+--> RQs DONE
 * For each chapter, create a set of "research questions" and then restructure the middle/end to answer them. 
   * Examples
     * https://arxiv.org/pdf/2304.09822
@@ -96,7 +96,7 @@ Personal motivation
 
 
 
-References
+References -- DONE
 - Fine toothed comb
 - URLs
 
@@ -104,8 +104,8 @@ References
 
 Chapter blurbs
 
-- Co-authors (not supervisors)
-- Captions of tables/figures -> no relative time references (last 12 months)
+- Co-authors (not supervisors) -- DONE
+- Captions of tables/figures -> no relative time references (last 12 months) -- DONE
 
  
 

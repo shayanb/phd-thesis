@@ -7,11 +7,12 @@
 
 
 \begin{quote}
-	\textit{This chapter is based on the paper ``SoK: Transparent Dishonesty: front-running attacks on Blockchain''~\cite{eskandari2019sok} published at 3rd Workshop on Trusted Smart Contracts In Association with Financial Cryptography (FC) in February 2019. This paper was supervised by Jeremy Clark, and co-authored by Seyedehmahsa Moosavi.}
+	\textit{This chapter is based on the paper ``SoK: Transparent Dishonesty: front-running attacks on Blockchain''~\cite{eskandari2019sok} published at 3rd Workshop on Trusted Smart Contracts In Association with Financial Cryptography (FC) in February 2019. This paper was co-authored with Seyedehmahsa Moosavi and Jeremy Clark.}
 \end{quote}
 
 
 \section{Introduction}
+In this chapter, we aim to address \textbf{RQ3:} \textit{How do front-running attacks exploit the decentralized nature of blockchain applications, what strategies can mitigate these attacks, and what are the (ethical) implications of these strategies?} We provide a comprehensive study of front-running attacks on blockchain applications, focusing on decentralized applications (DApps) deployed on Ethereum. We categorize the attacks based on the type of DApp and the type of the front-running attacks based on our taxonomy. We conclude by discussing the strategies to mitigate these attacks and the ethical implications of these strategies.
 
 Front-running has been an issue in financial instrument markets since the 1970s. With the advent of the blockchain technology, front-running has resurfaced in new forms we explore here, instigated by blockchain's decentralized and transparent nature. Due to this technical nuance of blockchains, any actor can act as the actor with privileged information and abuse this early access to information to profit from it. In the financial markets, the privileged information is mostly regarding trades and financial data, however, as blockchains have other use cases, front-running attack are expanded to many other applications, as discussed in this chapter. 
 
@@ -19,7 +20,6 @@ In this section, we briefly describe what front-running is in the traditional ma
 
 
 \section{Background and Motivation}
-
 
 The mechanics of front-running work on all DApps but front-running is not necessarily beneficial, depending on the DApp's internal logic and/or as any mitigation it might implement. Therefore, DApps need to be studied individually or in categories. In this chapter, we draw from a scattered body of knowledge regarding front-running attacks on blockchain applications and the proposed solutions, with a series of case studies of DApps deployed on Ethereum (a popular blockchain supporting DApps). We do case studies on decentralized exchanges (\eg Bancor), crypto-collectibles (\eg CryptoKitties), gambling services (\eg Fomo3D), and decentralized name services (\eg Ethereum Name Service). We also study initial coin offerings (ICOs). Finally, we provide a categorization of techniques to eliminate or mitigate front-running including transaction sequencing, cryptographic techniques like commit/reveal, and redesigning the functioning of the DApp to provide the same utility while removing time dependencies.
 
@@ -369,7 +369,9 @@ Another follow-up research that has received a lot of attention is the study of 
 
 \section{Concluding Remarks} %TODO: update this to related back to the theme and review the ethics section as well.
 
-Following the theme of this dissertation, blockchain permissionless and transparent aspects have brought new challenges to the security of the system. Front-running in the traditional financial markets are only feasible to the entities in the flow of information, however, in blockchain, the information is available to everyone. In this chapter, we studied the front-running attacks on the blockchain and Ethereum DApps. We discussed the different types of front-running attacks and their impact on the blockchain ecosystem. We also discussed the different mitigation methods and how they can be applied to prevent or reduce the impact of front-running attacks. 
+Following the theme of this dissertation, blockchain permissionless and transparent aspects have brought new challenges to the security of the system. Front-running in the traditional financial markets are only feasible to the entities in the flow of information, however, in blockchain, the information is available to everyone. 
+
+To summarize the answer to \textbf{RQ3}, we created a taxonomy of front-running attacks on blockchains, and discussed the technical nuances that result in such vulnerabilities. We also discussed the different mitigation methods that can be applied to prevent or reduce the impact of front-running attacks, however, not all mitigation strategies are sufficient to prevent all types of front-running attacks and some may have ethical and legal implications.
 
 Front-running is a pervasive issue in Ethereum DApps. DApp developers don't necessarily have the mindset to design DApps with front-running in mind. This is an attempt to bring forward the subject and increase awareness of these type of attacks. While some DApp-level application logic could be built to mitigate these attacks, its ubiquity across different DApp categories suggests mitigations at the blockchain-level would perhaps be more effective. We highlight this as an important research area.
 

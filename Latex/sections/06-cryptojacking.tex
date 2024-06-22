@@ -5,14 +5,15 @@
 \chapter{Cryptojacking: from Replacing Ads to Invisible Abuse}\label{sec:cryptojacking}
 
 \begin{quote}
-	\textit{This chapter is based on the paper ``A first look at browser-based Cryptojacking''~\cite{eskandari2018first} published in the 2018 IEEE Security \& Privacy on the Blockchain (IEEE S\&B), co-located with the IEEE European Symposium on Security and Privacy (\textit{EuroS\&P}) at University College London (UCL). This paper was supervised by Jeremy Clark, and co-authored by Andreas Leoutsarakos and Troy Mursch.}
+	\textit{This chapter is based on the paper ``A first look at browser-based Cryptojacking''~\cite{eskandari2018first} published in the 2018 IEEE Security \& Privacy on the Blockchain (IEEE S\&B), co-located with the IEEE European Symposium on Security and Privacy (\textit{EuroS\&P}) at University College London (UCL). This paper was co-authored with Jeremy Clark, Andreas Leoutsarakos and Troy Mursch.}
 \end{quote}
 
 
 \section{Introduction}
 
-Online advertisement business is a multi-billion dollar industry. It is the primary source of revenue for many websites and services. However, the current online advertisement model is broken. It is plagued with problems such as click-fraud, privacy violations, and malvertising. As a result, many websites have started to look for alternative sources of revenue. One such alternative is browser-based cryptocurrency mining, also known as cryptojacking. As we discuss this new model in this chapter, we also show how bad actors and hackers have started to abuse it by turning their unprivileged access to income streams for themselves. We discuss ethical implications of this technology, and classify cryptojacking that does not gain user consent as \textit{invisible abuse}: ``the intentional use of the invisible operations of a computer to engage in unethical conduct''~\cite{moor1985computer}, which is discuss further in Section~\ref{sec:ethics}.
+Online advertisement business is a multi-billion dollar industry. It is the primary source of revenue for many websites and services. However, the current online advertisement model is broken. It is plagued with problems such as click-fraud, privacy violations, and malvertising. As a result, many websites have started to look for alternative sources of revenue. One such alternative is browser-based cryptocurrency mining, also known as cryptojacking. As we discuss this new model in this chapter, we also show how bad actors and hackers have started to abuse it by turning their unprivileged access to income streams for themselves.
 
+In this chapter, we aim to investigate and answer \textbf{RQ2:} \textit{What are the ethical and practical implications of using browser-based cryptojacking as an alternative to traditional online advertisements?}. We start by providing a brief history of browser-based mining in Section~\ref{sec:mininghistory}. Following this, we explore the rise of Monero, a privacy-focused cryptocurrency, and how it has become the currency of choice for browser-based mining in Section~\ref{sec:mininghistory}. In Section~\ref{sec:measurements}, we examine the prevalence of Coinhive and its alternatives, as well as the impact of cryptojacking on users and the profitability of browser-based mining. Potential mitigations for cryptojacking are discussed in Section~\ref{sec:mitigations}. We conclude by discussing the ethical implications of this technology, and classify cryptojacking that does not gain user consent as \textit{invisible abuse}: ``the intentional use of the invisible operations of a computer to engage in unethical conduct''~\cite{moor1985computer}, which is discuss further in Section~\ref{sec:ethics}.
 
 \section{Background and Motivation}
 
@@ -111,7 +112,7 @@ A user's web traffic is often routed through intermediaries that may have plaint
 %
 % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = %
 
-\section{Measurements}
+\section{Measurements}\label{sec:measurements}
 
 \subsection{Prevalence of Coinhive and Alternatives}
 
@@ -158,7 +159,7 @@ This type of measurement will become less accurate moving forward. Cryptojacking
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.9\linewidth]{figures/usage_over_time2.png}
-\caption[Google Trend Over Last 12 Months]{Google Trend over last 12 months: there has been more interest in Coinhive than the broader, related search term ``Browser mining''. Comparing to other services offering Monero browser mining API, Coinhive had the advantage of being the first to offer the service. \label{fig:trend}}
+\caption[Google Trend Over 12 Months]{Google Trend over 12 months: there has been more interest in Coinhive than the broader, related search term ``Browser mining''. Comparing to other services offering Monero browser mining API, Coinhive had the advantage of being the first to offer the service. \label{fig:trend}}
 \end{figure}
 
 
@@ -230,13 +231,13 @@ Coinhive developers estimate a monthly revenue of about 0.3 XMR (about \$101 USD
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.8\linewidth]{figures/experiment_coinhive_results.png}
-\caption[Coinhive Earnings Dashboard]{Coinhive dashboard showing the earnings of a domain parking service that runs Coinhive on 11\,000 domains. Over the course of about 3 months, the operator earned 0.02417 XMR (currently \$7.69 USD).}\label{fig:domain1}
+\caption[Coinhive Earnings Dashboard]{Coinhive dashboard showing the earnings of a domain parking service that runs Coinhive on 11\,000 domains. Over the course of about 3 months, the operator earned 0.02417 XMR (value at the time of writing \$7.69 USD).}\label{fig:domain1}
 \end{figure}
 
 
 % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = %
 
-\section{Mitigations}
+\section{Mitigations}\label{sec:mitigations}
 
 We discuss the ethics of cryptojacking in the next section, but in the case of cryptojacking without user consent, it seems natural to us to presuppose users want to be protected. Protection might take a few forms, which we outline here.
 
@@ -287,7 +288,7 @@ Following up on our research, Papadopoulos~\etal conducted a profitability analy
 
 
 \section{Conclusion}
-In-browser mining was introduced as a potential replacement for online advertisements to remove the intermediaries and connect the user directly to the website. However, it was quickly abused by malicious actors and resulted in some unforeseen consequences. We still believe there's a potential for ethical use of in-browser mining as a replacement for online advertisements. However, it requires a lot of work to be done in this area, such as user education for proper consent, ethical framework for its use. It is clear that overall cryptocurrency regulations regarding such use cases are still in their infancy, if existent at all. %TODO: take a look at this again
+To conclude our discussion regarding \textbf{RQ2}, we have seen that in-browser mining has been used in a variety of ways, from legitimate to malicious. In-browser mining was introduced as a potential replacement for online advertisements to remove the intermediaries and connect the user directly to the website. However, it was quickly abused by malicious actors and resulted in some unforeseen consequences. We still believe there's a potential for ethical use of in-browser mining as a replacement for online advertisements. However, it requires a lot of work to be done in this area, such as user education for proper consent, ethical framework for its use. It is clear that overall cryptocurrency regulations regarding such use cases are still in their infancy, if existent at all. 
 
 
 

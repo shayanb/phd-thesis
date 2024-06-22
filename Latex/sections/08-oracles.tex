@@ -2,16 +2,15 @@
 \chapter{Oracles: from Ground Truth to Market Manipulation} ~\label{sec:oracles}
 
 \begin{quote}
-	\textit{This chapter is based on the paper ``Oracles; from the ground truth to market manipulation''~\cite{eskandari2021sok} published at 3rd ACM Conference on Advances in Financial Technologies. This paper was supervised by Jeremy Clark, and co-authored by Mehdi Salehi and Wanyun Catherine Gu.}
+	\textit{This chapter is based on the paper ``Oracles; from the ground truth to market manipulation''~\cite{eskandari2021sok} published at 3rd ACM Conference on Advances in Financial Technologies. This paper was co-authored with Mehdi Salehi, Wanyun Catherine Gu, Jeremy Clark.}
 \end{quote}
 
 \section{Introduction}
 
-In the previous chapter, we discussed the front-running attacks that can change the underlying information a user's transaction is based on and change the state of the execution prior to the transaction. In this chapter, we focus on the source of truth and how the information flow can be manipulated by different actors depending on the ~\textit{oracle} technical design. These attacks vary from abuse of the trust to technical nuances of the design that can be manipulated by malicious network participants. We start by introducing the oracle problem and the different oracle designs. We then present a modular framework for oracle designs and discuss the different attacks that can be performed on each module. We conclude by presenting a taxonomy of oracle designs and discuss the different oracle designs in the context of the taxonomy. 
+In the previous chapter, we discussed the front-running attacks that can change the underlying information a user's transaction is based on and change the state of the execution prior to the transaction. In this chapter, we aim to answer \textbf{RQ4:} \textit{What role do oracles play in blockchain ecosystems, and how can their vulnerabilities be addressed to prevent manipulation?}. We start by exploring the approaches to the oracle problem, different oracle designs, and how the information flow can be manipulated by different actors depending on the ~\textit{oracle} technical design. These attacks vary from abuse of the trust to technical nuances of the design that can be manipulated by malicious network participants. We start by introducing the oracle problem and the different oracle designs. We then present a modular framework for oracle designs and discuss the different attacks that can be performed on each module. We conclude by presenting a taxonomy of oracle designs and discuss the different oracle designs in the context of the taxonomy. 
 
 
 \section{Background and Motivation}
-
 
 With billions of dollars at stake, decentralized networks are prone to attacks. It is essential that the smart contracts, which govern how systems are run on these networks, are executed correctly. Public blockchains, like Ethereum, ensure the correct execution of smart contract code by taking the consensus of a large, open network of nodes operating the Ethereum software. For consensus to form, many nodes need to make decisions based on the exact same input data. Hypothetically, if a decision requires nodes to fetch data or use a service provider outside the blockchain, there can be no guarantee that every node in a global network has the same access and view of this external source. For this reason, blockchains only execute on internal sources: data and code provided in a current transaction, or past data and code already stored on the blockchain.
 
@@ -490,7 +489,7 @@ In the \textit{request-response} model, the data consumer smart contract sends a
 % = = = = = = = = = = = = = = = = = = = = = = = = = = %
 
 \section{Concluding Remarks}
-In this chapter, we described a specialized modular framework to analyze oracles. After our systematization, we present the following discussion points and lessons learned from our work. 
+In this chapter, in order to answer \textbf{RQ4}, in addition to discussing the oracle problem, we described a specialized modular framework to analyze oracles. After our systematization, we present the following discussion points and lessons learned from our work. 
 
 \begin{enumerate}
     \item Many oracles projects introduce their own governance tokens that are used to secure the oracle system (\eg through staking). Two conditions seem necessary: the market capitalization of the token stays material and the token is evenly distributed. More consideration should be given to leveraging an existing token with these properties (even a non-oracle token) instead of creating new specialized tokens~\cite{vitalikuni}. Also, a collapse in the value of the governance token threatens the entire system.
