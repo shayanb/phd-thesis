@@ -12,7 +12,7 @@ Revisions
   * Intro: enumerate the questions, 1 paragraph on why they are important & novel (reader knows something more than they did before, assuming they have read every paper in your related work), 1 paragraph answer
   * Restructure the (sub)-sections of the paper to map each one of the RQs, recall the RQ (one sentence near the start), recall the answer to the RQ (one sentence near the end)
 
-- Background chapter
+- Background chapter -- DONE
 
   - I am going to explain Bitcoin because it introduced a novel type of consensus---Nakamoto consensus
   - PoW
@@ -21,13 +21,13 @@ Revisions
     - PoS: Ethereum
     - Paragraph of others...
 
-  | Chapter        | Blockchain System                  |
-  | -------------- | ---------------------------------- |
-  | Crypto-jacking | Monero                             |
-  | Front-running  | Ethereum EVM, applicable to others |
-  | Oracles        | General to any blockchain          |
-  | Auditing       | Ethereum EVM, applicable to others |
-  |                |                                    |
+| Chapter        | Blockchain System                  |
+| -------------- | ---------------------------------- |
+| Crypto-jacking | Monero                             |
+| Front-running  | Ethereum EVM, applicable to others |
+| Oracles        | General to any blockchain          |
+| Auditing       | Ethereum EVM, applicable to others |
+|                |                                    |
 
 - Smart contracts as “verified code” -> DONE
   - Opt-in to verifiability (via Etherscan)

@@ -6,7 +6,26 @@
 
 \chapter{Background} \label{sec:background}
 
-In this chapter, we go over the building blocks for blockchain technology and other concepts required for understanding this dissertation.
+In this chapter, we go over the building blocks for blockchain technology and other concepts required for understanding this dissertation. We start by explaining the basics of blockchain technology using Bitcoin, as it introduced a novel type of consensus mechanism called Proof of Work (PoW) -- Nakamoto Consensus. We shortly touch on Monero, a privacy-focused cryptocurrency, which is mostly similar to Bitcoin but has reworked the PoW mechanism to be more compatible with CPU mining (more detail in Chapter~\ref{sec:cryptojacking}). Then we introduce Ethereum, a blockchain platform that introduced smart contracts and a Turing-complete virtual machine (EVM). Most of this dissertation is focused on Ethereum as the main blockchain technology.
+
+\begin{table}[]
+    \centering
+    \resizebox{0.8\columnwidth}{!}{%
+    \begin{tabular}{|l|l|}
+    \hline
+    \rowcolor[HTML]{C0C0C0} 
+    \multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{Chapter}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Blockchain System}} \\ \hline
+    \ref{sec:cryptojacking} - Crypto-jacking      & Monero                                                                  \\ \hline
+    \ref{sec:frontrunning} - Front-running        & Ethereum EVM, applicable to others                                      \\ \hline
+    \ref{sec:oracles} - Oracles                   & General to any blockchain                                               \\ \hline
+    \ref{sec:auditing} - Auditing                 & Ethereum EVM, applicable to others                                      \\ \hline
+    \end{tabular}%
+    }
+    \caption[Chapters and the related blockchains]{Mapping of chapters to blockchain systems related to the concepts discussed in each chapter.}
+    \label{tab:chapters}
+\end{table}
+
+
 
 \section{Blockchain}
 A technical challenge in developing a decentralized network has been establishing a consensus mechanism that operates without centralized trust among participants (See section~\ref{consensus_mechanism}). "Trust" here refers to the reliance on a central authority to validate transactions, a notion Bitcoin managed to eliminate. Implementing an online ledger on a single computer is straightforward, involving a database with public read access and restricted write access controlled by a central authority. This setup inherently trusts the central party managing the server. However, as soon as you begin to have more computers in the decentralized network, the question arises, how to keep updating the database and enforce honesty amongst the network participants? Prior to Bitcoin, attempts to decentralize this model were made starting in the 1980's~\cite{narayanan2017bitcoin}, but it wasn't until Nakamoto's work in 2008~\cite{nakamoto2008bitcoin} that a viable solution emerged, leveraging a network of nodes incentivized to maintain and validate a public ledger without a central authority. A decentralized network here means that no single entity controls the network, and the network is open to anyone to join or leave at any time.
@@ -91,7 +110,7 @@ In summary, in a PoS system, validators stake cryptocurrency to participate in t
 
 \section{Ethereum}\label{ethereumbackground}
 
-Ethereum~\cite{wood2014ethereum} is a prominent public blockchain that has attracted the largest developer headcount compared to other blockchains. It is an extension of its predecessor, Bitcoin~\cite{nakamoto2008bitcoin}, but with significant enhancements, notably the addition of verbose \textit{smart contracts}. These smart contracts are applications residing on the blockchain that can immutably execute their verified code. Verified code in this case means that anyone can compile the original source code and verify that the code deployed on the blockchain is the same code they compiled, there are also tools to automatically add a verification check to the smartcontract view (\eg etherscan.io). Ethereum operates on a Turing-complete virtual machine, the \texttt{Ethereum Virtual Machine (EVM)}, allowing programs to live and be executed on the blockchain. This differs from Bitcoin's UTXO\footnote{Unspend Transaction Output} model, which primarily supports value transfers and has a scripting language for extending transaction functionality to a limited extent. In contrast, Ethereum's turing-complete language opens up limitless possibilities.  All transactions and executions on Ethereum are verified by a decentralized network of nodes. The nodes are incentivized to verify transactions and execute smart contracts by receiving rewards in the form of Ether, the native cryptocurrency of Ethereum. 
+Ethereum~\cite{wood2014ethereum} is a prominent public blockchain that has attracted the largest developer headcount compared to other blockchains. It is an extension of its predecessor, Bitcoin~\cite{nakamoto2008bitcoin}, but with significant enhancements, notably the addition of verbose \textit{smart contracts}. These smart contracts are applications residing on the blockchain that can immutably execute their verified code. Verified code in this case means that anyone can compile the original source code and verify that the code deployed on the blockchain is the same code they compiled, there are also tools to automatically add a verification check to the smartcontract view (\eg etherscan.io). Ethereum operates on a Turing-complete virtual machine, the \texttt{Ethereum Virtual Machine (EVM)}, allowing programs to live and be executed on the blockchain. This differs from Bitcoin's UTXO\footnote{Unspend Transaction Output} model, which primarily supports value transfers and has a scripting language for extending transaction functionality to a limited extent. In contrast, Ethereum's Turing-complete language opens up limitless possibilities.  All transactions and executions on Ethereum are verified by a decentralized network of nodes. The nodes are incentivized to verify transactions and execute smart contracts by receiving rewards in the form of Ether, the native cryptocurrency of Ethereum. 
 
 Ethereum blockchain started in 2015 using the similar consensus mechanism as Bitcoin, called Proof of Work (PoW), also known as mining. However, in 2020, Ethereum started the transition to Proof of Stake (PoS) consensus mechanism. The main difference between PoW and PoS is that in PoW, the nodes are incentivized to solve a computationally hard puzzle to be able to add a block to the blockchain. However, in PoS, the nodes are incentivized to stake their Ether to be able to add a block to the blockchain. The PoS mechanism is more energy efficient and more scalable than PoW. Ethereum fully switched to PoS in September 2022 in an event called the \textit{Merge}, and reduced its energy consumption by 99.5\%~\cite{themerge}. In this dissertation, we do not directly focus on the consensus mechanisms, however, we will discuss the implications of the consensus mechanism on the blockchain security in Chapter~\ref{sec:frontrunning}. 
 
