@@ -29,7 +29,7 @@ Revisions
   | Auditing       | Ethereum EVM, applicable to others |
   |                |                                    |
 
-- Smart contracts as “verified code” -> fix this
+- Smart contracts as “verified code” -> DONE
   - Opt-in to verifiability (via Etherscan)
 
   
@@ -103,7 +103,6 @@ References -- DONE
 
 
 Chapter blurbs
-
 - Co-authors (not supervisors) -- DONE
 - Captions of tables/figures -> no relative time references (last 12 months) -- DONE
 
