@@ -40,10 +40,9 @@ Revisions
 
 
 Knowledge gaps
+- I see these gaps but (a) what are they and (b) why do they matter? --> DONE 
 
-- I see these gaps but (a) what are they and (b) why do they matter?
-
-- Why these four? (Front-running, cryptojacking, auditing, oracles)
+- Why these four? (Front-running, cryptojacking, auditing, oracles) --> DONE
   - Important topics that are being discussed in industry but not in academia
   - 200 problems for blockchains, 50/200 you are a comparative advantage (short-list)… you selected 4 to work on
   - Why did you select them? What is the criteria? We saw it as important -> why are they important? 
@@ -90,7 +89,7 @@ Title: “hidden layers” “of” blockchains
 
 
 
-Personal motivation
+Personal motivation -- DONE
 - Thesis
 - Connect it better to the research questions
 
@@ -108,7 +107,7 @@ Chapter blurbs
 
  
 
-Conclusion
+Conclusion -- DONE
 - No summaries
 - Future work is vague
 - What is the connection between them? Theme?
