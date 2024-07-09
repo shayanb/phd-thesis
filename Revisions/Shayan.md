@@ -34,7 +34,7 @@ Revisions
 
   
 
-- EOA vs contract addresses -> reread and make sure it is ok
+- EOA vs contract addresses -> reread and make sure it is ok --> DONE
   - Different in terms of keys
 
 
