@@ -7,7 +7,7 @@
 
 \section{Introduction}
 
-In the previous chapter, we discussed the front-running attacks that can change the underlying information a user's transaction is based on and change the state of the execution prior to the transaction. In this chapter, we aim to answer \textbf{RQ4:} \textit{What role do oracles play in blockchain ecosystems, and how can their vulnerabilities be addressed to prevent manipulation?}. We start by exploring the approaches to the oracle problem, different oracle designs, and how the information flow can be manipulated by different actors depending on the ~\textit{oracle} technical design. These attacks vary from abuse of the trust to technical nuances of the design that can be manipulated by malicious network participants. We start by introducing the oracle problem and the different oracle designs. We then present a modular framework for oracle designs and discuss the different attacks that can be performed on each module. We conclude by presenting a taxonomy of oracle designs and discuss the different oracle designs in the context of the taxonomy. 
+In the previous chapter, we discussed the front-running attacks that can change the underlying information a user's transaction is based on and change the state of the execution prior to the transaction. In this chapter, we aim to answer \textbf{RQ3:} \textit{What are the key components of an oracle? How do these components come together, and what are the potential vulnerabilities?}. We start by exploring the approaches to the oracle problem, different oracle designs, and how the information flow can be manipulated by different actors depending on the ~\textit{oracle} technical design. These attacks vary from abuse of the trust to technical nuances of the design that can be manipulated by malicious network participants. We start by introducing the oracle problem and the different oracle designs. We then present a modular framework for oracle designs and discuss the different attacks that can be performed on each module. We conclude by presenting a taxonomy of oracle designs and discuss the different oracle designs in the context of the taxonomy. 
 
 
 \section{Background and Motivation}
@@ -489,7 +489,7 @@ In the \textit{request-response} model, the data consumer smart contract sends a
 % = = = = = = = = = = = = = = = = = = = = = = = = = = %
 
 \section{Concluding Remarks}
-In this chapter, in order to answer \textbf{RQ4}, in addition to discussing the oracle problem, we described a specialized modular framework to analyze oracles. After our systematization, we present the following discussion points and lessons learned from our work. 
+In this chapter, in order to answer \textbf{RQ3}, in addition to discussing the oracle problem, we described a specialized modular framework to analyze oracles. After our systematization, we present the following discussion points and lessons learned from our work. 
 
 \begin{enumerate}
     \item Many oracles projects introduce their own governance tokens that are used to secure the oracle system (\eg through staking). Two conditions seem necessary: the market capitalization of the token stays material and the token is evenly distributed. More consideration should be given to leveraging an existing token with these properties (even a non-oracle token) instead of creating new specialized tokens~\cite{vitalikuni}. Also, a collapse in the value of the governance token threatens the entire system.

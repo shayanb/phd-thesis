@@ -12,7 +12,7 @@
 
 
 \section{Introduction}
-In this chapter, we aim to address \textbf{RQ3:} \textit{How do front-running attacks exploit the decentralized nature of blockchain applications, what strategies can mitigate these attacks, and what are the (ethical) implications of these strategies?} We provide a comprehensive study of front-running attacks on blockchain applications, focusing on decentralized applications (DApps) deployed on Ethereum. We categorize the attacks based on the type of DApp and the type of the front-running attacks based on our taxonomy. We conclude by discussing the strategies to mitigate these attacks and the ethical implications of these strategies.
+In this chapter, we aim to address \textbf{RQ2:} \textit{There has been suggestions that front-running attacks exploit the decentralized nature of blockchains. How prevalent are these attacks?} We provide a comprehensive study of front-running attacks on blockchain applications, focusing on decentralized applications (DApps) deployed on Ethereum. We categorize the attacks based on the type of DApp and the type of the front-running attacks based on our taxonomy. We conclude by discussing the strategies to mitigate these attacks and the ethical implications of these strategies.
 
 Front-running has been an issue in financial instrument markets since the 1970s. With the advent of the blockchain technology, front-running has resurfaced in new forms we explore here, instigated by blockchain's decentralized and transparent nature. Due to this technical nuance of blockchains, any actor can act as the actor with privileged information and abuse this early access to information to profit from it. In the financial markets, the privileged information is mostly regarding trades and financial data, however, as blockchains have other use cases, front-running attack are expanded to many other applications, as discussed in this chapter. 
 
@@ -350,7 +350,7 @@ Some might argue that faster blockchains are immune to frontrunning attacks. Thi
 %TODO: maybe expand this better. are there citations to include here? 
 
 
-\section{Follow-up Work}
+\section{Follow-up Work}\label{sec:frontrunning:followup}
 
 Our paper is one of the first research papers that studies front-running attacks on the blockchains and specifically for Ethereum DApps. Since the publication of our paper in 2019, there has been a number of follow-up work that studies more complex front-running attacks and mitigation methods. In this section, we briefly discuss some of these works.
 
@@ -371,7 +371,7 @@ Another follow-up research that has received a lot of attention is the study of 
 
 Following the theme of this dissertation, blockchain permissionless and transparent aspects have brought new challenges to the security of the system. Front-running in the traditional financial markets are only feasible to the entities in the flow of information, however, in blockchain, the information is available to everyone. 
 
-To summarize the answer to \textbf{RQ3}, we created a taxonomy of front-running attacks on blockchains, and discussed the technical nuances that result in such vulnerabilities. We also discussed the different mitigation methods that can be applied to prevent or reduce the impact of front-running attacks, however, not all mitigation strategies are sufficient to prevent all types of front-running attacks and some may have ethical and legal implications.
+To summarize the answer to \textbf{RQ2}, we created a taxonomy of front-running attacks on blockchains, and discussed the technical nuances that result in such vulnerabilities. We also discussed the different mitigation methods that can be applied to prevent or reduce the impact of front-running attacks, however, not all mitigation strategies are sufficient to prevent all types of front-running attacks and some may have ethical and legal implications.
 
 Front-running is a pervasive issue in Ethereum DApps. DApp developers don't necessarily have the mindset to design DApps with front-running in mind. This is an attempt to bring forward the subject and increase awareness of these type of attacks. While some DApp-level application logic could be built to mitigate these attacks, its ubiquity across different DApp categories suggests mitigations at the blockchain-level would perhaps be more effective. We highlight this as an important research area.
 
