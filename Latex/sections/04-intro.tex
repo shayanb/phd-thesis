@@ -18,35 +18,69 @@ Later on, my role as a \texttt{Security Engineer and Smart Contract Auditor} at 
 
 As the \texttt{Chief Technology Officer (CTO)} at \textit{Ether Capital (ETHC.NE)}, a publicly traded entity with the majority of holdings in cryptoassets, I was exposed to the practicalities of integrating cryptoassets into the established financial ecosystem. This experience was transformative, offering me a first-hand experience to the dialogue, strategies, and implementation processes by real-world companies as they navigate the domain of cryptoassets. It was during this time that I engaged extensively with various financial institutions and auditors, particularly in the context of annual audits and quarterly financial statements. These interactions revealed a significant disconnect between traditional auditing methods and the nuanced requirements of cryptoassets custody and ownership. I observed the overcomplicated and redundant processes that failed to address the core needs of companies and stakeholders in the realm of cryptocurrencies.
 
-Through this thesis, I seek to shed some light on some of these knowledge gaps, and discuss the potential ethical issues and technical solutions to narrow these gaps. I identified numerous problems within blockchain technology, but chose to focus on four specific areas: cryptojacking, front-running, auditing, and oracles. These topics are of critical importance in the industry but have been underexplored in academia. By attending conferences, engaging with industry experts, and reviewing extensive literature, one can identify hundreds of nuanced issues within blockchain technology. I shortlisted many that matched my comparative advantage—areas where my background and experience could provide significant insights. Ultimately, I selected four topics based on their relevance, the timing of emerging issues, and their potential impact.
+\begin{table}[h]
+    \centering
+    \begin{adjustbox}{width=\textwidth}
+    \begin{tabular}{|p{3.25cm}|p{6.25cm}|p{6.25cm}|}
+        \hline
+        \rowcolor{lightgray}
+        \textbf{Chapter} & \textbf{Technical Nuance} & \textbf{Unforeseen Consequence} \\ \hline
+        
+        \ref{sec:cryptojacking} - Crypto-jacking &
+        Using \textbf{browser-based mining} as an alternative to online ads &
+        \textbf{Covert CPU hijacking} for \newline unauthorized mining \\ \hline
+        
+        \ref{sec:frontrunning} - Front-running &
+        \textbf{Transparency} and permissionless nature of decentralized systems &
+        \textbf{Transaction reordering} for \newline value extraction \\ \hline
+        
+        \ref{sec:oracles} - Oracles &
+        Integrating \textbf{off-chain data} into smart contracts via oracles &
+        \textbf{Market manipulation} due to \newline implementation issues \\ \hline
+        
+        \ref{sec:auditing} - Auditing &
+        Public \textbf{decentralized \newline cryptoassets} and ledgers &
+        Complete \textbf{validation} requiring \newline technical expertise \\ \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption[Technical Nuances and Their Unforeseen Consequences]{Technical Nuances and Their Unforeseen Consequences in Blockchain Systems for Each Chapter of This Thesis.}
+    \label{tab:technical_nuances}
+\end{table}
 
-A few examples: In chapter~\ref{sec:cryptojacking}, we discuss the ethical questions surrounding \textit{cryptojacking} as a replacement for online advertisements. Cryptojacking, while initially promising as an ad alternative, fell victim to bad actors due to a policy vacuum. This topic is crucial as it frequently appears in industry discussions yet lacks thorough academic examination. In chapter~\ref{sec:frontrunning}, we explore applications and some solutions aimed at ``democratizing'' profits from blockchain front-running attacks. These solutions fall into ethical and regulatory gray areas, necessitating a deeper understanding. Front-running remains a persistent issue in decentralized systems, making it a vital area for exploration. In chapter~\ref{sec:auditing}, we address the challenges of auditing cryptoassets and the disconnect between traditional auditing methods and the technical expertise required for verifying financial statements involving cryptoassets. This gap is significant as it directly affects financial transparency and regulatory compliance. 
+
+
+Through this thesis, I seek to shed some light on some of these knowledge gaps, and discuss the potential ethical issues and technical solutions to narrow these gaps. I identified numerous problems within blockchain technology, but chose to focus on four specific areas: cryptojacking, front-running, auditing, and oracles. These topics are of critical importance in the industry but have been underexplored in academia. By attending conferences, engaging with industry experts, and reviewing extensive literature, one can identify hundreds of nuanced issues within blockchain technology. I shortlisted many that matched my comparative advantage—areas where my background and experience could provide significant insights. Ultimately, I selected four topics based on their relevance, the timing of emerging issues, and their potential impact. 
+
+A few of the technical nuances of these topics, along with their unforeseen consequences, are presented in Table~\ref{tab:technical_nuances}. To expand further, in chapter~\ref{sec:cryptojacking}, we discuss the ethical questions surrounding \textit{cryptojacking} as a replacement for online advertisements. Cryptojacking, while initially promising as an ad alternative, fell victim to bad actors due to a policy vacuum. This topic is crucial as it frequently appears in industry discussions yet lacks thorough academic examination. In chapter~\ref{sec:frontrunning}, we explore applications and some solutions aimed at ``democratizing'' profits from blockchain front-running attacks. These solutions fall into ethical and regulatory gray areas, necessitating a deeper understanding. Front-running remains a persistent issue in decentralized systems, making it a vital area for exploration. In chapter~\ref{sec:auditing}, we address the challenges of auditing cryptoassets and the disconnect between traditional auditing methods and the technical expertise required for verifying financial statements involving cryptoassets. This gap is significant as it directly affects financial transparency and regulatory compliance. 
 
 
 
 % @Jeremy: TODO: This table needs a review
-\begin{table}[h!]
+\begin{table}[h]
     \centering
-\begin{tabular}{|p{3cm}|p{6cm}|p{5cm}|}
-    \hline
+    \begin{adjustbox}{width=\textwidth}
+    \begin{tabular}{|p{3.25cm}|p{6.25cm}|p{6.25cm}|}
+        \hline
+        \rowcolor{lightgray}
     \textbf{Chapter} & \textbf{Blockchain System} & \textbf{Non-Blockchain System} \\ \hline
-    \ref{sec:cryptojacking} Crypto-jacking &
+    \ref{sec:cryptojacking} - Crypto-jacking &
     Abusing users' resources to mine cryptocurrencies without them realizing &
     Nodes and mining are deliberately deployed \\ \hline
 
-    \ref{sec:frontrunning} Front-running &
+    \ref{sec:frontrunning} - Front-running &
     Transactions are visible to all before confirmation, enabling value extraction &
     Transactions are only visible to the server that processes them \\ \hline
 
-    \ref{sec:oracles} Oracles &
+    \ref{sec:oracles} - Oracles &
     Smart contracts rely on oracles for off-chain data &
     Applications have direct access to data/APIs \\ \hline
 
-    \ref{sec:auditing} Auditing &
+    \ref{sec:auditing} - Auditing &
     Requires new procedures to verify cryptoassets, although similar to traditional systems &
     Financial audit procedures are well-developed \\ \hline
 \end{tabular}
-\caption[The technical nuances of Blockchain Systems v.s. Traditional Systems.]{The technical nuances of Blockchain Systems v.s. Traditional Systems for each chapter of this thesis.}
+\end{adjustbox}
+\caption[The Technical Nuances of Blockchain Systems v.s. Traditional Systems.]{The Technical Nuances of Blockchain Systems v.s. Traditional Systems for Each Chapter of This Thesis.}
 \label{tab:chapters:comparison}
 \end{table}
 

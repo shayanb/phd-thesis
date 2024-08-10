@@ -131,7 +131,7 @@ FROM censys-io.domain_public.20171123
 WHERE STRPOS(p80.http.get.body, coinhive.min.js) > 0 or STRPOS(p80.http_www.get.body, coinhive.min.js) >0)
 \end{lstlisting}
 \end{tabular}
-\caption[BigQuery SQL query to find coinhive enabled websites]{A BigQuery SQL query to find websites that embed the Coinhive script using a dataset of the top one million sites from censys.io. \label{lst:bigquery}}
+\caption[BigQuery SQL Query to Find Coinhive Enabled Websites]{A BigQuery SQL query to find websites that embed the Coinhive script using a dataset of the top one million sites from censys.io. \label{lst:bigquery}}
 \end{figure*}
 
 
