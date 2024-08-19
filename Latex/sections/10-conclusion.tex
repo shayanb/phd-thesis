@@ -43,7 +43,7 @@ Future research in this area should prioritize the development of more robust me
 
 
 
-\textbf{RQ2: There has been suggestions that front-running attacks exploit the decentralized nature of blockchains. How prevalent are these attacks?}
+\textbf{RQ2: There has been suggestions that front-running attacks exploit the decentralized nature of blockchains. How prevalent are these attacks? What are the strategies to mitigate them?}
 
 This question is thoroughly investigated in Chapter~\ref{sec:frontrunning}. Front-running attacks take advantage of the transparency and decentralized structure of blockchain applications. In our research we found out that almost all applications on blockchain can be vulnerable to front-running attacks and these types of attacks should be considered when designing any smart contract system. In decentralized blockchains, all transactions are visible to everyone before they are confirmed. This visibility allows (malicious) actors to observe pending transactions and insert their own transactions in a way that enables them to profit, often at the expense of others. 
 
@@ -54,7 +54,7 @@ However, these mitigation strategies are not without challenges. Privacy-enhanci
 Our research was followed up by many great research in this area, as discussed in~\ref{sec:frontrunning:followup}. Many have focused on developing new strategies to mitigate front-running attacks, such as using zero-knowledge proofs to conceal transaction details or design practices preventing transaction order dependencies in the applications. It is worth noting that many of these researches are focused on democratizing MEV profits, redistributing them among all participants in the blockchain network. A thorough ethical analysis is required to balance the technical benefits of these strategies with their potential social and economic impacts. By addressing these concerns, the blockchain community can work towards creating a more secure and equitable ecosystem.
 
 
-\textbf{RQ3: What are the key components of an oracle? How do these components come together, and what are the potential vulnerabilities?}
+\textbf{RQ3: Do all oracles work the same? What are the key components of an oracle? How do these components come together, and what are the potential vulnerabilities?}
 
 In Chapter~\ref{sec:oracles}, we dissect the key components of oracles, --modular workflow--, and examine how these components interact to provide reliable data to the blockchain. Oracles function as intermediaries that provide smart contracts with access to external data, allowing blockchain applications to interact with real-world events and information. This capability is crucial for a wide range of decentralized applications (DApps), from financial services to supply chain management, where real-time, accurate data is essential for decision-making and contract execution. 
 

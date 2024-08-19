@@ -18,34 +18,34 @@ Later on, my role as a \texttt{Security Engineer and Smart Contract Auditor} at 
 
 As the \texttt{Chief Technology Officer (CTO)} at \textit{Ether Capital (ETHC.NE)}, a publicly traded entity with the majority of holdings in cryptoassets, I was exposed to the practicalities of integrating cryptoassets into the established financial ecosystem. This experience was transformative, offering me a first-hand experience to the dialogue, strategies, and implementation processes by real-world companies as they navigate the domain of cryptoassets. It was during this time that I engaged extensively with various financial institutions and auditors, particularly in the context of annual audits and quarterly financial statements. These interactions revealed a significant disconnect between traditional auditing methods and the nuanced requirements of cryptoassets custody and ownership. I observed the overcomplicated and redundant processes that failed to address the core needs of companies and stakeholders in the realm of cryptocurrencies.
 
-\begin{table}[t]
-    \centering
-    \begin{adjustbox}{width=\textwidth}
-    \begin{tabular}{|p{3.25cm}|p{6.25cm}|p{6.25cm}|}
-        \hline
-        \rowcolor{lightgray}
-        \textbf{Chapter} & \textbf{Technical Nuance} & \textbf{Unforeseen Consequence} \\ \hline
+% \begin{table}[t]
+%     \centering
+%     \begin{adjustbox}{width=\textwidth}
+%     \begin{tabular}{|p{3.25cm}|p{6.25cm}|p{6.25cm}|}
+%         \hline
+%         \rowcolor{lightgray}
+%         \textbf{Chapter} & \textbf{Technical Nuance} & \textbf{Unforeseen Consequence} \\ \hline
         
-        \ref{sec:cryptojacking} - Crypto-jacking &
-        Using \textbf{browser-based mining} as an alternative to online ads &
-        \textbf{Covert CPU hijacking} for \newline unauthorized mining \\ \hline
+%         \ref{sec:cryptojacking} - Crypto-jacking &
+%         Using \textbf{browser-based mining} as an alternative to online ads &
+%         \textbf{Covert CPU hijacking} for \newline unauthorized mining \\ \hline
         
-        \ref{sec:frontrunning} - Front-running &
-        \textbf{Transparency} and permissionless nature of decentralized systems &
-        \textbf{Transaction reordering} for \newline value extraction \\ \hline
+%         \ref{sec:frontrunning} - Front-running &
+%         \textbf{Transparency} and permissionless nature of decentralized systems &
+%         \textbf{Transaction reordering} for \newline value extraction \\ \hline
         
-        \ref{sec:oracles} - Oracles &
-        Integrating \textbf{off-chain data} into smart contracts via oracles &
-        \textbf{Market manipulation} due to \newline implementation issues \\ \hline
+%         \ref{sec:oracles} - Oracles &
+%         Integrating \textbf{off-chain data} into smart contracts via oracles &
+%         \textbf{Market manipulation} due to \newline implementation issues \\ \hline
         
-        \ref{sec:auditing} - Auditing &
-        Public \textbf{decentralized \newline cryptoassets} and ledgers &
-        Complete \textbf{validation} requiring \newline technical expertise \\ \hline
-    \end{tabular}
-    \end{adjustbox}
-    \caption[Technical Nuances and Their Unforeseen Consequences]{Technical Nuances and Their Unforeseen Consequences in Blockchain Systems for Each Chapter of This Thesis.}
-    \label{tab:technical_nuances}
-\end{table}
+%         \ref{sec:auditing} - Auditing &
+%         Public \textbf{decentralized \newline cryptoassets} and ledgers &
+%         Complete \textbf{validation} requiring \newline technical expertise \\ \hline
+%     \end{tabular}
+%     \end{adjustbox}
+%     \caption[Technical Nuances and Their Unforeseen Consequences]{Technical Nuances and Their Unforeseen Consequences in Blockchain Systems for Each Chapter of This Thesis.}
+%     \label{tab:technical_nuances}
+% \end{table}
 
 
 
@@ -54,35 +54,69 @@ Through this thesis, I seek to shed some light on some of these knowledge gaps, 
 A few of the technical nuances of these topics, along with their unforeseen consequences, are presented in Table~\ref{tab:technical_nuances}. To expand further, in chapter~\ref{sec:cryptojacking}, we discuss the ethical questions surrounding \textit{cryptojacking} as a replacement for online advertisements. Cryptojacking, while initially promising as an ad alternative, fell victim to bad actors due to a policy vacuum. This topic is crucial as it frequently appears in industry discussions yet lacks thorough academic examination. In chapter~\ref{sec:frontrunning}, we explore applications and some solutions aimed at ``democratizing'' profits from blockchain front-running attacks. These solutions fall into ethical and regulatory gray areas, necessitating a deeper understanding. Front-running remains a persistent issue in decentralized systems, making it a vital area for exploration. In chapter~\ref{sec:auditing}, we address the challenges of auditing cryptoassets and the disconnect between traditional auditing methods and the technical expertise required for verifying financial statements involving cryptoassets. This gap is significant as it directly affects financial transparency and regulatory compliance. 
 
 
-
-% @Jeremy: TODO: This table needs a review
 \begin{table}[t]
     \centering
     \begin{adjustbox}{width=\textwidth}
-    \begin{tabular}{|p{3.25cm}|p{6.25cm}|p{6.25cm}|}
+    \begin{tabular}{|p{3cm}|p{4.75cm}|p{4.75cm}|p{5cm}|}
         \hline
         \rowcolor{lightgray}
-    \textbf{Chapter} & \textbf{Blockchain System} & \textbf{Non-Blockchain System} \\ \hline
-    \ref{sec:cryptojacking} - Crypto-jacking &
-    Abusing users' resources to mine cryptocurrencies without them realizing &
-    Nodes and mining are deliberately deployed \\ \hline
-
-    \ref{sec:frontrunning} - Front-running &
-    Transactions are visible to all before confirmation, enabling value extraction &
-    Transactions are only visible to the server that processes them \\ \hline
-
-    \ref{sec:oracles} - Oracles &
-    Smart contracts rely on oracles for off-chain data &
-    Applications have direct access to data/APIs \\ \hline
-
-    \ref{sec:auditing} - Auditing &
-    Requires new procedures to verify cryptoassets, although similar to traditional systems &
-    Financial audit procedures are well-developed \\ \hline
-\end{tabular}
-\end{adjustbox}
-\caption[The Technical Nuances of Blockchain Systems v.s. Traditional Systems.]{The Technical Nuances of Blockchain Systems v.s. Traditional Systems for Each Chapter of This Thesis.}
-\label{tab:chapters:comparison}
+        \textbf{Chapter} & \textbf{Technical Nuance} & \textbf{Unforeseen Consequence} & \textbf{Comparison with Centralized System} \\ \hline
+        
+        \ref{sec:cryptojacking} Crypto-jacking &
+        Using browser-based \newline mining  to replace online ads &
+        A website on the browser should not expose user to (profitable) resource draining &
+        Nodes and mining are deliberately deployed in centralized systems, making unauthorized use easier to detect and prevent. \\ \hline
+        
+        \ref{sec:frontrunning} Front-running &
+        Transparency and \newline permissionless nature of decentralized systems &
+        Transactions are visible to all before confirmation, enabling value extraction &
+        In centralized systems, transactions are only visible to the server processing them, reducing the opportunity for reordering and exploitation. \\ \hline
+        
+        \ref{sec:oracles} Oracles &
+        Smart contracts cannot just fetch a website &
+        Market manipulation due to oracle vulnerabilities &
+        Centralized applications have direct access to reliable data/APIs, reducing the need for external oracles and associated risks. \\ \hline
+        
+        \ref{sec:auditing} Auditing &
+        Verifying decentralized cryptoassets and ledgers &
+        New and not studied but actually not that different &
+        Financial audit procedures are well-established in centralized systems, simplifying verification and reducing complexity. \\ \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption[Technical Nuances, Unforeseen Consequences, and Centralized System Comparisons]{Technical Nuances, Unforeseen Consequences, and Centralized System Comparisons for Each Chapter of This Thesis.}
+    \label{tab:merged_table}
 \end{table}
+
+
+
+% % @Jeremy: TODO: This table needs a review
+% \begin{table}[t]
+%     \centering
+%     \begin{adjustbox}{width=\textwidth}
+%     \begin{tabular}{|p{3.25cm}|p{6.25cm}|p{6.25cm}|}
+%         \hline
+%         \rowcolor{lightgray}
+%     \textbf{Chapter} & \textbf{Blockchain System} & \textbf{Non-Blockchain System} \\ \hline
+%     \ref{sec:cryptojacking} - Crypto-jacking &
+%     Abusing users' resources to mine cryptocurrencies without them realizing &
+%     Nodes and mining are deliberately deployed \\ \hline
+
+%     \ref{sec:frontrunning} - Front-running &
+%     Transactions are visible to all before confirmation, enabling value extraction &
+%     Transactions are only visible to the server that processes them \\ \hline
+
+%     \ref{sec:oracles} - Oracles &
+%     Smart contracts rely on oracles for off-chain data &
+%     Applications have direct access to data/APIs \\ \hline
+
+%     \ref{sec:auditing} - Auditing &
+%     Requires new procedures to verify cryptoassets, although similar to traditional systems &
+%     Financial audit procedures are well-developed \\ \hline
+% \end{tabular}
+% \end{adjustbox}
+% \caption[The Technical Nuances of Blockchain Systems v.s. Traditional Systems.]{The Technical Nuances of Blockchain Systems v.s. Traditional Systems for Each Chapter of This Thesis.}
+% \label{tab:chapters:comparison}
+% \end{table}
 
 
 These subjects were not arbitrarily chosen; they consistently surfaced in my research and professional engagements, indicating their importance and timeliness. Many other potential topics were considered but set aside due to factors such as lack of impact, premature attention from the community, or misalignment with my expertise. The selected topics share common traits—they are timely, underexplored in academia, and have significant unforeseen consequences. This focus allows for a detailed examination of the ethical and technical nuances of blockchain technology and relevant challenges.
@@ -98,10 +132,10 @@ This theme examines the fundamental characteristics of blockchain technology and
 \paragraph{RQ1:} \textit{How feasible and profitable would use of browser-based cryptojacking as an alternative to traditional online advertisements be? Is it easily detectable by the user?}
 This question delves into the novel use of cryptojacking for revenue generation, examining its potential as a legitimate business model. Browser-based cryptojacking can provide a direct revenue stream without intermediaries, potentially reducing privacy invasions associated with ad tracking. However, it often operates without user consent, leading to unauthorized exploitation of computational resources and increased energy consumption. While conducting this research we raised some ethical concerns, such as user consent and the unintended consequences on user experience and hardware. The ethicality hinges on transparency and user consent, highlighting the need for regulatory frameworks. This topic is discussed in Chapter~\ref{sec:cryptojacking}. 
 
-\paragraph{RQ2:} \textit{There has been suggestions that front-running attacks exploit the decentralized nature of blockchains. How prevalent are these attacks?}
+\paragraph{RQ2:} \textit{There has been suggestions that front-running attacks exploit the decentralized nature of blockchains. How prevalent are these attacks? What are the strategies to mitigate them?}
 Addressing this question is crucial for understanding and preventing (financial) exploitation within blockchain ecosystems. It sheds light on how the transparency meant for trust and verification can be manipulated for unfair advantage. By conducting case studies during this research we found that the front-running attacks are prevalent in major way on the public blockchains, and there can be strategies to mitigate these attacks but not fully solve them. Front-running exploits the visible order of transactions, allowing malicious actors to anticipate and react to transactions for profit. Mitigation strategies include implementing privacy-enhancing technologies like confidential transactions, adjusting transaction ordering protocols to randomize or prioritize fairness, and enhancing the sophistication of detection mechanisms to flag and prevent such behaviors. Lastly, democratizing the profit from front-running attacks raises ethical concerns, as it may inadvertently incentivize malicious behavior. This topic is discussed in Chapter~\ref{sec:frontrunning}.
 
-\paragraph{RQ3:} \textit{What are the key components of an oracle? How do these components come together, and what are the potential vulnerabilities?}
+\paragraph{RQ3:} \textit{Do all oracles work the same? What are the key components of an oracle? How do these components come together, and what are the potential vulnerabilities?}
 Oracles bridge blockchain with external data, essential for real-world smart contracts. This question explores the design decisions and implementation choices oracle developers will have. Additionally, we explore oracle's critical role in the trust assumptions and the security risks they introduce, emphasizing the need for reliable data feeds to ensure the integrity of decentralized applications. The critical aspect of oracles, make them targets for manipulation, which can lead to significant financial and operational risks. Ensuring oracle reliability involves decentralizing data sources, implementing robust verification mechanisms, and using cryptographic proofs to secure data feeds. In Chapter~\ref{sec:oracles}, we introduce a modular framework to evaluate oracle designs and their potential flaws based on their technical design and trust assumptions, and discuss possible mitigation strategies.
 
 \paragraph{RQ4:} \textit{What are the foundational issues and challenges auditing firms face in verifying cryptoassets? Can we cluster these challenges into categories and propose solutions to address them?}
