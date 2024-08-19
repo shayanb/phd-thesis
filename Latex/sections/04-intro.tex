@@ -57,7 +57,7 @@ A few of the technical nuances of these topics, along with their unforeseen cons
 \begin{table}[t]
     \centering
     \begin{adjustbox}{width=\textwidth}
-    \begin{tabular}{|p{3cm}|p{4.75cm}|p{4.75cm}|p{5cm}|}
+    \begin{tabular}{|p{3cm}|p{4.25cm}|p{5.25cm}|p{5cm}|}
         \hline
         \rowcolor{lightgray}
         \textbf{Chapter} & \textbf{Technical Nuance} & \textbf{Unforeseen Consequence} & \textbf{Comparison with Centralized System} \\ \hline
@@ -65,22 +65,22 @@ A few of the technical nuances of these topics, along with their unforeseen cons
         \ref{sec:cryptojacking} Crypto-jacking &
         Using browser-based \newline mining  to replace online ads &
         A website on the browser should not expose user to (profitable) resource draining &
-        Nodes and mining are deliberately deployed in centralized systems, making unauthorized use easier to detect and prevent. \\ \hline
+        Nodes and mining are deliberately deployed, making unauthorized use easier to detect and prevent. \\ \hline
         
         \ref{sec:frontrunning} Front-running &
         Transparency and \newline permissionless nature of decentralized systems &
         Transactions are visible to all before confirmation, enabling value extraction &
-        In centralized systems, transactions are only visible to the server processing them, reducing the opportunity for reordering and exploitation. \\ \hline
+        Transactions are only visible to the server processing them, reducing the opportunity for reordering and exploitation. \\ \hline
         
         \ref{sec:oracles} Oracles &
         Smart contracts cannot just fetch a website &
         Market manipulation due to oracle vulnerabilities &
-        Centralized applications have direct access to reliable data/APIs, reducing the need for external oracles and associated risks. \\ \hline
+        Applications have direct access to reliable data/APIs, reducing the need for external oracles and associated risks. \\ \hline
         
         \ref{sec:auditing} Auditing &
         Verifying decentralized cryptoassets and ledgers &
-        New and not studied but actually not that different &
-        Financial audit procedures are well-established in centralized systems, simplifying verification and reducing complexity. \\ \hline
+        New and not studied but \newline actually not that different &
+        Financial audit procedures are well-established, simplifying verification and reducing complexity. \\ \hline
     \end{tabular}
     \end{adjustbox}
     \caption[Technical Nuances, Unforeseen Consequences, and Centralized System Comparisons]{Technical Nuances, Unforeseen Consequences, and Centralized System Comparisons for Each Chapter of This Thesis.}
