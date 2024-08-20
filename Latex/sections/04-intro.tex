@@ -63,23 +63,23 @@ A few of the technical nuances of these topics, along with their unforeseen cons
         \textbf{Chapter} & \textbf{Technical Nuance} & \textbf{Unforeseen Consequence} & \textbf{Comparison with Centralized System} \\ \hline
         
         \ref{sec:cryptojacking} Crypto-jacking &
-        Using browser-based \newline mining  to replace online ads &
-        A website on the browser should not expose user to (profitable) resource draining &
+        Some cryptocurrencies can be effectively mined with only browser-based client-side scripting &
+        Websites can serve up mining scripts to extract value at their users' expense  &
         Nodes and mining are deliberately deployed, making unauthorized use easier to detect and prevent. \\ \hline
         
         \ref{sec:frontrunning} Front-running &
-        Transparency and \newline permissionless nature of decentralized systems &
-        Transactions are visible to all before confirmation, enabling value extraction &
+        Transactions are visible to validators and other users before confirmation &
+        Users and validators manipulate transaction ordering to extract value at users' expense  &
         Transactions are only visible to the server processing them, reducing the opportunity for reordering and exploitation. \\ \hline
         
         \ref{sec:oracles} Oracles &
-        Smart contracts cannot just fetch a website &
-        Market manipulation due to oracle vulnerabilities &
+        Smart contracts cannot do simple things like fetch information from a URL, necessitating oracles &
+        Adversaries can profit by manipulating oracles &
         Applications have direct access to reliable data/APIs, reducing the need for external oracles and associated risks. \\ \hline
         
         \ref{sec:auditing} Auditing &
-        Verifying decentralized cryptoassets and ledgers &
-        New and not studied but \newline actually not that different &
+        The existence, ownership, and valuation of crypto-assets have many pitfalls. &
+        Technical issues with crypto-assets can impact the financials of the firms that hold them. &
         Financial audit procedures are well-established, simplifying verification and reducing complexity. \\ \hline
     \end{tabular}
     \end{adjustbox}
